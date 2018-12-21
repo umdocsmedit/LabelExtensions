@@ -1,0 +1,19 @@
+{
+	"name": "umdocsmedit",
+	"version": "1.0.0",
+	"description": "UM DOCS MedIT Repo",
+	"main": "index.js",
+	"scripts": {
+		"test": "cd ./Extensions/Chrome && npm test"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/kevincar/UMDocsMedIT.git"
+	},
+	"author": "Kevin Davis",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/kevincar/UMDocsMedIT/issues"
+	},
+	"homepage": "https://github.com/kevincar/UMDocsMedIT#readme"
+}
