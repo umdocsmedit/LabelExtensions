@@ -1,6 +1,6 @@
 (function() {
     document.body.appendChild(document.createElement('script')).src = 'https://umdocs.mededu.miami.edu/wp-content/uploads/2016/09/DYMO.Label_.Framework.2.0.2.js';
-    functionframeworkInitShim() {
+    function frameworkInitShim() {
         try {
             dymo.label.framework.trace = 1;
         } catch (err) {
