@@ -3,7 +3,13 @@
     "version": "1.0",
     "description": "Print patient labels",
     "manifest_version": 2,
+	"permissions": ["activeTab", "declarativeContent"],
+	"background": {
+		"scripts": ["js/background.js"],
+		"persistent": false
+	},
 	"page_action": {
+		"default_popup": "html/popup.html",
 		"default_icon": {
 			"16": "images/icon16.png",
 			"32": "images/icon32.png",
