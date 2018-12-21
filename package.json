@@ -4,7 +4,7 @@
 	"description": "UM DOCS MedIT Repo",
 	"main": "index.js",
 	"scripts": {
-		"test": "cd ./Extensions/Chrome && npm test"
+		"test": "cd ./Extensions/Chrome && npm install && npm test"
 	},
 	"repository": {
 		"type": "git",
