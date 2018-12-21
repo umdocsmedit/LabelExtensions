@@ -1,0 +1,25 @@
+{
+  "name": "umdocsmedit-chrome-webext",
+  "version": "1.0.0",
+  "description": "Google Chrome Web Extension for UM DOCS MedIT",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "mocha -r ts-node/register tests/**/index.spec.ts"
+  },
+  "author": "Kevin Davis",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/assert": "^1.4.1",
+    "@types/expect": "^1.20.3",
+    "@types/mocha": "^5.2.5",
+    "assert": "^1.4.1",
+    "mocha": "^5.2.0",
+    "ts-node": "^7.0.1"
+  },
+  "dependencies": {
+    "typescript": "^3.2.2"
+  }
+}
