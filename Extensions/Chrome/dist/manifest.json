@@ -3,7 +3,12 @@
     "version": "1.0",
     "description": "Print patient labels",
     "manifest_version": 2,
-	"permissions": ["activeTab", "declarativeContent"],
+	"permissions": [
+		"tabs",
+		"activeTab",
+		"declarativeContent",
+		"*://*/*"
+	],
 	"background": {
 		"scripts": ["js/background.js"],
 		"persistent": false

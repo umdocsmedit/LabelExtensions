@@ -2,16 +2,29 @@
 <html>
 	<head>
 		<title>UM Docs MedIT</title>
-		<style type='text/css'>
-			<!--button {-->
-				<!--height: 30px;-->
-				<!--width: 30px;-->
-				<!--outline: none;-->
-			<!--}-->
+		<link rel="stylesheet" href="../css/bootstrap.css" />
+		<style type="text/css">
+body {
+	width: 300px;
+}
 		</style>
 	</head>
 	<body>
-		<button id="print">Print</button>
+		<div class="container">
+			<div class="row"><div class="col">
+				<div class="input-group">
+					<div class="input-group-prepend">
+						<span class="input-group-text" id="basic-addon1"># of Labels</span>
+					</div>
+					<input name="labsordered" type="text" class="form-control" placeholder="" value="2" aria-label="" aria-describedby="basic-addon1">
+				</div>
+			</div></div>
+			<div class="row">
+				<div class="col text-right">
+					<button class="btn btn-success" type="button" id="print">Button</button>
+				</div>
+			</div>
+		</div>
 		<script type='text/javascript' src='../js/DYMO.Label_.Framework.2.0.2.js'></script>
 		<script type='text/javascript' src='../js/popup.js'></script>
 		<script type='text/javascript' src='../js/PrintLabel.js'></script>

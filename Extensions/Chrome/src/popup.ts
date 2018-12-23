@@ -18,12 +18,15 @@ async function init(): Promise<void> {
 	}
 
 	printButton.onclick = async (): Promise<void> => {
+		let labsordered: number = getLabsOrdered();
+		let injectableCode: string = await getInjectableCode();
+		injectableCode = injectableCode.replace("//--INJECT--//", `PrintLabel.print(${labsordered})`);
 		let currentTabID: number = await getCurrentTabID();
-		let scriptFile: chrome.tabs.InjectDetails = {
-			file: './js/inject.js',
+		let scriptOptions: chrome.tabs.InjectDetails = {
+			code: injectableCode
 		};
 
-		chrome.tabs.executeScript(currentTabID, scriptFile);
+		await chrome.tabs.executeScript(currentTabID, scriptOptions);
 	};
 
 	return;
@@ -46,6 +49,29 @@ async function getCurrentTabID(): Promise<number> {
 	});
 
 	return await result;
+}
+
+async function getInjectableCode(): Promise<string> {
+	let result: Promise<string> = new Promise((resolve): void => {
+		fetch('../js/inject.js').then((response) => {
+			resolve(response.text());
+		});
+	});
+
+	return await result;
+}
+
+function getLabsOrdered(): number {
+	let result: number = 0;
+
+	let labsOrderedInput: HTMLInputElement | null = document.body.querySelector("[name='labsordered']");
+	if(labsOrderedInput == null) {
+		console.error("Failed to get the number of labs ordered");
+		return result;
+	}
+
+	result = parseInt(labsOrderedInput.value);
+	return result;
 }
 
 init();

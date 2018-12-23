@@ -1,3 +1,7 @@
 import * as PrintLabel from "./PrintLabel"
-let p: PatientRecord = PrintLabel.getPatientRecord();
-console.log(p);
+
+if(PrintLabel == null) {
+	throw "PrintLable resource failed to load";
+}
+
+//--INJECT--//

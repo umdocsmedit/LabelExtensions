@@ -14,6 +14,8 @@
 
 // ===========================================================================
 
+import * as templates from "./templates"
+
 //export function frameworkInitShim(): void {
 	//// ??
 //}
@@ -22,9 +24,12 @@
 
 //}
 
-export function print(): void {
+export function print(labsordered: number): void {
 
-	//let patientRecord: PatientRecord = getPatientRecord();
+	let patientRecord: PatientRecord = getPatientRecord();
+	let labelXml: string = templates.labelTemplate(patientRecord.lastname, patientRecord.firstname, patientRecord.middleinitial, patientRecord.MRN, patientRecord.DOB, <string>patientRecord.healthFair, patientRecord.sex, labsordered);
+	labelXml;
+	console.log("Printing :)");
 
 	return;
 }
