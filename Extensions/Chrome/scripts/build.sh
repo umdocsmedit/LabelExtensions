@@ -9,5 +9,5 @@ cd ../
 tsc
 
 # Browserify
-browserify ./dist/js/PrintLabel.js ./dist/js/inject.js -o ./dist/js/inject.js
-browserify ./dist/js/PrintLabel.js -o ./dist/js/PrintLabel.js
+browserify ./dist/js/PrintLabel.js ./dist/js/popup.js -o ./dist/js/popup.js
+#browserify ./dist/js/PrintLabel.js -o ./dist/js/PrintLabel.js
