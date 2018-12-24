@@ -8,6 +8,8 @@
  */
 //===============================================================================
 
+import * as PrintLabel from './PrintLabel'
+
 async function init(): Promise<void> {
 
 	let printButton: HTMLElement | null = document.getElementById('print');
@@ -17,17 +19,24 @@ async function init(): Promise<void> {
 		return;
 	}
 
+	let labsordered: number = getLabsOrdered();
 	printButton.onclick = async (): Promise<void> => {
-		let labsordered: number = getLabsOrdered();
-		let injectableCode: string = await getInjectableCode();
-		injectableCode = injectableCode.replace("//--INJECT--//", `PrintLabel.frameworkInitShim(${labsordered})`);
+
+		labsordered = getLabsOrdered();
+		labsordered;
+
 		let currentTabID: number = await getCurrentTabID();
 		let scriptOptions: chrome.tabs.InjectDetails = {
-			code: injectableCode
+			file: "./js/contentScript.js"
 		};
 
 		await chrome.tabs.executeScript(currentTabID, scriptOptions);
 	};
+
+	chrome.runtime.onMessage.addListener((request): void => {
+		let patientRecord: PatientRecord = request.data;
+		PrintLabel.frameworkInitShim(patientRecord, labsordered);
+	});
 
 	return;
 }
@@ -45,16 +54,6 @@ async function getCurrentTabID(): Promise<number> {
 				resolve(-1);
 			}
 			resolve(currentTab.id);
-		});
-	});
-
-	return await result;
-}
-
-async function getInjectableCode(): Promise<string> {
-	let result: Promise<string> = new Promise((resolve): void => {
-		fetch('../js/inject.js').then((response) => {
-			resolve(response.text());
 		});
 	});
 
