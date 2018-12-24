@@ -11,25 +11,52 @@
 
 /// <reference path="./types/healthFair.d.ts" />
 /// <reference path="./types/patientRecord.d.ts" />
+/// <reference path="./types/dymo.d.ts" />
 
 // ===========================================================================
 
 import * as templates from "./templates"
 
-//export function frameworkInitShim(): void {
-	//// ??
-//}
+let _global_labsordered: number = 0;
 
-//export function startupCode(): void {
+export function frameworkInitShim(labsordered: number): void {
+	_global_labsordered = labsordered;
+	dymo.label.framework.init(startupCode);
+}
 
-//}
+export function startupCode(): void {
+	print(_global_labsordered);
+}
 
 export function print(labsordered: number): void {
 
+	let printers: dymo.Printer[] = dymo.label.framework.getPrinters();
+	if(printers.length == 0) {
+		throw alert("No printers found");
+	}
+
+	let chosenPrinter: dymo.Printer | null = null;
+	for(let n: number = 0; n < printers.length; n++) {
+		let printer: dymo.Printer = printers[n];
+		if(printer.isConnected) {
+			chosenPrinter = printer;
+			break;
+		}
+	}
+
+	if(chosenPrinter == null) {
+		throw alert("No Printers connected");
+	}
+
 	let patientRecord: PatientRecord = getPatientRecord();
-	let labelXml: string = templates.labelTemplate(patientRecord.lastname, patientRecord.firstname, patientRecord.middleinitial, patientRecord.MRN, patientRecord.DOB, <string>patientRecord.healthFair, patientRecord.sex, labsordered);
-	labelXml;
-	console.log("Printing :)");
+	let labelXml: string = templates.labelTemplate(patientRecord, labsordered);
+	let nameXml: string = templates.nameTemplate(patientRecord);
+
+	let label: dymo.Label = dymo.label.framework.openLabelXml(labelXml);
+	let label2: dymo.Label = dymo.label.framework.openLabelXml(nameXml);
+
+	label.print(chosenPrinter.name);
+	label2.print(chosenPrinter.name);
 
 	return;
 }
@@ -45,7 +72,7 @@ export function getPatientRecord(): PatientRecord {
 			MRN: 0,
 			sex: null,
 			street: null,
-			appartment: null,
+			apartment: null,
 			city: null,
 			state: null,
 			zip: null,
@@ -63,7 +90,7 @@ export function getPatientRecord(): PatientRecord {
 			MRN: getMRN(),
 			sex: getSex(),
 			street: getGenericValue("street"),
-			appartment: getGenericValue("appartment"),
+			apartment: getGenericValue("appartment"),
 			city: getGenericValue("city"),
 			state: getState(),
 			zip: getGenericValue("zip_code"),

@@ -20,7 +20,7 @@ async function init(): Promise<void> {
 	printButton.onclick = async (): Promise<void> => {
 		let labsordered: number = getLabsOrdered();
 		let injectableCode: string = await getInjectableCode();
-		injectableCode = injectableCode.replace("//--INJECT--//", `PrintLabel.print(${labsordered})`);
+		injectableCode = injectableCode.replace("//--INJECT--//", `PrintLabel.frameworkInitShim(${labsordered})`);
 		let currentTabID: number = await getCurrentTabID();
 		let scriptOptions: chrome.tabs.InjectDetails = {
 			code: injectableCode

@@ -17,7 +17,7 @@ interface PatientRecord {
 	MRN: number;
 	sex: string | null; 
 	street: string | null;
-	appartment: string | null;
+	apartment: string | null;
 	city: string | null;
 	state: string | null;
 	zip: string | null;

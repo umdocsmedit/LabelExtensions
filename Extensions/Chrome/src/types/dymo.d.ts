@@ -8,10 +8,21 @@
  */
 // ==================================================================
 
-export namespace dymo {
+declare namespace dymo {
 	namespace label {
 		namespace framework {
-
+			function getPrinters(): dymo.Printer[];
+			function openLabelXml(xml: string): dymo.Label;
+			function init(callback: () => void): void;
 		}
+	}
+
+	class Label {
+		print(printerName: string): void;
+	}
+
+	class Printer {
+		isConnected: boolean;
+		name: string;
 	}
 }
