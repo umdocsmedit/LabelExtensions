@@ -1,12 +1,14 @@
-  {
-    "name": "UMDocsMedIT Redcap Printing",
-    "version": "1.01",
-    "description": "Print patient labels",
-    "manifest_version": 2,
+{
+	"name": "UMDocsMedIT Redcap Printing",
+	"version": "1.01",
+	"description": "Print patient labels",
+	"manifest_version": 2,
 	"permissions": [
 		"tabs",
 		"activeTab",
-		"declarativeContent"
+		"declarativeContent",
+		"https://localhost/",
+		"https://localhost*"
 	],
 	"background": {
 		"scripts": ["js/background.js"],
@@ -27,4 +29,4 @@
 		"48": "images/icon48.png",
 		"128": "images/icon128.png"
 	}
-  }
+}
