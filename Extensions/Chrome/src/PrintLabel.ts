@@ -17,14 +17,14 @@
 
 import * as templates from "./templates"
 
-export function frameworkInitShim(patientRecord: PatientRecord, labsordered: number): void {
+export function frameworkInitShim(patientRecord: PatientRecord, numlabels: number): void {
 	let startupCode: () => void = (): void => {
-		print(patientRecord, labsordered);
+		print(patientRecord, numlabels);
 	};
 	dymo.label.framework.init(startupCode);
 }
 
-export function print(patientRecord: PatientRecord, labsordered: number): void {
+export function print(patientRecord: PatientRecord, numlabels: number): void {
 
 	let printers: dymo.Printer[] = dymo.label.framework.getPrinters();
 	if(printers.length == 0) {
@@ -44,14 +44,19 @@ export function print(patientRecord: PatientRecord, labsordered: number): void {
 		throw alert("No Printers connected");
 	}
 
-	let labelXml: string = templates.labelTemplate(patientRecord, labsordered);
+	let labelXml: string = templates.labelTemplate(patientRecord, 'Lipid Profile');
 	let nameXml: string = templates.nameTemplate(patientRecord);
 
 	let label: dymo.Label = dymo.label.framework.openLabelXml(labelXml);
 	let label2: dymo.Label = dymo.label.framework.openLabelXml(nameXml);
 
-	label.print(chosenPrinter.name);
-	label2.print(chosenPrinter.name);
+	//label.print(chosenPrinter.name);
+	//label2.print(chosenPrinter.name);
+
+	for(let i = 0; i < numlabels; i++) {
+		label.print(chosenPrinter.name);
+		label2.print(chosenPrinter.name);
+	}
 
 	return;
 }
