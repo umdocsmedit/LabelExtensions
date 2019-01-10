@@ -7,8 +7,7 @@
 		"tabs",
 		"activeTab",
 		"declarativeContent",
-		"https://localhost/",
-		"https://localhost*"
+		"https://localhost/"
 	],
 	"background": {
 		"scripts": ["js/background.js"],
