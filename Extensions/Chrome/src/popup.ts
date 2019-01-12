@@ -20,10 +20,11 @@ async function init(): Promise<void> {
 	}
 
 	let numLabels: number = getNumLabels();
+	let labsordered: string = getLabsOrdered();
 	printButton.onclick = async (): Promise<void> => {
 
 		numLabels = getNumLabels();
-		numLabels;
+		labsordered = getLabsOrdered();
 
 		let currentTabID: number = await getCurrentTabID();
 		let scriptOptions: chrome.tabs.InjectDetails = {
@@ -35,7 +36,7 @@ async function init(): Promise<void> {
 
 	chrome.runtime.onMessage.addListener((request): void => {
 		let patientRecord: PatientRecord = request.data;
-		PrintLabel.frameworkInitShim(patientRecord, numLabels);
+		PrintLabel.frameworkInitShim(patientRecord, numLabels, labsordered);
 	});
 
 	return;
@@ -70,6 +71,18 @@ function getNumLabels(): number {
 	}
 
 	result = parseInt(numLabelsInput.value);
+	return result;
+}
+
+function getLabsOrdered(): string {
+	let result: string = "";
+	let labsOrderedInput: HTMLInputElement | null = document.body.querySelector("[name='labsordered']");
+	if(labsOrderedInput == null) {
+		console.error("Failed to get the value of the labs ordered element");
+		return result;
+	}
+
+	result = labsOrderedInput.value;
 	return result;
 }
 
