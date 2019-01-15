@@ -61,14 +61,14 @@ async function init(): Promise<void> {
 	// Set fields
 	setNumLabels(numLabels);
 	setLabsOrdered(getLabsOrderedStringIndex(labsOrdered));
-	
-	printButton.onclick = (): void => {
-		alert("NOICE");
-	};
-
-	PrintLabel;
 
 	let patientData: PatientRecord = await getPatientData();
+
+	printButton.onclick = (): void => {
+		numLabels = getNumLabels();
+		labsOrdered = getLabsOrdered();
+		PrintLabel.frameworkInitShim(patientData, numLabels, labsOrdered);
+	};
 
 	listPatient(patientData);
 

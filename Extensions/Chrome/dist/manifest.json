@@ -1,7 +1,7 @@
 {
 	"name": "UMDocsMedIT Redcap Printing",
 	"short_name": "UMRedcapPrint",
-	"version": "1.2",
+	"version": "1.3",
 	"description": "Print patient labels",
 	"manifest_version": 2,
 	"permissions": [
