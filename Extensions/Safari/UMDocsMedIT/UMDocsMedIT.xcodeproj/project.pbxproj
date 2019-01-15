@@ -1,0 +1,637 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EE50D69C21EE333F007F9A71 /* UMDocsMedIT.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = EE50D69B21EE333F007F9A71 /* UMDocsMedIT.entitlements */; };
+		EE50D69E21EE333F007F9A71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE50D69D21EE333F007F9A71 /* AppDelegate.swift */; };
+		EE50D6A121EE333F007F9A71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE50D69F21EE333F007F9A71 /* Main.storyboard */; };
+		EE50D6A321EE333F007F9A71 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE50D6A221EE333F007F9A71 /* ViewController.swift */; };
+		EE50D6A521EE3342007F9A71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE50D6A421EE3342007F9A71 /* Assets.xcassets */; };
+		EE50D6B021EE3342007F9A71 /* UMDocsMedITTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE50D6AF21EE3342007F9A71 /* UMDocsMedITTests.swift */; };
+		EE50D6B721EE3342007F9A71 /* UMDocsMedIT Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = EE50D6B621EE3342007F9A71 /* UMDocsMedIT Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		EE50D6BC21EE3342007F9A71 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE50D6BB21EE3342007F9A71 /* Cocoa.framework */; };
+		EE50D6BF21EE3342007F9A71 /* SafariExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE50D6BE21EE3342007F9A71 /* SafariExtensionHandler.swift */; };
+		EE50D6C121EE3342007F9A71 /* SafariExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE50D6C021EE3342007F9A71 /* SafariExtensionViewController.swift */; };
+		EE50D6C421EE3342007F9A71 /* SafariExtensionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE50D6C221EE3342007F9A71 /* SafariExtensionViewController.xib */; };
+		EE50D6C721EE3342007F9A71 /* script.js in Resources */ = {isa = PBXBuildFile; fileRef = EE50D6C621EE3342007F9A71 /* script.js */; };
+		EE50D6C921EE3342007F9A71 /* ToolbarItemIcon.pdf in Resources */ = {isa = PBXBuildFile; fileRef = EE50D6C821EE3342007F9A71 /* ToolbarItemIcon.pdf */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EE50D6AC21EE3342007F9A71 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE50D69021EE333F007F9A71 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EE50D69721EE333F007F9A71;
+			remoteInfo = UMDocsMedIT;
+		};
+		EE50D6B821EE3342007F9A71 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE50D69021EE333F007F9A71 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EE50D6B521EE3342007F9A71;
+			remoteInfo = "UMDocsMedIT Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		EE50D6D021EE3342007F9A71 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				EE50D6B721EE3342007F9A71 /* UMDocsMedIT Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		EE50D69821EE333F007F9A71 /* UMDocsMedIT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UMDocsMedIT.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE50D69B21EE333F007F9A71 /* UMDocsMedIT.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UMDocsMedIT.entitlements; sourceTree = "<group>"; };
+		EE50D69D21EE333F007F9A71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EE50D6A021EE333F007F9A71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EE50D6A221EE333F007F9A71 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EE50D6A421EE3342007F9A71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EE50D6A621EE3342007F9A71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EE50D6AB21EE3342007F9A71 /* UMDocsMedITTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UMDocsMedITTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE50D6AF21EE3342007F9A71 /* UMDocsMedITTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UMDocsMedITTests.swift; sourceTree = "<group>"; };
+		EE50D6B121EE3342007F9A71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EE50D6B621EE3342007F9A71 /* UMDocsMedIT Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "UMDocsMedIT Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE50D6BB21EE3342007F9A71 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		EE50D6BE21EE3342007F9A71 /* SafariExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariExtensionHandler.swift; sourceTree = "<group>"; };
+		EE50D6C021EE3342007F9A71 /* SafariExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariExtensionViewController.swift; sourceTree = "<group>"; };
+		EE50D6C321EE3342007F9A71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SafariExtensionViewController.xib; sourceTree = "<group>"; };
+		EE50D6C521EE3342007F9A71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EE50D6C621EE3342007F9A71 /* script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = script.js; sourceTree = "<group>"; };
+		EE50D6C821EE3342007F9A71 /* ToolbarItemIcon.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = ToolbarItemIcon.pdf; sourceTree = "<group>"; };
+		EE50D6CA21EE3342007F9A71 /* UMDocsMedIT_Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UMDocsMedIT_Extension.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EE50D69521EE333F007F9A71 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE50D6A821EE3342007F9A71 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE50D6B321EE3342007F9A71 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE50D6BC21EE3342007F9A71 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EE50D68F21EE333F007F9A71 = {
+			isa = PBXGroup;
+			children = (
+				EE50D69A21EE333F007F9A71 /* UMDocsMedIT */,
+				EE50D6AE21EE3342007F9A71 /* UMDocsMedITTests */,
+				EE50D6BD21EE3342007F9A71 /* UMDocsMedIT Extension */,
+				EE50D6BA21EE3342007F9A71 /* Frameworks */,
+				EE50D69921EE333F007F9A71 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EE50D69921EE333F007F9A71 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EE50D69821EE333F007F9A71 /* UMDocsMedIT.app */,
+				EE50D6AB21EE3342007F9A71 /* UMDocsMedITTests.xctest */,
+				EE50D6B621EE3342007F9A71 /* UMDocsMedIT Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EE50D69A21EE333F007F9A71 /* UMDocsMedIT */ = {
+			isa = PBXGroup;
+			children = (
+				EE50D69B21EE333F007F9A71 /* UMDocsMedIT.entitlements */,
+				EE50D69D21EE333F007F9A71 /* AppDelegate.swift */,
+				EE50D69F21EE333F007F9A71 /* Main.storyboard */,
+				EE50D6A221EE333F007F9A71 /* ViewController.swift */,
+				EE50D6A421EE3342007F9A71 /* Assets.xcassets */,
+				EE50D6A621EE3342007F9A71 /* Info.plist */,
+			);
+			path = UMDocsMedIT;
+			sourceTree = "<group>";
+		};
+		EE50D6AE21EE3342007F9A71 /* UMDocsMedITTests */ = {
+			isa = PBXGroup;
+			children = (
+				EE50D6AF21EE3342007F9A71 /* UMDocsMedITTests.swift */,
+				EE50D6B121EE3342007F9A71 /* Info.plist */,
+			);
+			path = UMDocsMedITTests;
+			sourceTree = "<group>";
+		};
+		EE50D6BA21EE3342007F9A71 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EE50D6BB21EE3342007F9A71 /* Cocoa.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EE50D6BD21EE3342007F9A71 /* UMDocsMedIT Extension */ = {
+			isa = PBXGroup;
+			children = (
+				EE50D6BE21EE3342007F9A71 /* SafariExtensionHandler.swift */,
+				EE50D6C021EE3342007F9A71 /* SafariExtensionViewController.swift */,
+				EE50D6C221EE3342007F9A71 /* SafariExtensionViewController.xib */,
+				EE50D6C521EE3342007F9A71 /* Info.plist */,
+				EE50D6C621EE3342007F9A71 /* script.js */,
+				EE50D6C821EE3342007F9A71 /* ToolbarItemIcon.pdf */,
+				EE50D6CA21EE3342007F9A71 /* UMDocsMedIT_Extension.entitlements */,
+			);
+			path = "UMDocsMedIT Extension";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EE50D69721EE333F007F9A71 /* UMDocsMedIT */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE50D6D121EE3342007F9A71 /* Build configuration list for PBXNativeTarget "UMDocsMedIT" */;
+			buildPhases = (
+				EE50D69421EE333F007F9A71 /* Sources */,
+				EE50D69521EE333F007F9A71 /* Frameworks */,
+				EE50D69621EE333F007F9A71 /* Resources */,
+				EE50D6D021EE3342007F9A71 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EE50D6B921EE3342007F9A71 /* PBXTargetDependency */,
+			);
+			name = UMDocsMedIT;
+			productName = UMDocsMedIT;
+			productReference = EE50D69821EE333F007F9A71 /* UMDocsMedIT.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EE50D6AA21EE3342007F9A71 /* UMDocsMedITTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE50D6D421EE3342007F9A71 /* Build configuration list for PBXNativeTarget "UMDocsMedITTests" */;
+			buildPhases = (
+				EE50D6A721EE3342007F9A71 /* Sources */,
+				EE50D6A821EE3342007F9A71 /* Frameworks */,
+				EE50D6A921EE3342007F9A71 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EE50D6AD21EE3342007F9A71 /* PBXTargetDependency */,
+			);
+			name = UMDocsMedITTests;
+			productName = UMDocsMedITTests;
+			productReference = EE50D6AB21EE3342007F9A71 /* UMDocsMedITTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EE50D6B521EE3342007F9A71 /* UMDocsMedIT Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE50D6CD21EE3342007F9A71 /* Build configuration list for PBXNativeTarget "UMDocsMedIT Extension" */;
+			buildPhases = (
+				EE50D6B221EE3342007F9A71 /* Sources */,
+				EE50D6B321EE3342007F9A71 /* Frameworks */,
+				EE50D6B421EE3342007F9A71 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "UMDocsMedIT Extension";
+			productName = "UMDocsMedIT Extension";
+			productReference = EE50D6B621EE3342007F9A71 /* UMDocsMedIT Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EE50D69021EE333F007F9A71 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Kevin Davis";
+				TargetAttributes = {
+					EE50D69721EE333F007F9A71 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					EE50D6AA21EE3342007F9A71 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = EE50D69721EE333F007F9A71;
+					};
+					EE50D6B521EE3342007F9A71 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = EE50D69321EE333F007F9A71 /* Build configuration list for PBXProject "UMDocsMedIT" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EE50D68F21EE333F007F9A71;
+			productRefGroup = EE50D69921EE333F007F9A71 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EE50D69721EE333F007F9A71 /* UMDocsMedIT */,
+				EE50D6AA21EE3342007F9A71 /* UMDocsMedITTests */,
+				EE50D6B521EE3342007F9A71 /* UMDocsMedIT Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EE50D69621EE333F007F9A71 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE50D69C21EE333F007F9A71 /* UMDocsMedIT.entitlements in Resources */,
+				EE50D6A521EE3342007F9A71 /* Assets.xcassets in Resources */,
+				EE50D6A121EE333F007F9A71 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE50D6A921EE3342007F9A71 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE50D6B421EE3342007F9A71 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE50D6C921EE3342007F9A71 /* ToolbarItemIcon.pdf in Resources */,
+				EE50D6C421EE3342007F9A71 /* SafariExtensionViewController.xib in Resources */,
+				EE50D6C721EE3342007F9A71 /* script.js in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EE50D69421EE333F007F9A71 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE50D6A321EE333F007F9A71 /* ViewController.swift in Sources */,
+				EE50D69E21EE333F007F9A71 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE50D6A721EE3342007F9A71 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE50D6B021EE3342007F9A71 /* UMDocsMedITTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE50D6B221EE3342007F9A71 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE50D6C121EE3342007F9A71 /* SafariExtensionViewController.swift in Sources */,
+				EE50D6BF21EE3342007F9A71 /* SafariExtensionHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EE50D6AD21EE3342007F9A71 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EE50D69721EE333F007F9A71 /* UMDocsMedIT */;
+			targetProxy = EE50D6AC21EE3342007F9A71 /* PBXContainerItemProxy */;
+		};
+		EE50D6B921EE3342007F9A71 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EE50D6B521EE3342007F9A71 /* UMDocsMedIT Extension */;
+			targetProxy = EE50D6B821EE3342007F9A71 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EE50D69F21EE333F007F9A71 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EE50D6A021EE333F007F9A71 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EE50D6C221EE3342007F9A71 /* SafariExtensionViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EE50D6C321EE3342007F9A71 /* Base */,
+			);
+			name = SafariExtensionViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EE50D6CB21EE3342007F9A71 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EE50D6CC21EE3342007F9A71 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		EE50D6CE21EE3342007F9A71 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "UMDocsMedIT Extension/UMDocsMedIT_Extension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 58559WYN64;
+				INFOPLIST_FILE = "UMDocsMedIT Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "kcdvs.UMDocsMedIT-Extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		EE50D6CF21EE3342007F9A71 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "UMDocsMedIT Extension/UMDocsMedIT_Extension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 58559WYN64;
+				INFOPLIST_FILE = "UMDocsMedIT Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "kcdvs.UMDocsMedIT-Extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
+		EE50D6D221EE3342007F9A71 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = UMDocsMedIT/UMDocsMedIT.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 58559WYN64;
+				INFOPLIST_FILE = UMDocsMedIT/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = kcdvs.UMDocsMedIT;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		EE50D6D321EE3342007F9A71 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = UMDocsMedIT/UMDocsMedIT.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 58559WYN64;
+				INFOPLIST_FILE = UMDocsMedIT/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = kcdvs.UMDocsMedIT;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
+		EE50D6D521EE3342007F9A71 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 58559WYN64;
+				INFOPLIST_FILE = UMDocsMedITTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = kcdvs.UMDocsMedITTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UMDocsMedIT.app/Contents/MacOS/UMDocsMedIT";
+			};
+			name = Debug;
+		};
+		EE50D6D621EE3342007F9A71 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 58559WYN64;
+				INFOPLIST_FILE = UMDocsMedITTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = kcdvs.UMDocsMedITTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UMDocsMedIT.app/Contents/MacOS/UMDocsMedIT";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EE50D69321EE333F007F9A71 /* Build configuration list for PBXProject "UMDocsMedIT" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE50D6CB21EE3342007F9A71 /* Debug */,
+				EE50D6CC21EE3342007F9A71 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EE50D6CD21EE3342007F9A71 /* Build configuration list for PBXNativeTarget "UMDocsMedIT Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE50D6CE21EE3342007F9A71 /* Debug */,
+				EE50D6CF21EE3342007F9A71 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EE50D6D121EE3342007F9A71 /* Build configuration list for PBXNativeTarget "UMDocsMedIT" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE50D6D221EE3342007F9A71 /* Debug */,
+				EE50D6D321EE3342007F9A71 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EE50D6D421EE3342007F9A71 /* Build configuration list for PBXNativeTarget "UMDocsMedITTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE50D6D521EE3342007F9A71 /* Debug */,
+				EE50D6D621EE3342007F9A71 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EE50D69021EE333F007F9A71 /* Project object */;
+}
