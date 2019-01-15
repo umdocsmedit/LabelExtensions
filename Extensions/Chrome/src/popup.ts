@@ -12,7 +12,7 @@ import * as PrintLabel from './PrintLabel'
 
 async function init(): Promise<void> {
 
-	let printButton: HTMLElement | null = document.getElementById('print');
+	let printButton: HTMLInputElement | null = <HTMLInputElement>document.getElementById('print');
 	let numLabelsField: HTMLInputElement | null = <HTMLInputElement>document.body.querySelector("[name='numlabels']");
 	let labsOrderedField: HTMLSelectElement | null = <HTMLSelectElement>document.getElementById('labsordered');
 
@@ -71,6 +71,12 @@ async function init(): Promise<void> {
 	let patientData: PatientRecord = await getPatientData();
 
 	listPatient(patientData);
+
+	// Enable the print button
+	if(patientData.firstname != null) {
+		printButton.disabled = false;
+		printButton.className = "btn btn-success";
+	}
 
 	return;
 }
