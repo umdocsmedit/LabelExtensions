@@ -40,8 +40,8 @@
 			};
 		}
 		catch(e) {
-			alert("Could not collect patient data, are you on their data page?");
-			throw "Cannot continue";
+			let error: string = "Could not collect patient data, are you on their data page?";
+			console.error(error);
 		}
 
 		return patientRecord;

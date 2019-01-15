@@ -21,24 +21,35 @@ async function init(): Promise<void> {
 
 	let numLabels: number = getNumLabels();
 	let labsordered: string = getLabsOrdered();
-	printButton.onclick = async (): Promise<void> => {
+	setNumLabels(numLabels*2);
+	setLabsOrdered(0);
 
-		numLabels = getNumLabels();
-		labsordered = getLabsOrdered();
-
-		let currentTabID: number = await getCurrentTabID();
-		let scriptOptions: chrome.tabs.InjectDetails = {
-			file: "./js/contentScript.js"
-		};
-
-		await chrome.tabs.executeScript(currentTabID, scriptOptions);
+	labsordered;
+	
+	printButton.onclick = (): void => {
+		alert("NOICE");
 	};
 
-	chrome.runtime.onMessage.addListener((request): void => {
-		let patientRecord: PatientRecord = request.data;
-		PrintLabel.frameworkInitShim(patientRecord, numLabels, labsordered);
-	});
+	PrintLabel;
 
+	let patientData: PatientRecord = await getPatientData();
+
+	listPatient(patientData);
+
+	return;
+}
+
+function listPatient(patientRecord: PatientRecord): void {
+
+	let patientFound: boolean = patientRecord.firstname != null;
+	let displayText: string = patientFound?`${patientRecord.firstname} ${patientRecord.lastname}`:"No patient data found";
+	let patientLabel: HTMLElement | null = document.getElementById("patientName");
+	if(patientLabel == null) {
+		console.error("Failed to find the patient label");
+		return;
+	}
+
+	patientLabel.innerHTML += ` ${displayText}`;
 	return;
 }
 
@@ -61,6 +72,35 @@ async function getCurrentTabID(): Promise<number> {
 	return await result;
 }
 
+async function getPatientData(): Promise<PatientRecord> {
+
+	// generate the listen fuction
+	let promiseFunction: (x: any, y: any)=> Promise<void> = async function(resolve, reject): Promise<void> {
+
+		chrome.runtime.onMessage.addListener((request): void => {
+
+			let patientRecord: PatientRecord = request.data;
+			let err: string = request.err;
+			resolve(patientRecord);
+			if(err != "") {
+				reject(err);
+			}
+		});
+
+		// Inject script
+		let currentTabID: number = await getCurrentTabID();
+		let scriptOptions: chrome.tabs.InjectDetails = {
+			file: "./js/contentScript.js"
+		};
+
+		chrome.tabs.executeScript(currentTabID, scriptOptions);
+	};
+
+	let result: Promise<PatientRecord> = new Promise(promiseFunction);
+	
+	return await result;
+}
+
 function getNumLabels(): number {
 	let result: number = 0;
 
@@ -74,9 +114,21 @@ function getNumLabels(): number {
 	return result;
 }
 
+function setNumLabels(numLabels: number): void {
+	
+	let numLabelsInput: HTMLInputElement | null = document.body.querySelector("[name='numlabels']");
+	if(numLabelsInput == null) {
+		console.error("Failed to get the number of labels to print");
+		return;
+	}
+
+	numLabelsInput.value = numLabels.toString();
+	return;
+}
+
 function getLabsOrdered(): string {
 	let result: string = "";
-	let labsOrderedInput: HTMLInputElement | null = document.body.querySelector("[name='labsordered']");
+	let labsOrderedInput: HTMLSelectElement | null = document.body.querySelector("[name='labsordered']");
 	if(labsOrderedInput == null) {
 		console.error("Failed to get the value of the labs ordered element");
 		return result;
@@ -84,6 +136,18 @@ function getLabsOrdered(): string {
 
 	result = labsOrderedInput.value;
 	return result;
+}
+
+function setLabsOrdered(selectIndex: number): void {
+
+	let labsOrderedInput: HTMLSelectElement | null = document.body.querySelector("[name='labsordered']");
+	if(labsOrderedInput == null) {
+		console.error("Failed to get the value of the labs ordered element");
+		return;
+	}
+
+	labsOrderedInput.selectedIndex = selectIndex;
+	return;
 }
 
 init();
