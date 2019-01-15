@@ -13,18 +13,54 @@ import * as PrintLabel from './PrintLabel'
 async function init(): Promise<void> {
 
 	let printButton: HTMLElement | null = document.getElementById('print');
+	let numLabelsField: HTMLInputElement | null = <HTMLInputElement>document.body.querySelector("[name='numlabels']");
+	let labsOrderedField: HTMLSelectElement | null = <HTMLSelectElement>document.getElementById('labsordered');
 
 	if(printButton == null) {
 		alert("Cannot locate print button");
 		return;
 	}
 
-	let numLabels: number = getNumLabels();
-	let labsordered: string = getLabsOrdered();
-	setNumLabels(numLabels*2);
-	setLabsOrdered(0);
+	if(numLabelsField == null) {
+		alert("Cannot located num label field");
+		return;
+	}
 
-	labsordered;
+	if(labsOrderedField == null) {
+		alert("Cannot locate labs ordered field");
+		return;
+	}
+
+	numLabelsField.onblur = (e: Event):void =>{
+		if(e == null) return;
+		let element: HTMLInputElement = <HTMLInputElement>e.target;
+		store('numlabel', element);
+	};
+
+	labsOrderedField.onblur = (e: Event): void => {
+		if(e == null) return;
+		let element: HTMLInputElement = <HTMLInputElement>e.target;
+		store('labsordered', element);
+	};
+
+	// Check storage
+	let numLabels: number = await new Promise((resolve) => {
+		chrome.storage.sync.get(['numlabel'], (res)=>{
+			if(res.numlabel == undefined) resolve(getNumLabels());
+			else resolve(res.numlabel); 
+		});
+	});
+
+	let labsOrdered: string = await new Promise((resolve) => {
+		chrome.storage.sync.get(['labsordered'], (res)=>{
+			if(res.labsordered == undefined) resolve(getLabsOrdered());
+			else resolve(res.labsordered);
+		});
+	});
+
+	// Set fields
+	setNumLabels(numLabels);
+	setLabsOrdered(getLabsOrderedStringIndex(labsOrdered));
 	
 	printButton.onclick = (): void => {
 		alert("NOICE");
@@ -102,6 +138,7 @@ async function getPatientData(): Promise<PatientRecord> {
 }
 
 function getNumLabels(): number {
+
 	let result: number = 0;
 
 	let numLabelsInput: HTMLInputElement | null = document.body.querySelector("[name='numlabels']");
@@ -138,6 +175,22 @@ function getLabsOrdered(): string {
 	return result;
 }
 
+function getLabsOrderedStringIndex(label: string): number {
+	let result: number = 0;
+	let labsOrderedInput: HTMLSelectElement | null = document.body.querySelector("[name='labsordered']");
+	if(labsOrderedInput == null) {
+		console.error("Failed to get the value of the labs ordered element 2");
+		return result;
+	}
+
+	for(let i = 0; i < labsOrderedInput.options.length; i++) {
+		let curValue: string = labsOrderedInput.options[i].value;
+		if(curValue == label) result = i;
+	}
+
+	return result;
+}
+
 function setLabsOrdered(selectIndex: number): void {
 
 	let labsOrderedInput: HTMLSelectElement | null = document.body.querySelector("[name='labsordered']");
@@ -147,6 +200,17 @@ function setLabsOrdered(selectIndex: number): void {
 	}
 
 	labsOrderedInput.selectedIndex = selectIndex;
+	return;
+}
+
+function store(varName: string, e: HTMLInputElement): void {
+	let value: any = e.value;
+	let storage: any = {};
+	storage[varName] = value;
+	chrome.storage.sync.set(storage, ()=>{
+		console.log(`${value} set`);
+	});
+
 	return;
 }
 
