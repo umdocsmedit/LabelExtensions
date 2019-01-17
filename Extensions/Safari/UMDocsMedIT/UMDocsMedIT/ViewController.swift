@@ -21,8 +21,9 @@ class ViewController: NSViewController {
     @IBAction func openSafariExtensionPreferences(_ sender: AnyObject?) {
         SFSafariApplication.showPreferencesForExtension(withIdentifier: "kcdvs.UMDocsMedIT-Extension") { error in
             if let _ = error {
+                let err: Error = error!;
                 // Insert code to inform the user that something went wrong.
-
+                print("error \(err._code)");
             }
         }
     }

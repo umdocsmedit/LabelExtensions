@@ -20,6 +20,7 @@
 		EE50D6C421EE3342007F9A71 /* SafariExtensionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE50D6C221EE3342007F9A71 /* SafariExtensionViewController.xib */; };
 		EE50D6C721EE3342007F9A71 /* script.js in Resources */ = {isa = PBXBuildFile; fileRef = EE50D6C621EE3342007F9A71 /* script.js */; };
 		EE50D6C921EE3342007F9A71 /* ToolbarItemIcon.pdf in Resources */ = {isa = PBXBuildFile; fileRef = EE50D6C821EE3342007F9A71 /* ToolbarItemIcon.pdf */; };
+		EE50D6DA21EE4429007F9A71 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EE50D6D921EE4428007F9A71 /* icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		EE50D6C621EE3342007F9A71 /* script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = script.js; sourceTree = "<group>"; };
 		EE50D6C821EE3342007F9A71 /* ToolbarItemIcon.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = ToolbarItemIcon.pdf; sourceTree = "<group>"; };
 		EE50D6CA21EE3342007F9A71 /* UMDocsMedIT_Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UMDocsMedIT_Extension.entitlements; sourceTree = "<group>"; };
+		EE50D6D921EE4428007F9A71 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 		EE50D6BD21EE3342007F9A71 /* UMDocsMedIT Extension */ = {
 			isa = PBXGroup;
 			children = (
+				EE50D6D921EE4428007F9A71 /* icon.png */,
 				EE50D6BE21EE3342007F9A71 /* SafariExtensionHandler.swift */,
 				EE50D6C021EE3342007F9A71 /* SafariExtensionViewController.swift */,
 				EE50D6C221EE3342007F9A71 /* SafariExtensionViewController.xib */,
@@ -287,6 +290,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE50D6DA21EE4429007F9A71 /* icon.png in Resources */,
 				EE50D6C921EE3342007F9A71 /* ToolbarItemIcon.pdf in Resources */,
 				EE50D6C421EE3342007F9A71 /* SafariExtensionViewController.xib in Resources */,
 				EE50D6C721EE3342007F9A71 /* script.js in Resources */,
@@ -476,6 +480,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "UMDocsMedIT Extension/UMDocsMedIT_Extension.entitlements";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 58559WYN64;
 				INFOPLIST_FILE = "UMDocsMedIT Extension/Info.plist";
@@ -486,6 +491,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "kcdvs.UMDocsMedIT-Extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
 			};
@@ -495,6 +501,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "UMDocsMedIT Extension/UMDocsMedIT_Extension.entitlements";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 58559WYN64;
 				INFOPLIST_FILE = "UMDocsMedIT Extension/Info.plist";
@@ -505,6 +512,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "kcdvs.UMDocsMedIT-Extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
 			};
@@ -564,7 +572,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = kcdvs.UMDocsMedITTests;
+				PRODUCT_BUNDLE_IDENTIFIER = "kcdvs.UMDocsMedIT-Extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UMDocsMedIT.app/Contents/MacOS/UMDocsMedIT";
@@ -585,7 +593,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = kcdvs.UMDocsMedITTests;
+				PRODUCT_BUNDLE_IDENTIFIER = "kcdvs.UMDocsMedIT-Extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UMDocsMedIT.app/Contents/MacOS/UMDocsMedIT";
