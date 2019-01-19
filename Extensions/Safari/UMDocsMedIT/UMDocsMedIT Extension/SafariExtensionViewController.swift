@@ -16,4 +16,13 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
         return shared
     }()
 
+    @IBAction func print(_ sender: Any) {
+        NSLog("WHAT")
+        let alert: NSAlert = NSAlert()
+        alert.alertStyle = NSAlert.Style.informational
+        alert.messageText = "Hello from alert"
+        alert.informativeText = "More Text"
+        alert.runModal()
+    }
+    
 }

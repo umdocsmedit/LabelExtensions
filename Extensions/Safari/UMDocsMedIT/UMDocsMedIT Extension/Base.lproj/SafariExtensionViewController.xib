@@ -68,7 +68,7 @@
                     <rect key="frame" x="119" y="94" width="489" height="25"/>
                     <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" inset="2" pullsDown="YES" id="Jcp-kF-ZXM">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
+                        <font key="font" metaFont="menu"/>
                         <menu key="menu" id="8gs-7g-eQH">
                             <items>
                                 <menuItem title="Item 1" hidden="YES" id="Fux-lM-iAW"/>
@@ -84,6 +84,9 @@
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
+                    <connections>
+                        <action selector="print:" target="-2" id="vhY-1v-RDR"/>
+                    </connections>
                 </button>
             </subviews>
             <constraints>
