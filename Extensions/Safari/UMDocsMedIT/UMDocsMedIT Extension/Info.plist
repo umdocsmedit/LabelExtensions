@@ -32,6 +32,10 @@
 		<array>
 			<dict>
 				<key>Script</key>
+				<string>main.js</string>
+			</dict>
+			<dict>
+				<key>Script</key>
 				<string>script.js</string>
 			</dict>
 		</array>
@@ -50,7 +54,7 @@
 		<dict>
 			<key>Allowed Domains</key>
 			<array>
-				<string>redcap.miami.edu</string>
+				<string>*.redcap.miami.edu</string>
 			</array>
 			<key>Level</key>
 			<string>Some</string>
@@ -59,6 +63,6 @@
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2019 Kevin Davis. All rights reserved.</string>
 	<key>NSHumanReadableDescription</key>
-	<string>This is a Safari Extension. You should tell us what your extension does here.</string>
+	<string>University of Miami Department of Community Service Medical IT label printing extension</string>
 </dict>
 </plist>

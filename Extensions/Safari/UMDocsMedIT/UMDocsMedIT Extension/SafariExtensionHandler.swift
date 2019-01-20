@@ -21,8 +21,7 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
     
     override func toolbarItemClicked(in window: SFSafariWindow) {
         // This method will be called when your toolbar item is clicked.
-        NSLog("The extension's toolbar item was clicked")
-        
+        // Not used
     }
     
     override func validateToolbarItem(in window: SFSafariWindow, validationHandler: @escaping ((Bool, String) -> Void)) {
@@ -32,6 +31,20 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
     
     override func popoverViewController() -> SFSafariExtensionViewController {
         return SafariExtensionViewController.shared
+    }
+    
+    override func popoverWillShow(in window: SFSafariWindow) {
+        NSLog("Openning")
+        window.getActiveTab { tab in
+            if tab == nil {return}
+            let curTab: SFSafariTab! = tab
+            curTab.getActivePage { page in
+                if page == nil {return}
+                let curPage: SFSafariPage! = page
+                NSLog("Sending Message")
+                curPage.dispatchMessageToScript(withName: "Get Patient Data")
+            }
+        }
     }
 
 }
