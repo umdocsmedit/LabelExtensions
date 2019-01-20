@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE4F420521F405E4000818C0 /* main.ts in Resources */ = {isa = PBXBuildFile; fileRef = EE4F420421F405E4000818C0 /* main.ts */; };
+		EE4F420821F40B31000818C0 /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = EE4F420721F40B31000818C0 /* main.js */; };
 		EE50D69C21EE333F007F9A71 /* UMDocsMedIT.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = EE50D69B21EE333F007F9A71 /* UMDocsMedIT.entitlements */; };
 		EE50D69E21EE333F007F9A71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE50D69D21EE333F007F9A71 /* AppDelegate.swift */; };
 		EE50D6A121EE333F007F9A71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE50D69F21EE333F007F9A71 /* Main.storyboard */; };
@@ -55,6 +57,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		EE4F420421F405E4000818C0 /* main.ts */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = main.ts; sourceTree = "<group>"; };
+		EE4F420721F40B31000818C0 /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = main.js; sourceTree = "<group>"; };
 		EE50D69821EE333F007F9A71 /* UMDocsMedIT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UMDocsMedIT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE50D69B21EE333F007F9A71 /* UMDocsMedIT.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UMDocsMedIT.entitlements; sourceTree = "<group>"; };
 		EE50D69D21EE333F007F9A71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +79,7 @@
 		EE50D6C821EE3342007F9A71 /* ToolbarItemIcon.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = ToolbarItemIcon.pdf; sourceTree = "<group>"; };
 		EE50D6CA21EE3342007F9A71 /* UMDocsMedIT_Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UMDocsMedIT_Extension.entitlements; sourceTree = "<group>"; };
 		EE50D6D921EE4428007F9A71 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		EE9D4FD121F42E7300CBEF8C /* transpile.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = transpile.sh; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +108,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EE4F420021F404E9000818C0 /* JS */ = {
+			isa = PBXGroup;
+			children = (
+				EE4F420321F405A5000818C0 /* src */,
+				EE4F420221F4059E000818C0 /* dist */,
+			);
+			path = JS;
+			sourceTree = "<group>";
+		};
+		EE4F420221F4059E000818C0 /* dist */ = {
+			isa = PBXGroup;
+			children = (
+				EE4F420721F40B31000818C0 /* main.js */,
+				EE50D6C621EE3342007F9A71 /* script.js */,
+			);
+			path = dist;
+			sourceTree = "<group>";
+		};
+		EE4F420321F405A5000818C0 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				EE4F420421F405E4000818C0 /* main.ts */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
 		EE50D68F21EE333F007F9A71 = {
 			isa = PBXGroup;
 			children = (
@@ -157,16 +188,25 @@
 		EE50D6BD21EE3342007F9A71 /* UMDocsMedIT Extension */ = {
 			isa = PBXGroup;
 			children = (
+				EE9D4FD021F42DAC00CBEF8C /* scripts */,
+				EE4F420021F404E9000818C0 /* JS */,
 				EE50D6D921EE4428007F9A71 /* icon.png */,
 				EE50D6BE21EE3342007F9A71 /* SafariExtensionHandler.swift */,
 				EE50D6C021EE3342007F9A71 /* SafariExtensionViewController.swift */,
 				EE50D6C221EE3342007F9A71 /* SafariExtensionViewController.xib */,
 				EE50D6C521EE3342007F9A71 /* Info.plist */,
-				EE50D6C621EE3342007F9A71 /* script.js */,
 				EE50D6C821EE3342007F9A71 /* ToolbarItemIcon.pdf */,
 				EE50D6CA21EE3342007F9A71 /* UMDocsMedIT_Extension.entitlements */,
 			);
 			path = "UMDocsMedIT Extension";
+			sourceTree = "<group>";
+		};
+		EE9D4FD021F42DAC00CBEF8C /* scripts */ = {
+			isa = PBXGroup;
+			children = (
+				EE9D4FD121F42E7300CBEF8C /* transpile.sh */,
+			);
+			path = scripts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,6 +253,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EE50D6CD21EE3342007F9A71 /* Build configuration list for PBXNativeTarget "UMDocsMedIT Extension" */;
 			buildPhases = (
+				EE9D4FCF21F42CF900CBEF8C /* ShellScript */,
 				EE50D6B221EE3342007F9A71 /* Sources */,
 				EE50D6B321EE3342007F9A71 /* Frameworks */,
 				EE50D6B421EE3342007F9A71 /* Resources */,
@@ -293,11 +334,33 @@
 				EE50D6DA21EE4429007F9A71 /* icon.png in Resources */,
 				EE50D6C921EE3342007F9A71 /* ToolbarItemIcon.pdf in Resources */,
 				EE50D6C421EE3342007F9A71 /* SafariExtensionViewController.xib in Resources */,
+				EE4F420821F40B31000818C0 /* main.js in Resources */,
 				EE50D6C721EE3342007F9A71 /* script.js in Resources */,
+				EE4F420521F405E4000818C0 /* main.ts in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		EE9D4FCF21F42CF900CBEF8C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EE50D69421EE333F007F9A71 /* Sources */ = {
