@@ -9,13 +9,12 @@
  * DYMO labeler
  */
 
-/// <reference path="./types/healthFair.d.ts" />
-/// <reference path="./types/patientRecord.d.ts" />
 /// <reference path="./types/dymo.d.ts" />
 
 // ===========================================================================
 
 import * as templates from "./templates"
+import PatientRecord from "./PatientRecord"
 
 export function frameworkInitShim(patientRecord: PatientRecord, numlabels: number, labsordered: string): void {
 	let startupCode: () => void = (): void => {

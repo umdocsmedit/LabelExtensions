@@ -9,6 +9,7 @@
 //===============================================================================
 
 import * as PrintLabel from './PrintLabel'
+import PatientRecord from './PatientRecord'
 
 async function init(): Promise<void> {
 
@@ -82,6 +83,7 @@ async function init(): Promise<void> {
 }
 
 function listPatient(patientRecord: PatientRecord): void {
+	console.log("PatientRECORDS");
 
 	let patientFound: boolean = patientRecord.firstname != null;
 	let displayText: string = patientFound?`${patientRecord.firstname} ${patientRecord.lastname}`:"No patient data found";
@@ -120,7 +122,6 @@ async function getPatientData(): Promise<PatientRecord> {
 	let promiseFunction: (x: any, y: any)=> Promise<void> = async function(resolve, reject): Promise<void> {
 
 		chrome.runtime.onMessage.addListener((request): void => {
-
 			let patientRecord: PatientRecord = request.data;
 			let err: string = request.err;
 			resolve(patientRecord);
