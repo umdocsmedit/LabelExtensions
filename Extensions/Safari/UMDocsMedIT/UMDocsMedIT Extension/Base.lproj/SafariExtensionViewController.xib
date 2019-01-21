@@ -51,14 +51,14 @@
                 </textField>
                 <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Z10-7b-bAe">
                     <rect key="frame" x="111" y="100" width="162" height="25"/>
-                    <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" inset="2" pullsDown="YES" id="Jcp-kF-ZXM">
+                    <popUpButtonCell key="cell" type="push" title="CRC" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" inset="2" pullsDown="YES" selectedItem="Fux-lM-iAW" id="Jcp-kF-ZXM">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="menu"/>
                         <menu key="menu" id="8gs-7g-eQH">
                             <items>
-                                <menuItem title="Item 1" hidden="YES" id="Fux-lM-iAW"/>
-                                <menuItem title="Item 2" id="6BL-AE-zhx"/>
-                                <menuItem title="Item 3" id="GZY-7k-kEv"/>
+                                <menuItem title="CRC" hidden="YES" id="Fux-lM-iAW"/>
+                                <menuItem title="Pap smear" id="6BL-AE-zhx"/>
+                                <menuItem title="Lipids" id="GZY-7k-kEv"/>
                             </items>
                         </menu>
                     </popUpButtonCell>
