@@ -10,6 +10,6 @@ tsc
 
 # Browserify
 browserify ./dist/js/PrintLabel.js ./dist/js/popup.js -o ./dist/js/popup.js
-#browserify ./dist/js/PrintLabel.js -o ./dist/js/PrintLabel.js
+browserify ./dist/js/PatientRecord.js ./dist/js/contentScript.js -o ./dist/js/contentScript.js
 
 zip -r UMDOCSMEDITRCP.zip ./dist
