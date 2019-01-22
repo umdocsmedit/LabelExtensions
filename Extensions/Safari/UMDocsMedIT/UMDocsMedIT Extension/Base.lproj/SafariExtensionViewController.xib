@@ -15,8 +15,8 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customView misplaced="YES" id="c22-O7-iKe">
-            <rect key="frame" x="0.0" y="0.0" width="276" height="149"/>
+        <customView id="c22-O7-iKe">
+            <rect key="frame" x="0.0" y="0.0" width="278" height="149"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kd5-uB-0zn">
@@ -52,7 +52,7 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gYf-qK-q1Z">
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gYf-qK-q1Z">
                     <rect key="frame" x="207" y="13" width="69" height="32"/>
                     <buttonCell key="cell" type="push" title="Print" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6p5-Oe-9cF">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -62,19 +62,38 @@
                         <action selector="print:" target="-2" id="vhY-1v-RDR"/>
                     </connections>
                 </button>
+                <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zlV-Rk-oiP">
+                    <rect key="frame" x="112" y="46" width="161" height="25"/>
+                    <popUpButtonCell key="cell" type="push" title="CRC" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="aXS-JI-qQS" id="xjJ-2a-M2U">
+                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="menu"/>
+                        <menu key="menu" id="Yul-iM-kAs">
+                            <items>
+                                <menuItem title="CRC" state="on" id="aXS-JI-qQS"/>
+                                <menuItem title="Pap Smear" id="VcC-2D-QQY"/>
+                                <menuItem title="Lipid Count" id="RIA-ZW-lIV"/>
+                            </items>
+                        </menu>
+                    </popUpButtonCell>
+                </popUpButton>
             </subviews>
             <constraints>
                 <constraint firstItem="sFC-wg-Ncw" firstAttribute="leading" secondItem="kd5-uB-0zn" secondAttribute="leading" id="0dP-Zl-BwF"/>
                 <constraint firstItem="sFC-wg-Ncw" firstAttribute="top" secondItem="OQQ-Mi-hVm" secondAttribute="bottom" constant="17" id="1mY-1f-KGp"/>
                 <constraint firstAttribute="trailing" secondItem="Etc-NB-52a" secondAttribute="trailing" constant="8" id="5gl-B7-GBc"/>
+                <constraint firstItem="gYf-qK-q1Z" firstAttribute="top" secondItem="zlV-Rk-oiP" secondAttribute="bottom" constant="8" id="79i-Tu-3Cs"/>
                 <constraint firstItem="OQQ-Mi-hVm" firstAttribute="leading" secondItem="kd5-uB-0zn" secondAttribute="leading" id="9hr-uR-TC7"/>
+                <constraint firstAttribute="trailing" secondItem="zlV-Rk-oiP" secondAttribute="trailing" constant="8" id="9yE-N5-0bh"/>
                 <constraint firstItem="OQQ-Mi-hVm" firstAttribute="top" secondItem="kd5-uB-0zn" secondAttribute="bottom" constant="8" id="C6b-Jt-6U6"/>
                 <constraint firstItem="Etc-NB-52a" firstAttribute="leading" secondItem="OQQ-Mi-hVm" secondAttribute="trailing" constant="8" id="GOp-n9-UHP"/>
+                <constraint firstItem="zlV-Rk-oiP" firstAttribute="leading" secondItem="sFC-wg-Ncw" secondAttribute="trailing" constant="8" id="L8Y-bL-IxL"/>
                 <constraint firstAttribute="trailing" secondItem="kd5-uB-0zn" secondAttribute="trailing" constant="8" id="TEt-lO-gJP"/>
                 <constraint firstItem="gYf-qK-q1Z" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="213" id="WPL-ca-JmY"/>
                 <constraint firstItem="kd5-uB-0zn" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="8" id="ayk-pY-Hss"/>
+                <constraint firstItem="zlV-Rk-oiP" firstAttribute="top" secondItem="sFC-wg-Ncw" secondAttribute="top" id="fMS-9M-MLH"/>
                 <constraint firstItem="Etc-NB-52a" firstAttribute="top" secondItem="OQQ-Mi-hVm" secondAttribute="top" id="hqQ-Kq-Wdm"/>
                 <constraint firstItem="kd5-uB-0zn" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="8" id="tOn-CJ-ibq"/>
+                <constraint firstItem="gYf-qK-q1Z" firstAttribute="trailing" secondItem="zlV-Rk-oiP" secondAttribute="trailing" id="w8k-lK-Mp4"/>
             </constraints>
             <point key="canvasLocation" x="123" y="94.5"/>
         </customView>
