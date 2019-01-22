@@ -10,10 +10,14 @@ pushd "$(dirname "$0")"
 
 pushd ../JS
 
+# Download dependencies
+cp ../../../../Chrome/src/PatientRecord.ts ../JS/src/
+
 # Transpile
 tsc
 
 # Browserify if needed ...
+browserify ../JS/dist/PatientRecord.js ../JS/dist/script.js -o ../JS/dist/script.js
 
 popd
 
