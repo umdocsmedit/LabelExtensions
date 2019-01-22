@@ -10,14 +10,20 @@ import SafariServices
 
 class SafariExtensionViewController: SFSafariExtensionViewController {
     
+    @IBOutlet weak var patientNameLabel: NSTextField!
+    
     static let shared: SafariExtensionViewController = {
         let shared = SafariExtensionViewController()
         shared.preferredContentSize = NSSize(width:320, height:240)
-        return shared
+        return shared;
     }()
 
     @IBAction func print(_ sender: Any) {
- 
+        
+    }
+    
+    public func setPatientName(_ name: String) {
+        self.patientNameLabel.stringValue = "Patient Name: \(name)"
     }
     
 }

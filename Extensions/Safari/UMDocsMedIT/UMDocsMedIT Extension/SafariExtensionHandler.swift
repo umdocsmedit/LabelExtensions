@@ -12,10 +12,18 @@ import Dispatch
 
 class SafariExtensionHandler: SFSafariExtensionHandler {
     
+    var patientFullName: String = ""
+    
     override func messageReceived(withName messageName: String, from page: SFSafariPage, userInfo: [String : Any]?) {
-        // This method will be called when a content script provided by your extension calls safari.extension.dispatchMessage("message").
-        page.getPropertiesWithCompletionHandler { properties in
-            NSLog("The extension received a message (\(messageName)) from a script injected into (\(String(describing: properties?.url))) with userInfo (\(userInfo ?? [:]))")
+        switch(messageName) {
+        case "patientData":
+            if userInfo == nil {break}
+            let curUserInfo: [String: Any] = userInfo!
+            let patientData: [String: Any] = curUserInfo["data"] as! [String: Any]
+            self.showPatientName(patientData)
+            break;
+        default:
+            NSLog("Default message!")
         }
     }
     
@@ -30,11 +38,11 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
     }
     
     override func popoverViewController() -> SFSafariExtensionViewController {
-        return SafariExtensionViewController.shared
+        let shared = SafariExtensionViewController.shared
+        return shared
     }
     
     override func popoverWillShow(in window: SFSafariWindow) {
-        NSLog("Openning")
         window.getActiveTab { tab in
             if tab == nil {return}
             let curTab: SFSafariTab! = tab
@@ -42,9 +50,24 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
                 if page == nil {return}
                 let curPage: SFSafariPage! = page
                 NSLog("Sending Message")
-                curPage.dispatchMessageToScript(withName: "Get Patient Data")
+                curPage.dispatchMessageToScript(withName: "getPatientData")
             }
         }
+    }
+    
+    func showPatientName(_ patientData: [String: Any]) {
+        let firstname: String? = patientData["firstname"] as? String
+        let lastname: String? = patientData["lastname"] as? String
+        var fullname: String = ""
+        if firstname == nil {
+            fullname = "No patient data found"
+        } else {
+            fullname = "\(firstname!) \(lastname!)"
+        }
+        self.patientFullName = fullname
+        
+        let shared: SafariExtensionViewController = SafariExtensionViewController.shared
+        shared.setPatientName(self.patientFullName)
     }
 
 }
