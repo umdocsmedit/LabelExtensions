@@ -14,7 +14,7 @@ class MyNumberFormatter : NumberFormatter {
             return true
         }
         
-        if partialString.characters.count > 2 {
+        if partialString.count > 2 {
             return false
         }
         
