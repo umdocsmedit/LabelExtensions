@@ -23,6 +23,7 @@
 		EE50D6C721EE3342007F9A71 /* script.js in Resources */ = {isa = PBXBuildFile; fileRef = EE50D6C621EE3342007F9A71 /* script.js */; };
 		EE50D6C921EE3342007F9A71 /* ToolbarItemIcon.pdf in Resources */ = {isa = PBXBuildFile; fileRef = EE50D6C821EE3342007F9A71 /* ToolbarItemIcon.pdf */; };
 		EE50D6DA21EE4429007F9A71 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EE50D6D921EE4428007F9A71 /* icon.png */; };
+		EE515D7121F750540061B65C /* MyNumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE515D7021F750540061B65C /* MyNumberFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		EE50D6C821EE3342007F9A71 /* ToolbarItemIcon.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = ToolbarItemIcon.pdf; sourceTree = "<group>"; };
 		EE50D6CA21EE3342007F9A71 /* UMDocsMedIT_Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UMDocsMedIT_Extension.entitlements; sourceTree = "<group>"; };
 		EE50D6D921EE4428007F9A71 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		EE515D7021F750540061B65C /* MyNumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNumberFormatter.swift; sourceTree = "<group>"; };
 		EE9D4FD121F42E7300CBEF8C /* transpile.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = transpile.sh; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -194,6 +196,7 @@
 				EE50D6BE21EE3342007F9A71 /* SafariExtensionHandler.swift */,
 				EE50D6C021EE3342007F9A71 /* SafariExtensionViewController.swift */,
 				EE50D6C221EE3342007F9A71 /* SafariExtensionViewController.xib */,
+				EE515D7021F750540061B65C /* MyNumberFormatter.swift */,
 				EE50D6C521EE3342007F9A71 /* Info.plist */,
 				EE50D6C821EE3342007F9A71 /* ToolbarItemIcon.pdf */,
 				EE50D6CA21EE3342007F9A71 /* UMDocsMedIT_Extension.entitlements */,
@@ -385,6 +388,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE50D6C121EE3342007F9A71 /* SafariExtensionViewController.swift in Sources */,
+				EE515D7121F750540061B65C /* MyNumberFormatter.swift in Sources */,
 				EE50D6BF21EE3342007F9A71 /* SafariExtensionHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
