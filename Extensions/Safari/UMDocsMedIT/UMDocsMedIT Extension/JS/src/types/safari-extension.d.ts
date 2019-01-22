@@ -11,11 +11,17 @@
 
 declare namespace safari {
 	namespace extension {
-		function dispatchMessage(data: any): void;
+		function dispatchMessage(messageName: string, data?: any): void;
 	}
 
 	namespace self {
-		type eventCallback = (event: Event) => void;
+		type eventCallback = (event: SafariExtensionMessageEvent) => void;
 		function addEventListener(eventType: string, callback: eventCallback): void;
 	}
+}
+
+interface SafariExtensionMessageEvent {
+	type: string | undefined;
+	name: string | undefined;
+	message: string | undefined;
 }
