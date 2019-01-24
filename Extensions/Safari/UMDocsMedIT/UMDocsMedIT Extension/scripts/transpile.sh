@@ -12,12 +12,16 @@ pushd ../JS
 
 # Download dependencies
 cp ../../../../Chrome/src/PatientRecord.ts ../JS/src/
+cp ../../../../Chrome/src/PrintLabel.ts ../JS/src/
+cp ../../../../Chrome/src/templates.ts ../JS/src/
+cp ../../../../Chrome/src/types/dymo.d.ts ../JS/src/types/
+cp ../../../../Chrome/dist/js/DYMO.Label_.Framework.2.0.2.js ../JS/dist/
 
 # Transpile
 tsc
 
 # Browserify if needed ...
-browserify ../JS/dist/PatientRecord.js ../JS/dist/script.js -o ../JS/dist/script.js
+browserify ../JS/dist/PrintLabel.js ../JS/dist/PatientRecord.js ../JS/dist/script.js -o ../JS/dist/script.js
 
 popd
 
