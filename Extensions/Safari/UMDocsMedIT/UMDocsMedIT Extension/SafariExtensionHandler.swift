@@ -68,6 +68,7 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
         
         let shared: SafariExtensionViewController = SafariExtensionViewController.shared
         shared.setPatientName(self.patientFullName)
+        shared.patientData = patientData
     }
 
 }
