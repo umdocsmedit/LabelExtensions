@@ -11,6 +11,7 @@
 
 // ==================================================================
 
+import * as PrintLabel from "./PrintLabel"
 import PatientRecord from "./PatientRecord"
 
 document.addEventListener("DOMContentLoaded", (): void => {
@@ -21,6 +22,17 @@ safari.self.addEventListener("message", (event: SafariExtensionMessageEvent): vo
 	switch(event.name) {
 		case "getPatientData":
 			sendPatientData();
+			break;
+		case "printLabel":
+			let data: PatientRecord = event.message.patientData;
+			let numLabels: number = event.message.numLabels;
+			let labsOrdered: string = event.message.labsOrdered;
+			if(data.firstname == null) {
+				alert("No patient data found");
+			}
+			else {
+				printLabel(data, numLabels, labsOrdered);
+			}
 			break;
 		default:
 			console.log(`${event.name} unrecognized message name`);
@@ -40,4 +52,9 @@ function sendPatientData(): PatientRecord {
 	safari.extension.dispatchMessage("patientData", {data: patientData});
 
 	return patientData;
+}
+
+function printLabel(patientData: PatientRecord, numLabels: number, labsOrdered: string): void {
+	PrintLabel.frameworkInitShim(patientData, numLabels, labsOrdered);
+	return;
 }

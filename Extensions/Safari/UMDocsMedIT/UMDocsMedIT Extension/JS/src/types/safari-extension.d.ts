@@ -23,5 +23,5 @@ declare namespace safari {
 interface SafariExtensionMessageEvent {
 	type: string | undefined;
 	name: string | undefined;
-	message: string | undefined;
+	message: any | undefined;
 }
