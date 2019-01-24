@@ -7,6 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SafariExtensionViewController" customModule="UMDocsMedIT_Extension" customModuleProvider="target">
             <connections>
+                <outlet property="labsOrderedList" destination="zlV-Rk-oiP" id="ylW-Ng-XeE"/>
                 <outlet property="numLabelsField" destination="Etc-NB-52a" id="4A2-e9-WsC"/>
                 <outlet property="patientNameLabel" destination="kd5-uB-0zn" id="uTm-Am-nEc"/>
                 <outlet property="printButton" destination="gYf-qK-q1Z" id="J7c-lm-PgE"/>

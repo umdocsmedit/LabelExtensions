@@ -17,6 +17,8 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     
     let labsOrderedOptions: [String] = ["CRC", "Pap Smear", "Lipids"]
     
+    var patientData: [String: Any] = [:]
+    
     static let shared: SafariExtensionViewController = {
         let shared = SafariExtensionViewController()
         shared.preferredContentSize = NSSize(width:276, height:150)
@@ -30,15 +32,35 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
             self.numLabelsField.resignFirstResponder()
             self.printButton.becomeFirstResponder()
         }
-        
-//        self.labsOrderedList.removeAllItems()
-//        self.labsOrderedList.addItems(withTitles: self.labsOrderedOptions)
-//        self.labsOrderedList.selectItem(at: 1)
-//        self.labsOrderedList.synchronizeTitleAndSelectedItem()
     }
 
     @IBAction func print(_ sender: Any) {
-        
+        SFSafariApplication.getActiveWindow { window in
+            if window == nil {
+                NSLog("No window")
+                return
+            }
+            
+            window!.getActiveTab { tab in
+                if tab == nil {
+                    NSLog("No tab")
+                    return
+                }
+                
+                tab!.getActivePage { page in
+                    if page == nil {
+                        NSLog("No page")
+                        return
+                    }
+                    let data: [String: Any] = [
+                        "patientData": self.patientData,
+                        "numLabels": self.numLabelsField.stringValue,
+                        "labsOrdered": self.labsOrderedList.titleOfSelectedItem!
+                    ]
+                    page!.dispatchMessageToScript(withName: "printLabel", userInfo: data)
+                }
+            }
+        }
     }
     
     @IBAction func papItemSelected(_ sender: Any) {
