@@ -13,7 +13,6 @@
 		EE50D69E21EE333F007F9A71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE50D69D21EE333F007F9A71 /* AppDelegate.swift */; };
 		EE50D6A121EE333F007F9A71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE50D69F21EE333F007F9A71 /* Main.storyboard */; };
 		EE50D6A321EE333F007F9A71 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE50D6A221EE333F007F9A71 /* ViewController.swift */; };
-		EE50D6A521EE3342007F9A71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE50D6A421EE3342007F9A71 /* Assets.xcassets */; };
 		EE50D6B021EE3342007F9A71 /* UMDocsMedITTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE50D6AF21EE3342007F9A71 /* UMDocsMedITTests.swift */; };
 		EE50D6B721EE3342007F9A71 /* UMDocsMedIT Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = EE50D6B621EE3342007F9A71 /* UMDocsMedIT Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		EE50D6BC21EE3342007F9A71 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE50D6BB21EE3342007F9A71 /* Cocoa.framework */; };
@@ -24,6 +23,8 @@
 		EE50D6C921EE3342007F9A71 /* ToolbarItemIcon.pdf in Resources */ = {isa = PBXBuildFile; fileRef = EE50D6C821EE3342007F9A71 /* ToolbarItemIcon.pdf */; };
 		EE50D6DA21EE4429007F9A71 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EE50D6D921EE4428007F9A71 /* icon.png */; };
 		EE515D7121F750540061B65C /* MyNumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE515D7021F750540061B65C /* MyNumberFormatter.swift */; };
+		EEC89ECD21F89DDE00DC9FDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEC89ECC21F89DDE00DC9FDB /* Assets.xcassets */; };
+		EEF4457C21F7DF5C00146CB0 /* DYMO.Label_.Framework.2.0.2.js in Resources */ = {isa = PBXBuildFile; fileRef = EEF4457B21F7DF5C00146CB0 /* DYMO.Label_.Framework.2.0.2.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,7 +66,6 @@
 		EE50D69D21EE333F007F9A71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EE50D6A021EE333F007F9A71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EE50D6A221EE333F007F9A71 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		EE50D6A421EE3342007F9A71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE50D6A621EE3342007F9A71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE50D6AB21EE3342007F9A71 /* UMDocsMedITTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UMDocsMedITTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE50D6AF21EE3342007F9A71 /* UMDocsMedITTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UMDocsMedITTests.swift; sourceTree = "<group>"; };
@@ -82,6 +82,8 @@
 		EE50D6D921EE4428007F9A71 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		EE515D7021F750540061B65C /* MyNumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNumberFormatter.swift; sourceTree = "<group>"; };
 		EE9D4FD121F42E7300CBEF8C /* transpile.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = transpile.sh; sourceTree = "<group>"; };
+		EEC89ECC21F89DDE00DC9FDB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EEF4457B21F7DF5C00146CB0 /* DYMO.Label_.Framework.2.0.2.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = DYMO.Label_.Framework.2.0.2.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 		EE4F420221F4059E000818C0 /* dist */ = {
 			isa = PBXGroup;
 			children = (
+				EEF4457B21F7DF5C00146CB0 /* DYMO.Label_.Framework.2.0.2.js */,
 				EE4F420721F40B31000818C0 /* main.js */,
 				EE50D6C621EE3342007F9A71 /* script.js */,
 			);
@@ -160,11 +163,11 @@
 		EE50D69A21EE333F007F9A71 /* UMDocsMedIT */ = {
 			isa = PBXGroup;
 			children = (
+				EEC89ECC21F89DDE00DC9FDB /* Assets.xcassets */,
 				EE50D69B21EE333F007F9A71 /* UMDocsMedIT.entitlements */,
 				EE50D69D21EE333F007F9A71 /* AppDelegate.swift */,
 				EE50D69F21EE333F007F9A71 /* Main.storyboard */,
 				EE50D6A221EE333F007F9A71 /* ViewController.swift */,
-				EE50D6A421EE3342007F9A71 /* Assets.xcassets */,
 				EE50D6A621EE3342007F9A71 /* Info.plist */,
 			);
 			path = UMDocsMedIT;
@@ -318,7 +321,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE50D69C21EE333F007F9A71 /* UMDocsMedIT.entitlements in Resources */,
-				EE50D6A521EE3342007F9A71 /* Assets.xcassets in Resources */,
+				EEC89ECD21F89DDE00DC9FDB /* Assets.xcassets in Resources */,
 				EE50D6A121EE333F007F9A71 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -334,6 +337,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEF4457C21F7DF5C00146CB0 /* DYMO.Label_.Framework.2.0.2.js in Resources */,
 				EE50D6DA21EE4429007F9A71 /* icon.png in Resources */,
 				EE50D6C921EE3342007F9A71 /* ToolbarItemIcon.pdf in Resources */,
 				EE50D6C421EE3342007F9A71 /* SafariExtensionViewController.xib in Resources */,
@@ -546,6 +550,7 @@
 		EE50D6CE21EE3342007F9A71 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "UMDocsMedIT Extension/UMDocsMedIT_Extension.entitlements";
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -567,6 +572,7 @@
 		EE50D6CF21EE3342007F9A71 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "UMDocsMedIT Extension/UMDocsMedIT_Extension.entitlements";
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
