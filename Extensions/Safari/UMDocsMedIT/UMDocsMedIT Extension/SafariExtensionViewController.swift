@@ -57,7 +57,11 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
                         "numLabels": self.numLabelsField.stringValue,
                         "labsOrdered": self.labsOrderedList.titleOfSelectedItem!
                     ]
-                    page!.dispatchMessageToScript(withName: "printLabel", userInfo: data)
+                    if self.patientData["firstname"] == nil {
+                        SafariExtensionViewController.alert("No Patient Data Found", "No patient data found.\r\nEnsure that you are on a RedCap patient data page")
+                    } else {
+                        page!.dispatchMessageToScript(withName: "printLabel", userInfo: data)
+                    }
                 }
             }
         }
@@ -70,5 +74,16 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     
     public func setPatientName(_ name: String) {
         self.patientNameLabel.stringValue = "Patient Name: \(name)"
+    }
+    
+    static func alert(_ mainMessage: String, _ infoMessage: String) {
+        DispatchQueue.main.sync {
+            let curAlert: NSAlert = NSAlert()
+            curAlert.alertStyle = NSAlert.Style.informational
+            curAlert.messageText = mainMessage
+            curAlert.informativeText = infoMessage
+            curAlert.runModal()
+
+        }
     }
 }
