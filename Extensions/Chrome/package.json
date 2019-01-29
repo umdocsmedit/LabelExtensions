@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "mocha -r ts-node/register -r amd-loader tests/**/*.spec.ts",
-	"build": "sh ./scripts/build.sh"
+    "build": "sh ./scripts/build.sh"
   },
   "author": "Kevin Davis",
   "license": "ISC",
