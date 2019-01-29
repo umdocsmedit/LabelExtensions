@@ -8,8 +8,8 @@
  */
 // ==================================================================
 
-/// <reference path="../src/types/healthFair.d.ts" />
-/// <reference path="../src/types/patientRecord.d.ts" />
+//// <reference path="../src/types/healthFair.d.ts" />
+//// <reference path="../src/types/patientRecord.d.ts" />
 
 //import * as PrintLabel from "../src/PrintLabel"
 //import * as assert from 'assert'
