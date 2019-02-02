@@ -15,5 +15,8 @@
 	"bugs": {
 		"url": "https://github.com/kevincar/UMDocsMedIT/issues"
 	},
-	"homepage": "https://github.com/kevincar/UMDocsMedIT#readme"
+	"homepage": "https://github.com/kevincar/UMDocsMedIT#readme",
+	"devDependencies": {
+		"sinon-chrome": "^2.3.2"
+	}
 }
