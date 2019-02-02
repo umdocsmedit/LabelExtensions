@@ -7,15 +7,17 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "mocha -r ts-node/register -r amd-loader tests/**/*.spec.ts",
-    "build": "sh ./scripts/build.sh"
+    "build": "sh ./scripts/build.sh",
+    "test": "npm run build && mocha -r ts-node/register -r amd-loader tests/**/*.spec.ts"
   },
   "author": "Kevin Davis",
   "license": "ISC",
   "devDependencies": {
     "@types/assert": "^1.4.1",
+    "@types/chrome": "0.0.78",
     "@types/expect": "^1.20.3",
     "@types/mocha": "^5.2.5",
+    "@types/sinon-chrome": "^2.2.6",
     "amd": "0.0.0",
     "amd-loader": "0.0.8",
     "assert": "^1.4.1",
@@ -26,6 +28,7 @@
     "ts-node": "^7.0.1"
   },
   "dependencies": {
+    "sinon-chrome": "^2.3.2",
     "typescript": "^3.2.2"
   }
 }

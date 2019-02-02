@@ -7,11 +7,20 @@
  * This file functions as the background script for the chrome web browser
  * extension
  */
+
+/// <reference types="sinon-chrome" />
+
 //===========================================================================
 
-chrome.runtime.onInstalled.addListener((): void => {
+//declare interface Global {
+	//chrome: any;
+	//name: string;
+//}
 
-	let pageStateMatcherOptions: chrome.declarativeContent.PageStateMatcher = {
+//declare let global: Global;
+
+export function loadExtension(): void {
+	let pageStateMatcherOptions: chrome.declarativeContent.PageStateMatcherProperties = {
 		pageUrl: {
 			hostEquals: 'redcap.miami.edu'
 		}
@@ -27,4 +36,13 @@ chrome.runtime.onInstalled.addListener((): void => {
 	let rules: chrome.events.Rule[] = [pageRestrictionRule];
 
 	chrome.declarativeContent.onPageChanged.addRules(rules);
-});
+	return;
+}
+
+export function main(): void {
+	chrome.runtime.onInstalled.addListener(loadExtension);
+}
+
+main();
+
+module.exports = {loadExtension, main};
