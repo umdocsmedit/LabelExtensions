@@ -18,18 +18,8 @@ import * as PrintLabel from './PrintLabel'
 import PatientRecord from './PatientRecord'
 
 async function init(): Promise<void> {
-	let dymoScript1: string = "../js/DYMO.Label_.Framework.2.0.2.js";
-	let dymoScript2: string = "../js/DYMO.Label_.Framework.2.0.2r.js";
 
-	// start with first script
-	dymo = await loadScript(dymoScript1);
-
-	let frameworkSet: number = await checkConnection();
-
-	// TODO: don't use magic numbers, change this to an enumeration or something
-	if(frameworkSet == 2) {
-		dymo = await loadScript(dymoScript2);
-	}
+	loadAppropriateFramework();
 
 	let printButton: HTMLInputElement | null = <HTMLInputElement>document.getElementById('print');
 	let numLabelsField: HTMLInputElement | null = <HTMLInputElement>document.body.querySelector("[name='numlabels']");
@@ -100,6 +90,28 @@ async function init(): Promise<void> {
 	return;
 }
 
+async function loadAppropriateFramework(): Promise<void> {
+
+	// localhost
+	let dymoScript1: string = "../js/DYMO.Label_.Framework.2.0.2.js";
+	// 127.0.0.1
+	let dymoScript2: string = "../js/DYMO.Label_.Framework.2.0.2r.js";
+
+	// start with first script
+	// dymo is a global var
+	dymo = await loadScript(dymoScript1);
+
+	// test current frameork
+	let frameworkSet: number = await checkConnection();
+
+	// TODO: don't use magic numbers, change this to an enumeration or something
+	if(frameworkSet == 2) {
+		dymo = await loadScript(dymoScript2);
+	}
+
+	return;
+}
+
 async function loadScript(src: string): Promise<any> {
 	let output: HTMLElement | null = document.getElementById("output");
 	
@@ -110,7 +122,6 @@ async function loadScript(src: string): Promise<any> {
 		newScript.innerHTML = "";
 		newScript.src = src;
 		newScript.onload = () => {
-			console.log(`HEY: ${dymo}`)
 			resolve(dymo);
 		};
 		output.innerHTML = "";
@@ -121,7 +132,7 @@ async function loadScript(src: string): Promise<any> {
 }
 
 async function checkConnection(): Promise<number> {
-	console.log("N");
+
 	let port: number = 0;
 	const startingTestPort: number = 41951;
 	const endingTestPort: number = 41960;
@@ -134,8 +145,6 @@ async function checkConnection(): Promise<number> {
 		}
 	}
 
-	console.log(port);
-
 	if(port != 0) return 1;
 
 	for(let curTestPort: number = startingTestPort; curTestPort <= endingTestPort; curTestPort++) {
@@ -146,7 +155,6 @@ async function checkConnection(): Promise<number> {
 		}
 	}
 
-	console.log(port);
 	if(port != 0) return 2;
 
 	return 0;
@@ -177,7 +185,6 @@ async function testServer(localhostFlag: boolean, port: number): Promise<boolean
 }
 
 function listPatient(patientRecord: PatientRecord): void {
-	console.log("PatientRECORDS");
 
 	let patientFound: boolean = patientRecord.firstname != null;
 	let displayText: string = patientFound?`${patientRecord.firstname} ${patientRecord.lastname}`:"No patient data found";
