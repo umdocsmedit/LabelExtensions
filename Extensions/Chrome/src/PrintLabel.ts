@@ -27,7 +27,7 @@ export function print(patientRecord: PatientRecord, numlabels: number, labsorder
 
 	let printers: dymo.Printer[] = dymo.label.framework.getPrinters();
 	if(printers.length == 0) {
-		throw alert("No printers found");
+		throw alert("No printers found: Could not connect to DYMO web service");
 	}
 
 	let chosenPrinter: dymo.Printer | null = null;
@@ -40,7 +40,7 @@ export function print(patientRecord: PatientRecord, numlabels: number, labsorder
 	}
 
 	if(chosenPrinter == null) {
-		throw alert("No Printers connected");
+		throw alert("No Printers connected, but connected to DYMO web service");
 	}
 
 	let labelXml: string = templates.labelTemplate(patientRecord, labsordered);
