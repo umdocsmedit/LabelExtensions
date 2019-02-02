@@ -23,7 +23,14 @@ class ViewController: NSViewController {
             if let _ = error {
                 let err: Error = error!;
                 // Insert code to inform the user that something went wrong.
-                print("error \(err._code)");
+                print("error \(err._code)")
+                DispatchQueue.main.async {
+                    let alert: NSAlert = NSAlert()
+                    alert.alertStyle = NSAlert.Style.warning
+                    alert.messageText = "error \(err._code)"
+                    alert.informativeText = "Error"
+                    alert.runModal()
+                }
             }
         }
     }
