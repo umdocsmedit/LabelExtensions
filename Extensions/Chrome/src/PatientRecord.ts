@@ -370,5 +370,5 @@ module PatientRecord {
 	}
 }
 
-export = PatientRecord;
+export default PatientRecord;
 
