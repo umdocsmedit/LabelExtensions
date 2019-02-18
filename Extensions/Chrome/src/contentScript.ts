@@ -1,13 +1,14 @@
-import PatientRecord from './PatientRecord';
+/*
+ * Filename: contentScript.ts
+ * Author: Kevin Davis
+ * Date: Febrary 17, 2019
+ *
+ * Description
+ * Used to inject into the website to gather patient data
+ */
 
-(function(){
-	let patientRecord: PatientRecord;
-	try {
-		patientRecord = new PatientRecord();
-	} catch(e) {
-		patientRecord = new PatientRecord(true);
-	}
+// ==================================================================
 
-	chrome.runtime.sendMessage({data: patientRecord}, ()=>{});
+import * as gd from './gatherData'
 
-})();
+gd.gatherData();
