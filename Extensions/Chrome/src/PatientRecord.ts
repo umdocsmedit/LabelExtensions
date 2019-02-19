@@ -312,7 +312,7 @@ class PatientRecord {
 		let mrn: number = 0;
 
 		try {
-			mrn = parseInt(MRNElement.innerText);
+			mrn = parseInt(MRNElement.innerHTML);
 		}
 		catch(e) {
 			console.error("Failed to get mrn");
