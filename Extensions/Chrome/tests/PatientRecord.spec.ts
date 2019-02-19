@@ -49,6 +49,14 @@ describe('PatientRecord', () => {
 		});
 	});
 
+	describe('getArm', () => {
+		it('should return the number corresponding to the current arm of the current patient', () => {
+			let expectedOutput: number = 11;
+			let observedOutput: number = pr.getArm();
+			assert.equal(observedOutput, expectedOutput);
+		});
+	});
+
 	describe('getGenericValue', () => {
 		it('should give us back the value of an input identifier of the given named element', () => {
 			let input: string = 'first_name';

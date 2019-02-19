@@ -97,7 +97,7 @@ class PatientRecord {
 			return -1;
 		}
 
-		let potentialMatch: RegExpMatchArray | null = yellowElement.innerText.match(/\(Arm ([0-9]+):/i);
+		let potentialMatch: RegExpMatchArray | null = yellowElement.innerHTML.match(/\(Arm ([0-9]+):/i);
 		if( (potentialMatch == null) || (potentialMatch.length < 2)) {
 			console.error("Failed to match to the arm name: no match");
 			return -1;
