@@ -37,7 +37,7 @@ class PatientRecord {
 		this.MRN = this.getMRN();
 		this.sex = this.getSex();
 		this.street = this.getGenericValue("street");
-		this.apartment = this.getGenericValue("appartment");
+		this.apartment = this.getGenericValue("apartment");
 		this.city = this.getGenericValue("city");
 		this.state = this.getState();
 		this.zip = this.getGenericValue("zip_code");
