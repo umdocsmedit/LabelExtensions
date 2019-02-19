@@ -76,6 +76,8 @@ class PatientRecord {
 				break;
 			case 10:
 				result = PatientRecord.Healthfair.LOW;
+			case 11:
+				result = PatientRecord.Healthfair.WKHF;
 				break;
 		}
 		return result;
@@ -366,7 +368,8 @@ module PatientRecord {
 			KWHF = 'KWHF',
 			JJHF = 'JJHF',
 			LCHF = 'LCHF',
-			LOW = 'LOW'
+			LOW = 'LOW',
+			WKHF = 'WKHF'
 	}
 }
 
