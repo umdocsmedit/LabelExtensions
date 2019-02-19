@@ -76,6 +76,7 @@ class PatientRecord {
 				break;
 			case 10:
 				result = PatientRecord.Healthfair.LOW;
+				break;
 			case 11:
 				result = PatientRecord.Healthfair.WKHF;
 				break;
