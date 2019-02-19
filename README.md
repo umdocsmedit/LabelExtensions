@@ -1,6 +1,6 @@
 # UM DOCS MedIT Label Extensions
 
-[![Build Status](https://travis-ci.org/kevincar/UMDocsMedIT.svg?branch=master)](https://travis-ci.org/kevincar/UMDocsMedIT)
+[![Build Status](https://travis-ci.org/umdocsmedit/LabelExtensions.svg?branch=master)](https://travis-ci.org/umdocsmedit/LabelExtensions)
 
 Here you will find chrome and safari extensions for easily printing labels for
 patients at health fairs when viewing their data on RedCap
