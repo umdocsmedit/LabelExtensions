@@ -1,0 +1,1071 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>Test - MedIT Project | REDCap</title>
+	<meta name="googlebot" content="noindex, noarchive, nofollow, nosnippet">
+	<meta name="robots" content="noindex, noarchive, nofollow">
+	<meta name="slurp" content="noindex, noarchive, nofollow, noodp, noydir">
+	<meta name="msnbot" content="noindex, noarchive, nofollow, noodp">
+	<meta http-equiv="Cache-Control" content="no-cache">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="expires" content="0">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="/redcap_v8.10.2/Resources/images/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon-precomposed" href="/redcap_v8.10.2/Resources/images/apple-touch-icon.png">
+	<link rel="stylesheet" type="text/css" href="/redcap_v8.10.2/Resources/css/jquery-ui.min.css" media="screen,print">
+	<link rel="stylesheet" type="text/css" href="/redcap_v8.10.2/Resources/css/style.css" media="screen,print">
+	<link rel="stylesheet" type="text/css" href="/redcap_v8.10.2/Resources/css/survey_text_very_large.css" media="screen and (max-width: 767px)">	<script type="text/javascript" src="/redcap_v8.10.2/Resources/js/base.js"></script>
+	<script type="text/javascript" src="/redcap_v8.10.2/Resources/js/velocity-min.js"></script>
+	<script type="text/javascript" src="/redcap_v8.10.2/Resources/js/velocity-ui-min.js"></script>	
+	<script type="text/javascript" src="/redcap_v8.10.2/Resources/js/ReportFolders.js"></script>	
+	<!--[if IE 9]>
+	<link rel="stylesheet" type="text/css" href="/redcap_v8.10.2/Resources/css/bootstrap-ie9.min.css">
+	<script type="text/javascript">$(function(){ie9FormFix()});</script>
+	<!--<![endif]-->
+</head>
+<body>
+<script type="text/javascript">
+	$(function () {
+		if ($('#project-menu-logo').length > 0 && false) {
+			var newPanel = $('#app_panel').clone()
+			newPanel.attr('id', 'external_modules_panel')
+			newPanel.find('.x-panel-header div:first-child').html("External Modules")
+
+			// The following chained blocks were adapted from base.js lines 7147 to 7170 in v6.16.8
+			newPanel.find('.projMenuToggle').mouseenter(function() {
+				$(this).removeClass('opacity50');
+				if (isIE) $(this).find("img").removeClass('opacity50');
+			}).mouseleave(function() {
+				$(this).addClass('opacity50');
+				if (isIE) $(this).find("img").addClass('opacity50');
+			}).click(function(){ // Copied from base.js line 7155 in v6.16.8
+				var divBox = $(this).parent().parent().find('.x-panel-bwrap:first');
+				// Toggle the box
+				divBox.toggle('blind','fast');
+				// Toggle the image
+				var toggleImg = $(this).find('img:first');
+				if (toggleImg.prop('src').indexOf('toggle-collapse.png') > 0) {
+					toggleImg.prop('src', app_path_images+'toggle-expand.png');
+					var collapse = 1;
+				} else {
+					toggleImg.prop('src', app_path_images+'toggle-collapse.png');
+					var collapse = 0;
+				}
+				// Send ajax request to save cookie
+				$.post(app_path_webroot+'ProjectGeneral/project_menu_collapse.php?pid='+ExternalModules.PID, { menu_id: $(this).prop('id'), collapse: collapse });
+			});
+
+			function getLink(icon, name,url, target){
+				newLink = exampleLink.clone()
+				newLink.find('img').attr('src', icon)
+				newLink.find('a').attr('href', url+'&pid=2709')
+				newLink.find('a').attr('target', target)
+				newLink.find('a').html(name);
+				return(newLink);
+			}
+
+			var menubox = newPanel.find('.x-panel-body .menubox .menubox')
+			var exampleLink = menubox.find('.hang:first-child').clone()
+			menubox.html('')
+
+			var newLink;
+			            // Only render the newPanel if the menubox contains links
+			if (menubox.children().length) newPanel.insertBefore('#help_panel')
+		}
+	})
+</script>
+	<script type="text/javascript">
+		var app_name = 'test_medit_project';
+	var pid = 2709;
+	var status = 0;
+	var table_pk  = 'record_id'; var table_pk_label  = 'Record ID';
+	var longitudinal = 1;
+	var auto_inc_set = 1;
+	var data_resolution_enabled = 1;
+	var lock_record = 1;
+	var shared_lib_browse_url = 'https://redcap.vanderbilt.edu/consortium/library/login.php?callback=https%3A%2F%2Fredcap.miami.edu%2Fredcap_v8.10.2%2FSharedLibrary%2Freceiver.php%3Fpid%3D2709&institution=University+of+Miami&user=df71a7da68d07dd3559cb3abcfd57d8b';
+		var redcap_version = '8.10.2';
+	var server_name = 'redcap.miami.edu';
+	var app_path_webroot = '/redcap_v8.10.2/';
+	var app_path_webroot_full = 'https://redcap.miami.edu/';
+	var app_path_images = '/redcap_v8.10.2/Resources/images/';
+	var page = 'DataEntry/index.php';
+	var sendit_enabled = 1;
+	var super_user = 0;
+	var surveys_enabled = 1;
+	var now = '2019-02-19 14:46:52'; var now_mdy = '02-19-2019 14:46:52'; var now_dmy = '19-02-2019 14:46:52';
+	var today = '2019-02-19'; var today_mdy = '02-19-2019'; var today_dmy = '19-02-2019';
+	var email_domain_whitelist = new Array();
+	var user_date_format_jquery = 'mm/dd/yy';
+	var user_date_format_validation = 'mdy';
+	var user_date_format_delimiter = '/';
+	var ALLOWED_TAGS = '<ol><ul><li><label><pre><p><a><br><center><font><b><i><u><h6><h5><h4><h3><h2><h1><hr><table><tbody><tr><th><td><img><span><div><em><strong><acronym><sub><sup><map><area>';
+	var AUTOMATE_ALL = '0';
+		var datatables_disable = [];	
+	var langMsg137 = 'NOTICE: It appears that you may have multiple browser windows/tabs open, which may prevent some things from working on this page until this page is refreshed. It is advised that you complete what you are doing, and then refresh this page.';
+	var langMsg68 = '(click to go to project)';
+	var langMsg69 = '(current project)';
+	var langTimepicker01 = 'Now';
+	var langTimepicker02 = 'Time';
+	var langTimepicker03 = 'Hour';
+	var langTimepicker04 = 'Minute';
+	var langTimepicker05 = 'Choose Time';
+	var langAutoLogout01 = 'REDCap Auto Logout Warning';
+	var langAutoLogout02 = 'Log In';
+	var langAutoLogout03 = 'Continue on this page';
+	var warn_timeout1 = 'You will be automatically logged out of REDCap in <b>2 MINUTES</b> due to inactivity. Click the button below to prevent auto logout.';
+	var warn_timeout2 = 'You will be automatically logged out of REDCap in <b>30 SECONDS</b> due to inactivity. Click the button below to prevent auto logout.';
+	var warn_timeout3 = '<b>Due to inactivity, your REDCap session has expired.</b> Click the button below to log in again.';
+	$(function(){
+		$.datepicker.setDefaults({
+			closeText: 'Done',
+			prevText: 'Prev',
+			nextText: 'Next',
+			currentText: 'Today',
+			monthNamesShort:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+			dayNames:['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],
+			dayNamesMin:['Su','Mo','Tu','We','Th','Fr','Sa']
+		});
+	});
+	</script>
+				<script type="text/javascript">
+			// Add CSRF token as javascript variable and add to every form on page
+			var redcap_csrf_token = '954777481071acbd6a5d264be8fa1a3b';
+			$(function(){ appendCsrfTokenToForm(); });
+			</script>
+			
+		<script type='text/javascript'>
+		$(function(){
+			initAutoLogout(3,30);
+		});
+		</script>
+	<!-- Add hidden text for slider accessiblity on surveys -->
+	<div id="slider-0means" class="hidden">0% means</div>
+	<div id="slider-50means" class="hidden">50% means</div>
+	<div id="slider-100means" class="hidden">100% means</div>
+
+	<!-- Text used for field validation errors -->
+	<div id="valtext_divs">
+		<div id="valtext_number">This value you provided is not a number. Please try again.</div>
+		<div id="valtext_integer">This value you provided is not an integer. Please try again.</div>
+		<div id="valtext_vmrn">The value entered is not a valid Vanderbilt Medical Record Number (i.e. 4- to 9-digit number, excluding leading zeros). Please try again.</div>
+		<div id="valtext_rangehard">The value you provided must be within the suggested range.</div>
+		<div id="valtext_rangesoft1">The value you provided is outside the suggested range.</div>
+		<div id="valtext_rangesoft2">This value is admissible, but you may wish to double check it.</div>
+		<div id="valtext_time">The value entered must be a time value in the following format HH:MM within the range 00:00-23:59 (e.g., 04:32 or 23:19).</div>
+		<div id="valtext_zipcode">This field must be a 5 or 9 digit U.S. ZIP Code (like 94043). Please re-enter it now.</div>
+		<div id="valtext_phone">This field must be a 10 digit U.S. phone number (like 415 555 1212). Please re-enter it now.</div>
+		<div id="valtext_email">This field must be a valid email address (like joe@user.com). Please re-enter it now.</div>
+		<div id="valtext_regex">The value you provided could not be validated because it does not follow the expected format. Please try again.</div>
+		<div id="valtext_requiredformat">Required format:</div>
+	</div>
+	<!-- Regex used for field validation -->
+	<div id="valregex_divs">
+			<div id="valregex-postalcode_french" datatype="postal_code" label="Code Postal 5 caracteres (France)">/^((0?[1-9])|([1-8][0-9])|(9[0-8]))[0-9]{3}$/</div>
+			<div id="valregex-date_dmy" datatype="date" label="Date (D-M-Y)">/^((29([-\/])02\3(\d{2}([13579][26]|[2468][048]|04|08)|(1600|2[048]00)))|((((0[1-9]|1\d|2[0-8])([-\/])(0[1-9]|1[012]))|((29|30)([-\/])(0[13-9]|1[012]))|(31([-\/])(0[13578]|1[02])))(\11|\15|\18)\d{4}))$/</div>
+			<div id="valregex-date_mdy" datatype="date" label="Date (M-D-Y)">/^((02([-\/])29\3(\d{2}([13579][26]|[2468][048]|04|08)|(1600|2[048]00)))|((((0[1-9]|1[012])([-\/])(0[1-9]|1\d|2[0-8]))|((0[13-9]|1[012])([-\/])(29|30))|((0[13578]|1[02])([-\/])31))(\11|\15|\19)\d{4}))$/</div>
+			<div id="valregex-date_ymd" datatype="date" label="Date (Y-M-D)">/^(((\d{2}([13579][26]|[2468][048]|04|08)|(1600|2[048]00))([-\/])02(\6)29)|(\d{4}([-\/])((0[1-9]|1[012])(\9)(0[1-9]|1\d|2[0-8])|((0[13-9]|1[012])(\9)(29|30))|((0[13578]|1[02])(\9)31))))$/</div>
+			<div id="valregex-datetime_dmy" datatype="datetime" label="Datetime (D-M-Y H:M)">/^((29([-\/])02\3(\d{2}([13579][26]|[2468][048]|04|08)|(1600|2[048]00)))|((((0[1-9]|1\d|2[0-8])([-\/])(0[1-9]|1[012]))|((29|30)([-\/])(0[13-9]|1[012]))|(31([-\/])(0[13578]|1[02])))(\11|\15|\18)\d{4})) (\d|[0-1]\d|[2][0-3]):[0-5]\d$/</div>
+			<div id="valregex-datetime_mdy" datatype="datetime" label="Datetime (M-D-Y H:M)">/^((02([-\/])29\3(\d{2}([13579][26]|[2468][048]|04|08)|(1600|2[048]00)))|((((0[1-9]|1[012])([-\/])(0[1-9]|1\d|2[0-8]))|((0[13-9]|1[012])([-\/])(29|30))|((0[13578]|1[02])([-\/])31))(\11|\15|\19)\d{4})) (\d|[0-1]\d|[2][0-3]):[0-5]\d$/</div>
+			<div id="valregex-datetime_ymd" datatype="datetime" label="Datetime (Y-M-D H:M)">/^(((\d{2}([13579][26]|[2468][048]|04|08)|(1600|2[048]00))([-\/])02(\6)29)|(\d{4}([-\/])((0[1-9]|1[012])(\9)(0[1-9]|1\d|2[0-8])|((0[13-9]|1[012])(\9)(29|30))|((0[13578]|1[02])(\9)31)))) (\d|[0-1]\d|[2][0-3]):[0-5]\d$/</div>
+			<div id="valregex-datetime_seconds_dmy" datatype="datetime_seconds" label="Datetime w/ seconds (D-M-Y H:M:S)">/^((29([-\/])02\3(\d{2}([13579][26]|[2468][048]|04|08)|(1600|2[048]00)))|((((0[1-9]|1\d|2[0-8])([-\/])(0[1-9]|1[012]))|((29|30)([-\/])(0[13-9]|1[012]))|(31([-\/])(0[13578]|1[02])))(\11|\15|\18)\d{4})) (\d|[0-1]\d|[2][0-3])(:[0-5]\d){2}$/</div>
+			<div id="valregex-datetime_seconds_mdy" datatype="datetime_seconds" label="Datetime w/ seconds (M-D-Y H:M:S)">/^((02([-\/])29\3(\d{2}([13579][26]|[2468][048]|04|08)|(1600|2[048]00)))|((((0[1-9]|1[012])([-\/])(0[1-9]|1\d|2[0-8]))|((0[13-9]|1[012])([-\/])(29|30))|((0[13578]|1[02])([-\/])31))(\11|\15|\19)\d{4})) (\d|[0-1]\d|[2][0-3])(:[0-5]\d){2}$/</div>
+			<div id="valregex-datetime_seconds_ymd" datatype="datetime_seconds" label="Datetime w/ seconds (Y-M-D H:M:S)">/^(((\d{2}([13579][26]|[2468][048]|04|08)|(1600|2[048]00))([-\/])02(\6)29)|(\d{4}([-\/])((0[1-9]|1[012])(\9)(0[1-9]|1\d|2[0-8])|((0[13-9]|1[012])(\9)(29|30))|((0[13578]|1[02])(\9)31)))) (\d|[0-1]\d|[2][0-3])(:[0-5]\d){2}$/</div>
+			<div id="valregex-email" datatype="email" label="Email">/^(?!\.)((?!.*\.{2})[a-zA-Z0-9\u0080-\u00FF\u0100-\u017F\u0180-\u024F\u0250-\u02AF\u0300-\u036F\u0370-\u03FF\u0400-\u04FF\u0500-\u052F\u0530-\u058F\u0590-\u05FF\u0600-\u06FF\u0700-\u074F\u0750-\u077F\u0780-\u07BF\u07C0-\u07FF\u0900-\u097F\u0980-\u09FF\u0A00-\u0A7F\u0A80-\u0AFF\u0B00-\u0B7F\u0B80-\u0BFF\u0C00-\u0C7F\u0C80-\u0CFF\u0D00-\u0D7F\u0D80-\u0DFF\u0E00-\u0E7F\u0E80-\u0EFF\u0F00-\u0FFF\u1000-\u109F\u10A0-\u10FF\u1100-\u11FF\u1200-\u137F\u1380-\u139F\u13A0-\u13FF\u1400-\u167F\u1680-\u169F\u16A0-\u16FF\u1700-\u171F\u1720-\u173F\u1740-\u175F\u1760-\u177F\u1780-\u17FF\u1800-\u18AF\u1900-\u194F\u1950-\u197F\u1980-\u19DF\u19E0-\u19FF\u1A00-\u1A1F\u1B00-\u1B7F\u1D00-\u1D7F\u1D80-\u1DBF\u1DC0-\u1DFF\u1E00-\u1EFF\u1F00-\u1FFF\u20D0-\u20FF\u2100-\u214F\u2C00-\u2C5F\u2C60-\u2C7F\u2C80-\u2CFF\u2D00-\u2D2F\u2D30-\u2D7F\u2D80-\u2DDF\u2F00-\u2FDF\u2FF0-\u2FFF\u3040-\u309F\u30A0-\u30FF\u3100-\u312F\u3130-\u318F\u3190-\u319F\u31C0-\u31EF\u31F0-\u31FF\u3200-\u32FF\u3300-\u33FF\u3400-\u4DBF\u4DC0-\u4DFF\u4E00-\u9FFF\uA000-\uA48F\uA490-\uA4CF\uA700-\uA71F\uA800-\uA82F\uA840-\uA87F\uAC00-\uD7AF\uF900-\uFAFF\.!#$%&'*+-/=?^_`{|}~\-\d]+)@(?!\.)([a-zA-Z0-9\u0080-\u00FF\u0100-\u017F\u0180-\u024F\u0250-\u02AF\u0300-\u036F\u0370-\u03FF\u0400-\u04FF\u0500-\u052F\u0530-\u058F\u0590-\u05FF\u0600-\u06FF\u0700-\u074F\u0750-\u077F\u0780-\u07BF\u07C0-\u07FF\u0900-\u097F\u0980-\u09FF\u0A00-\u0A7F\u0A80-\u0AFF\u0B00-\u0B7F\u0B80-\u0BFF\u0C00-\u0C7F\u0C80-\u0CFF\u0D00-\u0D7F\u0D80-\u0DFF\u0E00-\u0E7F\u0E80-\u0EFF\u0F00-\u0FFF\u1000-\u109F\u10A0-\u10FF\u1100-\u11FF\u1200-\u137F\u1380-\u139F\u13A0-\u13FF\u1400-\u167F\u1680-\u169F\u16A0-\u16FF\u1700-\u171F\u1720-\u173F\u1740-\u175F\u1760-\u177F\u1780-\u17FF\u1800-\u18AF\u1900-\u194F\u1950-\u197F\u1980-\u19DF\u19E0-\u19FF\u1A00-\u1A1F\u1B00-\u1B7F\u1D00-\u1D7F\u1D80-\u1DBF\u1DC0-\u1DFF\u1E00-\u1EFF\u1F00-\u1FFF\u20D0-\u20FF\u2100-\u214F\u2C00-\u2C5F\u2C60-\u2C7F\u2C80-\u2CFF\u2D00-\u2D2F\u2D30-\u2D7F\u2D80-\u2DDF\u2F00-\u2FDF\u2FF0-\u2FFF\u3040-\u309F\u30A0-\u30FF\u3100-\u312F\u3130-\u318F\u3190-\u319F\u31C0-\u31EF\u31F0-\u31FF\u3200-\u32FF\u3300-\u33FF\u3400-\u4DBF\u4DC0-\u4DFF\u4E00-\u9FFF\uA000-\uA48F\uA490-\uA4CF\uA700-\uA71F\uA800-\uA82F\uA840-\uA87F\uAC00-\uD7AF\uF900-\uFAFF\-\.\d]+)((\.([a-zA-Z\u0080-\u00FF\u0100-\u017F\u0180-\u024F\u0250-\u02AF\u0300-\u036F\u0370-\u03FF\u0400-\u04FF\u0500-\u052F\u0530-\u058F\u0590-\u05FF\u0600-\u06FF\u0700-\u074F\u0750-\u077F\u0780-\u07BF\u07C0-\u07FF\u0900-\u097F\u0980-\u09FF\u0A00-\u0A7F\u0A80-\u0AFF\u0B00-\u0B7F\u0B80-\u0BFF\u0C00-\u0C7F\u0C80-\u0CFF\u0D00-\u0D7F\u0D80-\u0DFF\u0E00-\u0E7F\u0E80-\u0EFF\u0F00-\u0FFF\u1000-\u109F\u10A0-\u10FF\u1100-\u11FF\u1200-\u137F\u1380-\u139F\u13A0-\u13FF\u1400-\u167F\u1680-\u169F\u16A0-\u16FF\u1700-\u171F\u1720-\u173F\u1740-\u175F\u1760-\u177F\u1780-\u17FF\u1800-\u18AF\u1900-\u194F\u1950-\u197F\u1980-\u19DF\u19E0-\u19FF\u1A00-\u1A1F\u1B00-\u1B7F\u1D00-\u1D7F\u1D80-\u1DBF\u1DC0-\u1DFF\u1E00-\u1EFF\u1F00-\u1FFF\u20D0-\u20FF\u2100-\u214F\u2C00-\u2C5F\u2C60-\u2C7F\u2C80-\u2CFF\u2D00-\u2D2F\u2D30-\u2D7F\u2D80-\u2DDF\u2F00-\u2FDF\u2FF0-\u2FFF\u3040-\u309F\u30A0-\u30FF\u3100-\u312F\u3130-\u318F\u3190-\u319F\u31C0-\u31EF\u31F0-\u31FF\u3200-\u32FF\u3300-\u33FF\u3400-\u4DBF\u4DC0-\u4DFF\u4E00-\u9FFF\uA000-\uA48F\uA490-\uA4CF\uA700-\uA71F\uA800-\uA82F\uA840-\uA87F\uAC00-\uD7AF\uF900-\uFAFF]){2,63})+)$/i</div>
+			<div id="valregex-integer" datatype="integer" label="Integer">/^[-+]?\b\d+\b$/</div>
+			<div id="valregex-alpha_only" datatype="text" label="Letters only">/^[a-z]+$/i</div>
+			<div id="valregex-mrn_10d" datatype="mrn" label="MRN (10 digits)">/^\d{10}$/</div>
+			<div id="valregex-mrn_generic" datatype="mrn" label="MRN (generic)">/^[a-z0-9-_]+$/i</div>
+			<div id="valregex-number" datatype="number" label="Number">/^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?$/</div>
+			<div id="valregex-number_1dp_comma_decimal" datatype="number_comma_decimal" label="Number (1 decimal place - comma as decimal)">/^-?\d+,\d$/</div>
+			<div id="valregex-number_1dp" datatype="number" label="Number (1 decimal place)">/^-?\d+\.\d$/</div>
+			<div id="valregex-number_2dp_comma_decimal" datatype="number_comma_decimal" label="Number (2 decimal places - comma as decimal)">/^-?\d+,\d{2}$/</div>
+			<div id="valregex-number_2dp" datatype="number" label="Number (2 decimal places)">/^-?\d+\.\d{2}$/</div>
+			<div id="valregex-number_3dp_comma_decimal" datatype="number_comma_decimal" label="Number (3 decimal places - comma as decimal)">/^-?\d+,\d{3}$/</div>
+			<div id="valregex-number_3dp" datatype="number" label="Number (3 decimal places)">/^-?\d+\.\d{3}$/</div>
+			<div id="valregex-number_4dp_comma_decimal" datatype="number_comma_decimal" label="Number (4 decimal places - comma as decimal)">/^-?\d+,\d{4}$/</div>
+			<div id="valregex-number_4dp" datatype="number" label="Number (4 decimal places)">/^-?\d+\.\d{4}$/</div>
+			<div id="valregex-number_comma_decimal" datatype="number_comma_decimal" label="Number (comma as decimal)">/^[-+]?[0-9]*,?[0-9]+([eE][-+]?[0-9]+)?$/</div>
+			<div id="valregex-phone_australia" datatype="phone" label="Phone (Australia)">/^(\(0[2-8]\)|0[2-8])\s*\d{4}\s*\d{4}$/</div>
+			<div id="valregex-phone" datatype="phone" label="Phone (North America)">/^(?:\(?([2-9]0[1-9]|[2-9]1[02-9]|[2-9][2-9][0-9])\)?)\s*(?:[.-]\s*)?([2-9]\d{2})\s*(?:[.-]\s*)?(\d{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$/</div>
+			<div id="valregex-postalcode_australia" datatype="postal_code" label="Postal Code (Australia)">/^\d{4}$/</div>
+			<div id="valregex-postalcode_canada" datatype="postal_code" label="Postal Code (Canada)">/^[ABCEGHJKLMNPRSTVXY]{1}\d{1}[A-Z]{1}\s*\d{1}[A-Z]{1}\d{1}$/i</div>
+			<div id="valregex-postalcode_germany" datatype="postal_code" label="Postal Code (Germany)">/^(0[1-9]|[1-9]\d)\d{3}$/</div>
+			<div id="valregex-ssn" datatype="ssn" label="Social Security Number (U.S.)">/^\d{3}-\d\d-\d{4}$/</div>
+			<div id="valregex-time" datatype="time" label="Time (HH:MM)">/^([0-9]|[0-1][0-9]|[2][0-3]):([0-5][0-9])$/</div>
+			<div id="valregex-time_mm_ss" datatype="time" label="Time (MM:SS)">/^[0-5]\d:[0-5]\d$/</div>
+			<div id="valregex-vmrn" datatype="mrn" label="Vanderbilt MRN">/^[0-9]{4,9}$/</div>
+			<div id="valregex-zipcode" datatype="postal_code" label="Zipcode (U.S.)">/^\d{5}(-\d{4})?$/</div>
+		</div>
+	<div id="working">
+	<img alt="Working..." src="/redcap_v8.10.2/Resources/images/progress_circle.gif"/>
+	&nbsp;Working...
+</div>
+<div id="fade"></div>
+<script type="text/javascript" src="/redcap_v8.10.2/Resources/js/Messenger.js"></script>
+<!-- top navbar for mobile -->
+<nav class="rcproject-navbar navbar navbar-light navbar-expand-md fixed-top" style="background-color:#f8f8f8;border-bottom:1px solid #e7e7e7;" role="navigation">
+	<span class="navbar-brand" style="max-width:78%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-right:0;">Test - MedIT Project</span>
+	<button type="button" class="navbar-toggler float-right" onclick="toggleProjectMenuMobile($('#west'))">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+</nav>
+<!-- main window -->
+<div class="container-fluid mainwindow">
+	<div class='message-center-container mc-close' data_open='0' style='height:814'>
+        <img src="/redcap_v8.10.2/Resources/images/close_button_white.png" class="messaging-close-btn"/>
+
+        <img src="/redcap_v8.10.2/Resources/images/gear-white.png" class="messaging-settings-button"/>
+
+        <div class='message-center-header'>
+			<img src='/redcap_v8.10.2/Resources/images/messenger_logo.png'>
+		</div>
+        <div class='message-center-notifications-container mc-section-container'>
+          <h4 class='mc-section-title'>Notifications</h4>
+          <span class='mc-what-new-alert hidden' data-thread='notification'></span>
+          <img src="/redcap_v8.10.2/Resources/images/up-arrow-white.png" class="message-center-show-hide message-center-conv-icon notifications-close" data-section="notification" data-tooltip="expand"/>
+
+          <div class='message-section notifications-close' data-section='notification'>
+            <div class='mc-message ' thread-id='1'><div class='mc-message-text' data-tooltip='System Notifications'>System Notifications</div><span class='mc-message-badge'></span></div>
+            <div class='mc-message ' thread-id='3' data-admin='no'><div class='mc-message-text' data-tooltip='General Notifications'>General Notifications</div><span class='mc-message-badge'></span></div>
+          </div>
+        </div>
+        <div class='message-center-channels-container mc-section-container'>
+          <h4 class='mc-section-title'>Conversations</h4>
+          <span class='mc-what-new-alert hidden' data-thread='channel'></span>
+          <img src="/redcap_v8.10.2/Resources/images/archived_icon_white.png" class="message-center-archived-conv message-center-conv-icon" data-section="channel" data-tooltip="Open my archived conversations"/>
+
+          <img src="/redcap_v8.10.2/Resources/images/magnifying-glass-white.png" class="message-center-search-conversation message-center-conv-icon" data-section="channel" data-tooltip="Search my conversations"/>
+
+          <img src="/redcap_v8.10.2/Resources/images/plus-icon-white.png" class="message-center-create-new message-center-conv-icon" data-section="channel" data-tooltip="Create new conversation"/>
+
+          <img src="/redcap_v8.10.2/Resources/images/list_red_messaging.png" class="message-center-expand message-center-conv-icon" data-section="channel" data-open="122"/>
+
+          <div class='message-section' data-section='channel' style='height:122px'>
+            
+          </div>
+        </div>
+        <div class='message-center-messages-container ' data-thread_id='' data-total-msgs='' style='top: 238px;height:576px'>
+          <img src="/redcap_v8.10.2/Resources/images/up-arrow-black.png" class="close-btn-small"/>
+
+          <h4 class='conversation-title' data-tooltip=""></h4>
+          <div class='action-icons-wrapper'>
+			<div class='btn-group'>
+				<button type='button' class='btn btn-defaultrc btn-xs dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+					Actions <span class='caret'></span>
+				</button>
+				<ul class='dropdown-menu'>
+					<li class='mc-action-icon mc-icon-add-users '>
+						<a href='#'><img src="/redcap_v8.10.2/Resources/images/user_add3.png"/>
+ Add users</a></li>
+					<li class='mc-action-icon mc-icon-remove-users '>
+						<a href='#'><img src="/redcap_v8.10.2/Resources/images/list-remove-user.png"/>
+ Remove users</a></li>
+					<li class='mc-action-icon mc-icon-remove-self '>
+						<a href='#'><img src="/redcap_v8.10.2/Resources/images/list-remove-user.png"/>
+ Remove self from conversation</a></li>
+					<li class='mc-action-icon mc-icon-rename-conv '>
+						<a href='#'><i class="fas fa-pencil-alt"></i> Rename conversation</a></li>
+					<li class='mc-action-icon mc-icon-member-perm'>
+						<a href='#'><i class="fas fa-user"></i> Conversation permissions</a></li>
+					<li class='mc-action-icon mc-icon-pin-to-top'>
+						<a href='#'><span class="fas fa-thumbtack"></span> Pin/unpin to top</a></li>
+					<li class='mc-action-icon mc-icon-download-csv-conv' data-id=''>
+						<a href='#'><img src="/redcap_v8.10.2/Resources/images/xls.gif"/>
+ Download as Excel/CSV</a></li>
+					<li class='mc-action-icon mc-icon-archive-conv ' data-action='archive'>
+						<a href='#'><img src="/redcap_v8.10.2/Resources/images/archive_icon.png"/>
+ Archive conversation</a></li>
+					<li class='mc-action-icon mc-icon-delete-conversation ' data-action='delete'>
+						<a href='#'><span class="fas fa-times"></span> Delete conversation</a></li>
+				</ul>
+			</div>
+          </div>
+          <p class='channel-members-count'></p>
+          <div class='channel-members-username' data-leader-conv=''>
+            
+          </div>
+          <div class='msgs-wrapper ' data-thread_id='' style='height:6px'>
+            
+          </div>
+          
+        </div>
+        <div class='messaging-create-new-big-container'>
+          <p class='messaging-create-new-big' href='#'>Create new conversation</p>
+        </div>
+      </div>	<div class="row row-offcanvas row-offcanvas-left " data_open="0">
+		<div id="west" class="d-print-none d-none d-md-block col-md-4 col-lg-3" role="navigation">
+			<div class="x-panel"><div class="x-panel-bwrap"><div class="x-panel-body"><div class="menubox"><div id='menu-div'>
+				<div class='menubox' style='padding:0px 10px 0px 7px;'>
+					<div id='project-menu-logo'>
+						<a href='/index.php?action=myprojects'
+							><img src='/redcap_v8.10.2/Resources/images/redcap-logo.png' title='REDCap' style='height:45px;'></a>
+					</div>
+					<div style='font-size:11px;color:#888;margin:3px -10px 7px -2px;'>
+						<img src='/redcap_v8.10.2/Resources/images/lock_small_disable.gif' style='top:5px;'>
+						Logged in as <span id='username-reference' style='font-weight:bold;color:#555;'>c12087950</span>
+						 &nbsp;|&nbsp; <span><a href='/redcap_v8.10.2/DataEntry/index.php?pid=2709&id=23606&page=initial_health_assessment&event_id=16658&instance=1&logout=1' style='font-size:11px;'>Log out</a></span>
+					</div>
+					<div class='hang'>
+						<i class='far fa-list-alt' style='text-indent:0;'></i>&nbsp;&nbsp;<a href='/index.php?action=myprojects'>My Projects</a>
+						
+					</div>
+					<div class='hang'>
+						<i class='fas fa-home' style='text-indent:0;'></i>&nbsp;&nbsp;<a href='/redcap_v8.10.2/index.php?pid=2709'>Project Home</a><span style="color:#777;margin:0 8px 0 5px;">or</span><img src='/redcap_v8.10.2/Resources/images/checklist_flat.png' style='position:relative;top:-1px;'>&nbsp;<a href='/redcap_v8.10.2/ProjectSetup/index.php?pid=2709'>Project Setup</a>
+					</div><div class='hang user-messaging-left-item'>
+								<i class='fas fa-comment-alt' style='text-indent:0;top:3px;color:#3E72A8;'></i>&nbsp;&nbsp;<a href='javascript:;'>REDCap Messenger</a><div class='notifications-icon-container'>
+      <span class='badgerc new-message-total-badge '>!</span>
+      </div>
+							</div><div style='font-size:11px;color:#666;padding:3px 0 3px 23px;'>
+						<div>Project status:&nbsp; <b style="color:#555;">Development</b></div>
+					</div>
+				</div>
+			</div></div></div></div></div><div class="x-panel"><div class="x-panel-header x-panel-header-leftmenu"><div style='float:left'>Data Collection</div>
+						<div class='opacity65 projMenuToggle' id='projMenuDataCollection'><a href="javascript:;"><img src="/redcap_v8.10.2/Resources/images/toggle-collapse.png" class=""/>
+</a>
+					   </div><div class='opacity65' id='menuLnkEditInstr' style='float:right;margin-right:5px;'><i class="fas fa-pencil-alt" style="color:#000066;font-size:10px;top:2px;margin-right:3px;"></i><a href="/redcap_v8.10.2/Design/online_designer.php?pid=2709" style="color:#000066;font-size:11px;font-weight:normal;text-decoration:underline;">Edit instruments</a></div></div><div class="x-panel-bwrap"><div class="x-panel-body"><div class="menubox"><div class='menubox' style='padding-right:0px;'><div class='hang' style='position:relative;left:-8px;'><img src='/redcap_v8.10.2/Resources/images/survey_participants.gif'>&nbsp;&nbsp;<a href='/redcap_v8.10.2/Surveys/invite_participants.php?pid=2709'>Survey Distribution Tools</a></div><div class='menuboxsub'>- Get a public survey link or build a participant list for inviting respondents</div><div class='hang' style='position:relative;'><img src='/redcap_v8.10.2/Resources/images/calendar_plus.png'>&nbsp;&nbsp;<a href='/redcap_v8.10.2/Calendar/scheduling.php?pid=2709'>Scheduling</a></div><div class='menuboxsub'>- Generate schedules for the calendar<br/>using your defined events</div><div class='hang' style='position:relative;'><img src='/redcap_v8.10.2/Resources/images/application_view_icons.png'>&nbsp;&nbsp;<a href='/redcap_v8.10.2/DataEntry/record_status_dashboard.php?pid=2709'>Record Status Dashboard</a></div><div class='menuboxsub' style='position:relative;'>- View data collection status of all records</div><div class='hang' style='position:relative;'>
+					<img src='/redcap_v8.10.2/Resources/images/blog_pencil.gif'>&nbsp;&nbsp;<a href='/redcap_v8.10.2/DataEntry/record_home.php?pid=2709' style='color:#800000'>Add / Edit Records</a>
+					</div><div class='menuboxsub' style='position:relative;'>- Create new records or edit/view existing ones</div><div class='menuboxsub' style='margin:8px 0 0;border-top:1px dashed #aaa;text-indent:0;padding-top:5px;font-size:10px;'>
+							<div style="padding:0 0 4px;color:#800000;font-size:12px;">
+	<div style="float:left;">
+		<img src="/redcap_v8.10.2/Resources/images/application_view_tile.png"/>
+		<a id="record-home-link" style="text-decoration:underline;" href="/redcap_v8.10.2/DataEntry/record_home.php?pid=2709&amp;id=23606&amp;arm=11">Record ID <b>23606</b></a>
+	</div>
+	<div style="float:right;"><a id="menuLnkChooseOtherRec" class="opacity65" href="/redcap_v8.10.2/DataEntry/record_home.php?pid=2709">Select other record</a></div>
+	<div class="clear"></div>
+</div>
+
+							<div style='padding:1px 0 5px;'>
+								Event:&nbsp;
+								<span style='color:#800000;font-weight:bold;'>2017-2018 (Arm 11: West Kendall Health Fair)</span>
+								
+							</div>
+							Data Collection Instruments:
+						</div><div class='formMenuList '><a title='Complete' href='/redcap_v8.10.2/DataEntry/index.php?pid=2709&page=initial_health_assessment&id=23606&event_id=16658' ><img src='/redcap_v8.10.2/Resources/images/circle_green.png' style='height:16px;width:16px;'></a> &nbsp;<a id='form[initial_health_assessment]' class='round form_menu_selected' href='/redcap_v8.10.2/DataEntry/index.php?pid=2709&page=initial_health_assessment&id=23606&event_id=16658' >Initial Health Assessment</a></div><div class='formMenuList '><a title='Complete' href='/redcap_v8.10.2/DataEntry/index.php?pid=2709&page=consent_to_treatment&id=23606&event_id=16658' ><img src='/redcap_v8.10.2/Resources/images/circle_green.png' style='height:16px;width:16px;'></a> &nbsp;<a id='form[consent_to_treatment]' class='' href='/redcap_v8.10.2/DataEntry/index.php?pid=2709&page=consent_to_treatment&id=23606&event_id=16658' >Consent to Treatment</a></div><div class='formMenuList '><a title='Complete' href='/redcap_v8.10.2/DataEntry/index.php?pid=2709&page=photo_consent&id=23606&event_id=16658' ><img src='/redcap_v8.10.2/Resources/images/circle_green.png' style='height:16px;width:16px;'></a> &nbsp;<a id='form[photo_consent]' class='' href='/redcap_v8.10.2/DataEntry/index.php?pid=2709&page=photo_consent&id=23606&event_id=16658' >Photo Consent</a></div><div class='formMenuList '><a title='Complete' href='/redcap_v8.10.2/DataEntry/index.php?pid=2709&page=patient_navigator_script&id=23606&event_id=16658' ><img src='/redcap_v8.10.2/Resources/images/circle_green.png' style='height:16px;width:16px;'></a> &nbsp;<a id='form[patient_navigator_script]' class='' href='/redcap_v8.10.2/DataEntry/index.php?pid=2709&page=patient_navigator_script&id=23606&event_id=16658' >Patient Navigator Script</a></div><div class='formMenuList '><a title='Complete' href='/redcap_v8.10.2/DataEntry/index.php?pid=2709&page=general_questions&id=23606&event_id=16658' ><img src='/redcap_v8.10.2/Resources/images/circle_green.png' style='height:16px;width:16px;'></a> &nbsp;<a id='form[general_questions]' class='' href='/redcap_v8.10.2/DataEntry/index.php?pid=2709&page=general_questions&id=23606&event_id=16658' >General Questions</a></div><div class='formMenuList '><a title='Complete' href='/redcap_v8.10.2/DataEntry/index.php?pid=2709&page=triage&id=23606&event_id=16658' ><img src='/redcap_v8.10.2/Resources/images/circle_green.png' style='height:16px;width:16px;'></a> &nbsp;<a id='form[triage]' class='' href='/redcap_v8.10.2/DataEntry/index.php?pid=2709&page=triage&id=23606&event_id=16658' >Triage</a></div><div class='formMenuList '><a title='Incomplete' href='/redcap_v8.10.2/DataEntry/index.php?pid=2709&page=vitals&id=23606&event_id=16658' ><img src='/redcap_v8.10.2/Resources/images/circle_red.png' style='height:16px;width:16px;'></a> &nbsp;<a id='form[vitals]' class='' href='/redcap_v8.10.2/DataEntry/index.php?pid=2709&page=vitals&id=23606&event_id=16658' >Vitals</a></div><div class='formMenuList '><a title='Incomplete' href='/redcap_v8.10.2/DataEntry/index.php?pid=2709&page=point_of_care_poc&id=23606&event_id=16658' ><img src='/redcap_v8.10.2/Resources/images/circle_red.png' style='height:16px;width:16px;'></a> &nbsp;<a id='form[point_of_care_poc]' class='' href='/redcap_v8.10.2/DataEntry/index.php?pid=2709&page=point_of_care_poc&id=23606&event_id=16658' >Point of Care (POC)</a></div><div class='formMenuList '><a title='Incomplete' href='/redcap_v8.10.2/DataEntry/index.php?pid=2709&page=hepatitis_c_screening&id=23606&event_id=16658' ><img src='/redcap_v8.10.2/Resources/images/circle_red.png' style='height:16px;width:16px;'></a> &nbsp;<a id='form[hepatitis_c_screening]' class='' href='/redcap_v8.10.2/DataEntry/index.php?pid=2709&page=hepatitis_c_screening&id=23606&event_id=16658' >Hepatitis C Screening</a></div><div class='formMenuList '><a title='Incomplete' href='/redcap_v8.10.2/DataEntry/index.php?pid=2709&page=hiv_screening&id=23606&event_id=16658' ><img src='/redcap_v8.10.2/Resources/images/circle_red.png' style='height:16px;width:16px;'></a> &nbsp;<a id='form[hiv_screening]' class='' href='/redcap_v8.10.2/DataEntry/index.php?pid=2709&page=hiv_screening&id=23606&event_id=16658' >HIV Screening</a></div><div class='formMenuList '><a title='Incomplete' href='/redcap_v8.10.2/DataEntry/index.php?pid=2709&page=ophthalmology&id=23606&event_id=16658' ><img src='/redcap_v8.10.2/Resources/images/circle_red.png' style='height:16px;width:16px;'></a> &nbsp;<a id='form[ophthalmology]' class='' href='/redcap_v8.10.2/DataEntry/index.php?pid=2709&page=ophthalmology&id=23606&event_id=16658' >Ophthalmology</a></div><div class='formMenuList '><a title='Incomplete' href='/redcap_v8.10.2/DataEntry/index.php?pid=2709&page=dermatology&id=23606&event_id=16658' ><img src='/redcap_v8.10.2/Resources/images/circle_red.png' style='height:16px;width:16px;'></a> &nbsp;<a id='form[dermatology]' class='' href='/redcap_v8.10.2/DataEntry/index.php?pid=2709&page=dermatology&id=23606&event_id=16658' >Dermatology</a></div><div class='formMenuList '><a title='Incomplete' href='/redcap_v8.10.2/DataEntry/index.php?pid=2709&page=female_exam&id=23606&event_id=16658' ><img src='/redcap_v8.10.2/Resources/images/circle_red.png' style='height:16px;width:16px;'></a> &nbsp;<a id='form[female_exam]' class='' href='/redcap_v8.10.2/DataEntry/index.php?pid=2709&page=female_exam&id=23606&event_id=16658' >Female Exam</a></div><div class='formMenuList '><a title='Incomplete' href='/redcap_v8.10.2/DataEntry/index.php?pid=2709&page=male_exam&id=23606&event_id=16658' ><img src='/redcap_v8.10.2/Resources/images/circle_red.png' style='height:16px;width:16px;'></a> &nbsp;<a id='form[male_exam]' class='' href='/redcap_v8.10.2/DataEntry/index.php?pid=2709&page=male_exam&id=23606&event_id=16658' >Male Exam</a></div><div class='formMenuList '><a title='Incomplete' href='/redcap_v8.10.2/DataEntry/index.php?pid=2709&page=colon_cancer_screening&id=23606&event_id=16658' ><img src='/redcap_v8.10.2/Resources/images/circle_red.png' style='height:16px;width:16px;'></a> &nbsp;<a id='form[colon_cancer_screening]' class='' href='/redcap_v8.10.2/DataEntry/index.php?pid=2709&page=colon_cancer_screening&id=23606&event_id=16658' >Colon Cancer Screening</a></div><div class='formMenuList '><a title='Incomplete' href='/redcap_v8.10.2/DataEntry/index.php?pid=2709&page=bone_density&id=23606&event_id=16658' ><img src='/redcap_v8.10.2/Resources/images/circle_red.png' style='height:16px;width:16px;'></a> &nbsp;<a id='form[bone_density]' class='' href='/redcap_v8.10.2/DataEntry/index.php?pid=2709&page=bone_density&id=23606&event_id=16658' >Bone Density</a></div><div class='formMenuList '><a title='Incomplete' href='/redcap_v8.10.2/DataEntry/index.php?pid=2709&page=dental&id=23606&event_id=16658' ><img src='/redcap_v8.10.2/Resources/images/circle_red.png' style='height:16px;width:16px;'></a> &nbsp;<a id='form[dental]' class='' href='/redcap_v8.10.2/DataEntry/index.php?pid=2709&page=dental&id=23606&event_id=16658' >Dental</a></div><div class='formMenuList '><a title='Incomplete' href='/redcap_v8.10.2/DataEntry/index.php?pid=2709&page=audiologyent&id=23606&event_id=16658' ><img src='/redcap_v8.10.2/Resources/images/circle_red.png' style='height:16px;width:16px;'></a> &nbsp;<a id='form[audiologyent]' class='' href='/redcap_v8.10.2/DataEntry/index.php?pid=2709&page=audiologyent&id=23606&event_id=16658' >Audiology/ENT</a></div><div class='formMenuList '><a title='Incomplete' href='/redcap_v8.10.2/DataEntry/index.php?pid=2709&page=balance_and_strength_assessment&id=23606&event_id=16658' ><img src='/redcap_v8.10.2/Resources/images/circle_red.png' style='height:16px;width:16px;'></a> &nbsp;<a id='form[balance_and_strength_assessment]' class='' href='/redcap_v8.10.2/DataEntry/index.php?pid=2709&page=balance_and_strength_assessment&id=23606&event_id=16658' >Balance and Strength Assessment</a></div><div class='formMenuList '><a title='Incomplete' href='/redcap_v8.10.2/DataEntry/index.php?pid=2709&page=memory_screening&id=23606&event_id=16658' ><img src='/redcap_v8.10.2/Resources/images/circle_red.png' style='height:16px;width:16px;'></a> &nbsp;<a id='form[memory_screening]' class='' href='/redcap_v8.10.2/DataEntry/index.php?pid=2709&page=memory_screening&id=23606&event_id=16658' >Memory Screening</a></div><div class='formMenuList '><a title='Incomplete' href='/redcap_v8.10.2/DataEntry/index.php?pid=2709&page=mental_health_screening&id=23606&event_id=16658' ><img src='/redcap_v8.10.2/Resources/images/circle_red.png' style='height:16px;width:16px;'></a> &nbsp;<a id='form[mental_health_screening]' class='' href='/redcap_v8.10.2/DataEntry/index.php?pid=2709&page=mental_health_screening&id=23606&event_id=16658' >Mental Health Screening</a></div><div class='formMenuList '><a title='Incomplete' href='/redcap_v8.10.2/DataEntry/index.php?pid=2709&page=pediatric_education&id=23606&event_id=16658' ><img src='/redcap_v8.10.2/Resources/images/circle_red.png' style='height:16px;width:16px;'></a> &nbsp;<a id='form[pediatric_education]' class='' href='/redcap_v8.10.2/DataEntry/index.php?pid=2709&page=pediatric_education&id=23606&event_id=16658' >Pediatric Education</a></div><div class='formMenuList '><a title='Incomplete' href='/redcap_v8.10.2/DataEntry/index.php?pid=2709&page=final_doctor_evaluation&id=23606&event_id=16658' ><img src='/redcap_v8.10.2/Resources/images/circle_red.png' style='height:16px;width:16px;'></a> &nbsp;<a id='form[final_doctor_evaluation]' class='' href='/redcap_v8.10.2/DataEntry/index.php?pid=2709&page=final_doctor_evaluation&id=23606&event_id=16658' >Final Doctor Evaluation</a></div><div class='formMenuList '><a title='Incomplete' href='/redcap_v8.10.2/DataEntry/index.php?pid=2709&page=patient_navigation&id=23606&event_id=16658' ><img src='/redcap_v8.10.2/Resources/images/circle_gray.png' style='height:16px;width:16px;'></a> &nbsp;<a id='form[patient_navigation]' class='' href='/redcap_v8.10.2/DataEntry/index.php?pid=2709&page=patient_navigation&id=23606&event_id=16658' >Patient Navigation</a></div><div class='formMenuList '><a title='Incomplete' href='/redcap_v8.10.2/DataEntry/index.php?pid=2709&page=callbacks&id=23606&event_id=16658' ><img src='/redcap_v8.10.2/Resources/images/circle_red.png' style='height:16px;width:16px;'></a> &nbsp;<a id='form[callbacks]' class='' href='/redcap_v8.10.2/DataEntry/index.php?pid=2709&page=callbacks&id=23606&event_id=16658' >Callbacks</a></div><div class='formMenuList '><a title='Incomplete' href='/redcap_v8.10.2/DataEntry/index.php?pid=2709&page=discontinued_fitness_nutrition&id=23606&event_id=16658' ><img src='/redcap_v8.10.2/Resources/images/circle_red.png' style='height:16px;width:16px;'></a> &nbsp;<a id='form[discontinued_fitness_nutrition]' class='' href='/redcap_v8.10.2/DataEntry/index.php?pid=2709&page=discontinued_fitness_nutrition&id=23606&event_id=16658' >(DIscontinued) Fitness & Nutrition</a></div></div></div></div></div></div><div class="x-panel" id="app_panel"><div class="x-panel-header x-panel-header-leftmenu"><div style='float:left'>Applications</div>
+					<div class='opacity65 projMenuToggle' id='projMenuApplications'><a href="javascript:;"><img src="/redcap_v8.10.2/Resources/images/toggle-collapse.png" class=""/>
+</a>
+				   </div></div><div class="x-panel-bwrap"><div class="x-panel-body"><div class="menubox"><div class='menubox' style='padding-right:0;'><div class='hang'><img src='/redcap_v8.10.2/Resources/images/date.png'>&nbsp;&nbsp;<a href='/redcap_v8.10.2/Calendar/index.php?pid=2709'>Calendar</a></div><div class='hang'><img src='/redcap_v8.10.2/Resources/images/layout_down_arrow.gif' style='margin-top:2px;'>&nbsp;&nbsp;<a href="/redcap_v8.10.2/DataExport/index.php?pid=2709">Data Exports, Reports, and Stats</a></div><div class='hang'><img src='/redcap_v8.10.2/Resources/images/table_row_insert.png'>&nbsp;&nbsp;<a href="/redcap_v8.10.2/index.php?pid=2709&route=DataImportController:index">Data Import Tool</a></div><div class='hang'><img src='/redcap_v8.10.2/Resources/images/page_copy.png'>&nbsp;&nbsp;<a href="/redcap_v8.10.2/index.php?pid=2709&route=DataComparisonController:index">Data Comparison Tool</a></div><div class='hang'><img src='/redcap_v8.10.2/Resources/images/report.png'>&nbsp;&nbsp;<a href="/redcap_v8.10.2/Logging/index.php?pid=2709">Logging</a></div><div class='hang'><img src='/redcap_v8.10.2/Resources/images/balloons.png'>&nbsp;&nbsp;<a href="/redcap_v8.10.2/DataQuality/field_comment_log.php?pid=2709">Field Comment Log</a></div><div class='hang'><img src='/redcap_v8.10.2/Resources/images/page_white_stack.png'>&nbsp;&nbsp;<a href="/redcap_v8.10.2/FileRepository/index.php?pid=2709">File Repository</a></div><div class='hang'><img src='/redcap_v8.10.2/Resources/images/user.png'>&nbsp;&nbsp;<a href="/redcap_v8.10.2/UserRights/index.php?pid=2709">User Rights</a><span style="color:#777;margin:0 6px 0 5px;">and</span><img src='/redcap_v8.10.2/Resources/images/group.png' style='margin-right:2px;'>
+					<a href="/redcap_v8.10.2/DataAccessGroups/index.php?pid=2709">DAGs</a></div><div class='hang'><img src='/redcap_v8.10.2/Resources/images/lock_plus.png'>&nbsp;&nbsp;<a href="/redcap_v8.10.2/Locking/locking_customization.php?pid=2709">Record Locking Customization</a></div><div class='hang'><img src='/redcap_v8.10.2/Resources/images/tick_shield_lock.png'>&nbsp;&nbsp;<a href="/redcap_v8.10.2/Locking/esign_locking_management.php?pid=2709">E-signature and Locking Mgmt</a></div><div class='hang'><img src='/redcap_v8.10.2/Resources/images/checklist.png'>&nbsp;&nbsp;<a href="/redcap_v8.10.2/DataQuality/index.php?pid=2709">Data Quality</a></div><div class='hang'><img src='/redcap_v8.10.2/Resources/images/computer.png'>&nbsp;&nbsp;<a href="/redcap_v8.10.2/API/project_api.php?pid=2709">API</a><span style="color:#777;margin:0 6px 0 5px;">and</span><img src='/redcap_v8.10.2/Resources/images/computer.png'>&nbsp;&nbsp;<a href="/redcap_v8.10.2/API/playground.php?pid=2709">API Playground</a></div><div class='hang'><img src='https://redcap.miami.edu/redcap_v8.10.2/ExternalModules/images/puzzle_small.png' style='position:relative;left:1px;top:1px;'>&nbsp;&nbsp;<a href="https://redcap.miami.edu/redcap_v8.10.2/ExternalModules/manager/project.php?pid=2709">External Modules</a></div></div></div></div></div></div><div class="x-panel" id="help_panel"><div class="x-panel-header x-panel-header-leftmenu"><div style='float:left;color:#3E72A8;'>
+						Help & Information
+					</div>
+					<div class='opacity65 projMenuToggle' id='projMenuHelp'><a href="javascript:;"><img src="/redcap_v8.10.2/Resources/images/toggle-collapse.png" class=""/>
+</a>
+				   </div></div><div class="x-panel-bwrap"><div class="x-panel-body"><div class="menubox"><div class='menubox' style='font-size:11px;color:#444;'>
+
+				<!-- Help & FAQ -->
+				<div class='hang'>
+					<span class='fas fa-question-circle' style='text-indent:0;font-size:13px;' aria-hidden='true'></span>&nbsp;
+					<a style='color:#444;' href='/index.php?action=help'>Help & FAQ</a>
+				</div>
+
+				<!-- Video Tutorials -->
+				<div class='hang'>
+					<span class='fas fa-film' style='text-indent:0;font-size:13px;' aria-hidden='true'></span>&nbsp;
+					<a style='color:#444;' href='javascript:;' onclick="
+						$('#menuvids').toggle('blind',{},500,
+							function(){
+								var objDiv = document.getElementById('west');
+								objDiv.scrollTop = objDiv.scrollHeight;
+							}
+						);
+					">Video Tutorials</a>
+				</div>
+
+				<div id='menuvids' style='display:none;line-height:1.2em;padding:2px 0 0 16px;'>
+					<div class='menuvid'>
+						&bull; <a onclick="popupvid('redcap_overview_brief02.mp4')" style='font-size:11px;' href='javascript:;'>Brief Overview</a>
+					</div>
+					<div class='menuvid'>
+						&bull; <a onclick="popupvid('redcap_overview03.mp4')" style='font-size:11px;' href='javascript:;'>Detailed Overview</a>
+					</div>
+					<div class='menuvid'>
+						&bull; <a onclick="popupvid('project_types01.mp4')" style='font-size:11px;' href='javascript:;'>Types of Projects</a>
+					</div>
+					<div class='menuvid'>
+						&bull; <a onclick="popupvid('redcap_survey_basics02.mp4')" style='font-size:11px;' href='javascript:;'>Creating and managing surveys</a>
+					</div>
+					<div class='menuvid'>
+						&bull; <a onclick="popupvid('data_entry_overview_02.mp4')" style='font-size:11px;' href='javascript:;'>Data Entry Overview</a>
+					</div>
+					<div class='menuvid'>
+						&bull; <a onclick="popupvid('intro_instrument_dev.mp4')" style='font-size:11px;' href='javascript:;'>Introduction to Instrument Development</a>
+					</div>
+					<div class='menuvid'>
+						&bull; <a onclick="popupvid('redcap_db_applications_menu02.mp4')" style='font-size:11px;' href='javascript:;'>Applications Menu</a>
+					</div>
+					<div class='menuvid'>
+						&bull; <a onclick="popupvid('app_overview_01.mp4')" style='font-size:11px;' href='javascript:;'>REDCap Mobile App</a>
+					</div>
+				</div>
+
+				<!-- Suggest a New Feature -->
+				<div class='hang'>
+					<span class='fas fa-share-square' style='text-indent:0;font-size:13px;' aria-hidden='true'></span>&nbsp;
+					<a style='color:#444;' target='_blank' href='https://redcap.vanderbilt.edu/enduser_survey_redirect.php?redcap_version=8.10.2&server_name=redcap.miami.edu'>Suggest a New Feature</a>
+				</div>
+
+				<div style='padding-top:15px;'>
+					<a href='mailto:redcapadmin@med.miami.edu?subject=%5BREDCap%20question%5D&body=Username%3A%20c12087950%0AProject%20title%3A%20%22Test%20-%20MedIT%20Project%22%0AProject%20link%3A%20https%3A%2F%2Fredcap.miami.edu%2Fredcap_v8.10.2%2Findex.php%3Fpid%3D2709%0A%0ADear%20REDCap%20administrator%2C%0A%0A%5BYour%20REDCap%20question%20here%5D%0A%0ASincerely%2C%0AKevin%20Davis%0A' class='btn-contact-admin btn btn-primaryrc btn-xs' style='color:#fff;'><span class='fas fa-envelope'></span> Contact REDCap administrator</a>
+				</div>
+
+			</div></div></div></div></div>		</div>
+		<div id="center" class="col-12 col-md-8 col-lg-9">
+			<div id="subheader">
+									<img src='https://miamiedu.sharepoint.com/sites/uhit/teams/Shared%20Documents/Templates%20%26%20Logos/UMHC%20+%20Information%20Technology%20Logo.PNG' title='University of Miami' alt='University of Miami' style='margin:-5px 0 5px 20px;max-width:700px; expression(this.width > 700 ? 700 : true);'>					<div id="subheaderDiv1" class="bot-left">
+						University of Miami<br><span style='font-size:12px;'>Research Information Technology</span>					</div>
+								<div id="subheaderDiv2" class="bot-left">Test - MedIT Project</div>
+			</div>
+<div id="dataEntryTopOptions">
+	<div id="dataEntryTopOptionsButtons">
+		<span style="color:#777;margin-right:6px;">Actions:</span><button onclick="window.location.href=app_path_webroot+&#039;Design/online_designer.php?pid=2709&amp;page=initial_health_assessment&#039;;" class="jqbuttonmed">
+			<img src="/redcap_v8.10.2/Resources/images/blog_pencil.png" style="vertical-align:middle;position:relative;top:-1px;"/>
+			<span style="vertical-align:middle;color:#444;">Modify instrument</span>
+		</button>
+		<button id="pdfExportDropdownTrigger" onclick="showBtnDropdownList(this,event,&#039;pdfExportDropdownDiv&#039;);" class="jqbuttonmed">
+			<img src="/redcap_v8.10.2/Resources/images/pdf.gif" style="vertical-align:middle;position:relative;top:-1px;"/>
+			<span style="vertical-align:middle;color:#800000;">Download PDF of instrument(s)</span><img src="/redcap_v8.10.2/Resources/images/arrow_state_grey_expanded.png" style="margin-left:2px;vertical-align:middle;position:relative;top:-1px;"/>
+		</button>
+		<div id="pdfExportDropdownDiv" style="display:none;position:absolute;z-index:1000;">
+			<ul id="pdfExportDropdown">
+				<li>
+					<a href="javascript:;" style="display:block;" onclick="window.location.href = app_path_webroot+&#039;PDF/index.php?pid=&#039;+pid+&#039;&amp;page=initial_health_assessment&#039;;"><img src="/redcap_v8.10.2/Resources/images/pdf.gif"/>
+					This data entry form (blank)</a>
+				</li>
+				<li>
+					<a href="javascript:;" style="display:block;" onclick="window.location.href = app_path_webroot+&#039;PDF/index.php?pid=&#039;+pid+&#039;&amp;page=initial_health_assessment&amp;id=23606&amp;event_id=16658&#039;+(getParameterByName(&#039;instance&#039;)==&#039;&#039;?&#039;&#039;:&#039;&amp;instance=&#039;+getParameterByName(&#039;instance&#039;));"><img src="/redcap_v8.10.2/Resources/images/pdf.gif"/>
+					This data entry form with saved data</a>
+				</li>
+				<li>
+					<a href="javascript:;" style="display:block;" onclick="window.location.href = app_path_webroot+&#039;PDF/index.php?pid=&#039;+pid+&#039;&amp;page=initial_health_assessment&amp;id=23606&amp;event_id=16658&amp;compact=1&#039;+(getParameterByName(&#039;instance&#039;)==&#039;&#039;?&#039;&#039;:&#039;&amp;instance=&#039;+getParameterByName(&#039;instance&#039;));"><img src="/redcap_v8.10.2/Resources/images/pdf.gif"/>
+					This data entry form with saved data (compact)</a>
+				</li>
+				<li>
+					<a href="javascript:;" style="display:block;" onclick="window.location.href = app_path_webroot+&#039;PDF/index.php?pid=&#039;+pid+&#039;&amp;all&#039;;"><img src="/redcap_v8.10.2/Resources/images/pdf.gif"/>
+					All forms/surveys (blank)</a>
+				</li>
+				<li>
+					<a href="javascript:;" style="display:block;" onclick="window.location.href = app_path_webroot+&#039;PDF/index.php?pid=&#039;+pid+&#039;&amp;id=23606&#039;;"><img src="/redcap_v8.10.2/Resources/images/pdf.gif"/>
+					All forms/surveys with saved data</a>
+				</li>
+				<li>
+					<a href="javascript:;" style="display:block;" onclick="window.location.href = app_path_webroot+&#039;PDF/index.php?pid=&#039;+pid+&#039;&amp;id=23606&amp;compact=1&#039;;"><img src="/redcap_v8.10.2/Resources/images/pdf.gif"/>
+					All forms/surveys with saved data (compact)</a>
+				</li>
+			</ul>
+		</div>
+		<span class="nowrap" style="margin-left:50px;line-height:24px;">
+			<img src="/redcap_v8.10.2/Resources/images/video_small.png"/>
+			<a href="javascript:;" style="font-weight:normal;text-decoration:underline;" onclick="window.open(&#039;https://redcap.vanderbilt.edu/consortium/videoplayer.php?video=data_entry_overview_02.mp4&amp;referer=redcap.miami.edu&amp;title=Overview of Basic Data Entry&#039;,&#039;myWin&#039;,&#039;width=1050, height=800, toolbar=0, menubar=0, location=0, status=0, scrollbars=1, resizable=1&#039;);">VIDEO: Basic data entry</a>
+		</span>
+	</div>
+	<div style="color:#800000;font-size:16px;font-weight:bold;padding:20px 0 5px;">
+		<img src='/redcap_v8.10.2/Resources/images/blog.png'>
+						Initial Health Assessment 
+	</div>
+</div>
+<script type="text/javascript">
+$(function(){
+	// Initialize button drop-down(s) for top of form
+	$('#pdfExportDropdown, #SurveyActionDropDownUl, #repeatInstanceDropdownUl').menu();
+	$('#SurveyActionDropDownDiv ul li a').click(function(){
+		$('#SurveyActionDropDownDiv').hide();
+	});
+	$('#pdfExportDropdownDiv ul li a').click(function(){
+		$('#pdfExportDropdownDiv').hide();
+	});
+	$('#repeatInstanceDropdown ul li a').click(function(){
+		$('#repeatInstanceDropdownDiv').hide();
+	});
+});
+</script>
+	<!-- Edoc file upload dialog pop-up divs and javascript -->
+	<div id="file_upload" class="simpleDialog" title="Upload document"></div>
+	<div id="fade" class="black_overlay"></div>
+	<script type='text/javascript'>
+	// Set html for file upload pop-up (for resetting purposes)
+	var file_upload_win = '<form autocomplete="new-password" id="form_file_upload" action="/redcap_v8.10.2/DataEntry/file_upload.php?pid=2709&page=initial_health_assessment&id=23606&event_id=16658&instance=1" method="post" enctype="multipart/form-data" target="upload_target" onsubmit="return startUpload();" >  <div id="this_upload_field">   <div style="font-size:14px;font-weight:bold;" id="field_name_popup">Loading...</div>  </div>  <div id="signature-div" onchange=\'if($(this).jSignature("getData","base30")[1].length){ $("#f1_upload_form input[name=myfile_base64_edited]").val("1"); }\'></div>  <div id="signature-div-actions" style="padding-top:25px;">   <button style="padding:4px 8px;font-size:14px;" onclick="saveSignature();return false;">Save signature</button>   <a href="javascript:;" style="margin-left:15px;text-decoration:underline;" onclick=\'$("#signature-div").jSignature("reset");$("#f1_upload_form input[name=myfile_base64_edited]").val("0");return false;\'>reset</a>  </div>  <div id="f1_upload_process" style="display:none;font-weight:bold;font-size:14px;text-align:center;">   <br>Upload in progress...<br><img src="/redcap_v8.10.2/Resources/images/loader.gif">  </div>  <div id="f1_upload_form"><div style="color:#800000;margin:20px 0;font-size:14px;">Select a file then click the \'Upload Document\' button</div>  <div style="margin:15px 0;">  <input name="myfile" type="file" size="40">  <input name="myfile_base64" type="hidden">  <input name="myfile_base64_edited" type="hidden" value="0">  </div>  <input type="submit" style="padding:6px 10px;font-size:14px;" value="Upload document">  <span style="margin-left:10px;color:#888;">(Max file size: 10 MB)</span></div>  <input type="hidden" id="field_name" name="field_name" value="">  <input type="hidden" name="redcap_csrf_token" value="954777481071acbd6a5d264be8fa1a3b">  <iframe id="upload_target" name="upload_target" src="/redcap_v8.10.2/DataEntry/empty.php?pid=2709" style="width:0;height:0;border:0px solid #fff;"></iframe>  </form>';
+	var f1_upload_form = '<div style="color:#800000;margin:20px 0;font-size:14px;">Select a file then click the \'Upload Document\' button</div>  <div style="margin:15px 0;">  <input name="myfile" type="file" size="40">  <input name="myfile_base64" type="hidden">  <input name="myfile_base64_edited" type="hidden" value="0">  </div>  <input type="submit" style="padding:6px 10px;font-size:14px;" value="Upload document">  <span style="margin-left:10px;color:#888;">(Max file size: 10 MB)</span>';
+	// Language for file upload dialog title
+	var lang_file_upload_title1 = 'Upload document';
+	var lang_file_upload_title2 = 'Add signature';
+	</script>
+	<script type="text/javascript" src="/redcap_v8.10.2/Resources/js/jSignature.js"></script>
+	<script type="text/javascript" src="/redcap_v8.10.2/Resources/js/jSignature.SignHere.js"></script>
+	<!--[if lt IE 9]>
+	<script type="text/javascript" src="/redcap_v8.10.2/Resources/js/flashcanvas.js"></script>
+	<![endif]-->
+	
+	<style type="text/css">
+	.data, .labelrc, .data_matrix, .labelmatrix {
+		background:#f5f5f5;
+		border:0px;
+		border-bottom:1px solid #DDDDDD;
+		border-top:0px solid #f5f5f5;
+	}
+	.header {
+		border-left:0;
+		border-right:0;
+	}
+	</style>
+
+	<!-- SECONDARY UNIQUE FIELD JAVASCRIPT -->
+		<script type='text/javascript'>
+	// Set secondary_id and see if it's on this page
+	var secondary_pk = '';
+	// Initial function (default return true)
+	var checkSecondaryUniqueField = function(){ return; };
+	// On pageload
+	$(function(){
+		// Create onblur event to make an ajax call to check uniqueness
+		if (secondary_pk != '' && $('#form :input[name="'+secondary_pk+'"]').length) {
+			// Add extra inline onblur attribute for fastest reaction time to prevent submitting form
+			var onblur = ($('#form :input[name="'+secondary_pk+'"]').attr('onblur') == null) ? '' : ($('#form :input[name="'+secondary_pk+'"]').attr('onblur')+';');
+			$('#form :input[name="'+secondary_pk+'"]').attr('onblur', onblur+'checkSecondaryUniqueField($(this));');
+			// Check if value is unique
+			checkSecondaryUniqueField = function(ob){
+				// Disable all form buttons temporarily
+				$('#formSaveTip input[type="button"], #form input[type="button"], #form :input[name="'+secondary_pk+'"]').prop('disabled', true);
+				// Init values
+				//var ob = $(this);
+				var url_base = 'DataEntry/check_unique_ajax.php';
+				if (page == 'surveys/index.php') {
+					// Survey page
+					var record = ((document.form.__response_hash__.value == '') ? '' : $('#form :input[name="'+table_pk+'"]').val());
+					var url = app_path_webroot_full+page+'?s='+getParameterByName('s')+'&__passthru='+encodeURIComponent(url_base);
+				} else {
+					// Data entry page
+					var record = ((document.form.hidden_edit_flag.value == '0') ? '' : getParameterByName('id'));
+					var url = app_path_webroot+url_base+'?page='+getParameterByName('page');
+				}
+				ob.val( trim(ob.val()) );
+				if (ob.val().length > 0) {
+					// Make ajax request
+					$.ajax({
+						url: url,
+						type: 'GET',
+						data: { pid: pid, field_name: secondary_pk, event_id: event_id, record: record, instance: '1', value: ob.val() },
+						async: false,
+						success:
+							function(data){
+								if (data.length == 0) {
+									alert(woops);
+									setTimeout(function () { ob.focus() }, 1);
+								} else if (data != '0') {
+									if (page == 'surveys/index.php') {
+										simpleDialog('The current question requires that its value never duplicate the value from a prior survey response. The value you entered ("'+ob.val()
+											+ '") has already been taken, so please enter another value. You must change this value before you can proceed.','DUPLICATE VALUE!',null,null,"$('#form :input[name="+secondary_pk+"]').focus();",'Close');
+									} else {
+										simpleDialog('The current field is the secondary unique field ('+secondary_pk
+											+ '), so its value must be unique for all records and cannot be duplicated. Another record or another event within the current record '
+											+ 'already has this same value ("'+ob.val()
+											+ '"). You must change this value before you can proceed.','DUPLICATE VALUE!',null,null,"$('#form :input[name="+secondary_pk+"]').focus();",'Close');
+									}
+									ob.css('font-weight','bold');
+									ob.css('background-color','#FFB7BE');									
+									// If this is a DDP project and the DDP "preview data" dialog is displayed, close it
+									if ($('#rtws_idfield_new_record_warning').length && $('#rtws_idfield_new_record_warning').hasClass('ui-dialog-content')) {
+										$('#rtws_idfield_new_record_warning').dialog('close');
+									}
+								} else {
+									ob.css('font-weight','normal');
+									ob.css('background-color','#FFFFFF');
+								}
+								// Enable all form buttons again
+								$('#formSaveTip input[type="button"], #form input[type="button"], #form :input[name="'+secondary_pk+'"]').prop('disabled', false);
+							}
+					});
+				} else {
+					// Enable all form buttons again
+					$('#formSaveTip input[type="button"], #form input[type="button"], #form :input[name="'+secondary_pk+'"]').prop('disabled', false);
+				}
+			}
+		}
+	});
+	</script>
+	
+	<script type='text/javascript'>
+	// Add hidden_edit/record_exists and record_exists as javascript variables
+	var record_exists = 1;
+	var require_change_reason = 0;
+	// Set event_id and instance
+	var event_id = 16658;
+	var instance = 1;
+	// Language items
+	var langSaveLeavePage = 'Save changes and leave';
+	var langLeavePage = 'Leave without saving changes';
+	var langStayOnPage = 'Stay on page';
+	var langDlgSaveDataTitle = 'Save your changes?';
+	var langDlgSaveDataTitleCaps = 'SAVE YOUR CHANGES?';
+	var langDlgSaveDataMsg = 'Are you sure you wish to close the page? If you have made any data changes on this page, then they will be lost if you close the page now. IF YOU DO NOT WISH TO ABANDON YOUR DATA CHANGES, click the \'Stay on page\' button below and then save your changes.';
+	var lang_exclude = 'exclude';
+	var lang_remove_exlusion = 'remove exclusion';
+	var langContribTitle = 'View all contributors';
+	</script>
+	<div id="stayOnPageReminderDialog" class="simpleDialog" style="display:none;">
+	<div style="font-size:14px;line-height:1.5em;">
+		Are you sure you wish to leave this page? <b>If you have made any data changes on this page, they will be lost if you leave without saving them.</b> Below you may choose to 1) save your changes and leave the page, 2) abandon your changes and leave the page,
+			or 3) stay on the current page.
+	</div>
+</div>
+<script type="text/javascript" src="/redcap_v8.10.2/Resources/js/DataEntry.js"></script>
+<script type="text/javascript" src="/redcap_v8.10.2/Resources/js/geoPosition.js"></script>
+<script type="text/javascript" src="/redcap_v8.10.2/Resources/js/geoPositionSimulator.js"></script>
+	<script type='text/javascript'>
+	// Language items
+	var langCancel = 'Cancel';
+	var langYes = 'Yes';
+	var langRemoveSpaces = 'This field\'s value contains extra spaces at the beginning or end. Would you like to remove them?';
+	</script>
+	<form action='/redcap_v8.10.2/DataEntry/index.php?pid=2709&event_id=16658&page=initial_health_assessment&instance=1' enctype='multipart/form-data' target='_self' method='post' name='form' id='form'><input type='hidden' name='redcap_csrf_token' value='954777481071acbd6a5d264be8fa1a3b'><div style='max-width:800px;'><span id="maxchecked_tag_label" class="" style="display:none;z-index:1000;">Cannot select choice! The maximum number of choices has been selected.</span><span id="matrix_rank_remove_label" class="opacity75" style="display:none;">Value removed!</span><div id='questiontable_loading'>
+					<img alt='Loading...' src='/redcap_v8.10.2/Resources/images/progress_circle.gif'> Loading...
+				</div>
+				<script type='text/javascript'>
+					setTimeout(function(){
+						document.getElementById('questiontable_loading').style.visibility='visible';
+					},750);
+				</script><div id='formtop-div'><div class='wrap' style='float:right;margin-right:5px;'>Data Access Group:<span style='margin-left:6px;'><b>[No Assignment]</b></span>
+							<a href='javascript:;' title='How to assign to a Data Access Group' class='help' onclick="simpleDialog('When a record is first being created, it can be assigned to a Data Access Group here on the data entry form. But once a record exists, you <b>must use the record action drop-down at top of the Record Home Page</b> to assign/reassign/unassign the record to a Data Access Group.','How to assign to a Data Access Group',null,550);">?</a>
+							</div><div class='wrap' style='float:right;display:none;'>Assign record to a Data Access Group?<select name='__GROUPID__' class='x-form-text x-form-field' style='margin-left:8px;font-size:12px;' >
+					   <option value=''> -- select a group -- </option>
+					   <option value=''>[No Assignment]</option><option value='1753' >Undergraduate Navigators</option></select></div><div class='clear'></div></div><table role='presentation' class='form_border container-fluid' id='questiontable' style='display:none;'><tbody class='formtbody'><tr ><td class='context_msg'  colspan='2'><div id='contextMsg'><div class='blue'><img src='/redcap_v8.10.2/Resources/images/pencil.png'>  Editing existing Record ID <b>23606</b></div><div class='yellow'>
+						 <img src='/redcap_v8.10.2/Resources/images/spacer.gif' style='width:16px;height:1px;'>
+						 Event Name: 
+						 <span style='font-weight:bold;color:#800000;'>2017-2018 (Arm 11: West Kendall Health Fair)</span>
+						 
+						 </div></div></td></tr>
+<input type='hidden' name='submit-action' id="submit-action" value='Save Record'>
+<input type='hidden' name='hidden_edit_flag'  value='1'><tr  id='record_id-tr' sq_id='record_id'  hasval='1'><td class='labelrc col-7'>Record ID</td>
+						<td class='data col-5'>23606<input type='hidden' name='__old_id__' value='23606'><div style='color:#777;font-size:7pt;line-height:8pt;padding:5px 0 2px;'>To rename the record, see the record action drop-down at top of the <a class="opacity75" style="font-size:11px;text-decoration:underline;font-size:7pt;line-height:8pt;" href="/redcap_v8.10.2/DataEntry/record_home.php?pid=2709&id=23606&arm=11">Record Home Page</a>.</div></td></tr>
+<input type='hidden' name='record_id'  value='23606'><tr class='@NOW @READONLY' id='registration_time-tr' sq_id='registration_time' req='1' hasval='1'><td class='labelrc col-7'><label class='fl' id='label-registration_time' aria-hidden='true'><table role='presentation' style='width:100%;height:100%;max-height:100%;' cellspacing='0' cellpadding='0'>
+							<tr>
+								<td>
+									 Registration Check-in Time<div class='requiredlabel' aria-label='Question required.'>* must provide value</div>
+								</td>
+								<td style='width:10px;padding-left:5px;'>		<a href='javascript:;' tabindex='-1' onclick="dataHist('registration_time',16658);return false;"><img src='/redcap_v8.10.2/Resources/images/history.png'
+									title="View data history" onmouseover='dh1(this)' onmouseout='dh2(this)' style='margin-bottom:1px;'></a><br>	<a href='javascript:;' tabindex='-1' onclick="dataResPopup('registration_time',16658,null,null,null,1);return false;"><img id='dc-icon-registration_time' src='/redcap_v8.10.2/Resources/images/balloon_left_bw2.gif'
+									title='View comment log' onmouseover='dc1(this)' onmouseout='dc2(this)'></a>		</td>
+							</tr>
+						</table></label></td><td class='data col-5'>	<input autocomplete='new-password' aria-required='true' aria-labelledby='label-registration_time' class='x-form-text x-form-field datetime_mdy'  type='text' name='registration_time' value='03-24-2018 06:27'
+							disabled     onblur="redcap_validate(this,'','','soft_typed','datetime_mdy',1)"  tabindex='0' onkeydown="dateKeyDown(event,'registration_time')"  fv='datetime_mdy'  >
+							&nbsp;&nbsp; <button ignore='Yes' class='jqbuttonsm' onclick="setNowDateTime('registration_time',0,'datetime_mdy');return false;">Now</button><span class='df'>M-D-Y H:M</span>  </td></tr><tr  id='first_name-tr' sq_id='first_name' req='1' hasval='1'><td class='labelrc col-7'><label class='fl' id='label-first_name' aria-hidden='true'><table role='presentation' style='width:100%;height:100%;max-height:100%;' cellspacing='0' cellpadding='0'>
+							<tr>
+								<td>
+									 First Name<div class='requiredlabel' aria-label='Question required.'>* must provide value</div>
+								</td>
+								<td style='width:10px;padding-left:5px;'>		<a href='javascript:;' tabindex='-1' onclick="dataHist('first_name',16658);return false;"><img src='/redcap_v8.10.2/Resources/images/history.png'
+									title="View data history" onmouseover='dh1(this)' onmouseout='dh2(this)' style='margin-bottom:1px;'></a><br>	<a href='javascript:;' tabindex='-1' onclick="dataResPopup('first_name',16658,null,null,null,1);return false;"><img id='dc-icon-first_name' src='/redcap_v8.10.2/Resources/images/balloon_left_bw2.gif'
+									title='View comment log' onmouseover='dc1(this)' onmouseout='dc2(this)'></a>		</td>
+							</tr>
+						</table></label></td><td class='data col-5'>	<input autocomplete='new-password' aria-required='true' aria-labelledby='label-first_name' class='x-form-text x-form-field '  type='text' name='first_name' value='Cornelius'
+							       tabindex='0'     >
+							  </td></tr><tr  id='last_name-tr' sq_id='last_name' req='1' hasval='1'><td class='labelrc col-7'><label class='fl' id='label-last_name' aria-hidden='true'><table role='presentation' style='width:100%;height:100%;max-height:100%;' cellspacing='0' cellpadding='0'>
+							<tr>
+								<td>
+									 Last name<div class='requiredlabel' aria-label='Question required.'>* must provide value</div>
+								</td>
+								<td style='width:10px;padding-left:5px;'>		<a href='javascript:;' tabindex='-1' onclick="dataHist('last_name',16658);return false;"><img src='/redcap_v8.10.2/Resources/images/history.png'
+									title="View data history" onmouseover='dh1(this)' onmouseout='dh2(this)' style='margin-bottom:1px;'></a><br>	<a href='javascript:;' tabindex='-1' onclick="dataResPopup('last_name',16658,null,null,null,1);return false;"><img id='dc-icon-last_name' src='/redcap_v8.10.2/Resources/images/balloon_left_bw2.gif'
+									title='View comment log' onmouseover='dc1(this)' onmouseout='dc2(this)'></a>		</td>
+							</tr>
+						</table></label></td><td class='data col-5'>	<input autocomplete='new-password' aria-required='true' aria-labelledby='label-last_name' class='x-form-text x-form-field '  type='text' name='last_name' value='Buffoon'
+							       tabindex='0'     >
+							  </td></tr><tr  id='mi-tr' sq_id='mi' ><td class='labelrc col-7'><label class='fl' id='label-mi' aria-hidden='true'><table role='presentation' style='width:100%;height:100%;max-height:100%;' cellspacing='0' cellpadding='0'>
+							<tr>
+								<td>
+									 MI
+								</td>
+								<td style='width:10px;padding-left:5px;'>		<a href='javascript:;' tabindex='-1' onclick="dataHist('mi',16658);return false;"><img src='/redcap_v8.10.2/Resources/images/history.png'
+									title="View data history" onmouseover='dh1(this)' onmouseout='dh2(this)' style='margin-bottom:1px;'></a><br>	<a href='javascript:;' tabindex='-1' onclick="dataResPopup('mi',16658,null,null,null,1);return false;"><img id='dc-icon-mi' src='/redcap_v8.10.2/Resources/images/balloon_left_bw2.gif'
+									title='View comment log' onmouseover='dc1(this)' onmouseout='dc2(this)'></a>		</td>
+							</tr>
+						</table></label></td><td class='data col-5'>	<input autocomplete='new-password' aria-labelledby='label-mi' class='x-form-text x-form-field '  type='text' name='mi' value='I'
+							       tabindex='0'     >
+							  </td></tr><tr class='@TODAY @READONLY' id='todays_date-tr' sq_id='todays_date' req='1' hasval='1'><td class='labelrc col-7'><label class='fl' id='label-todays_date' aria-hidden='true'><table role='presentation' style='width:100%;height:100%;max-height:100%;' cellspacing='0' cellpadding='0'>
+							<tr>
+								<td>
+									 Today's Date<div class='requiredlabel' aria-label='Question required.'>* must provide value</div>
+								</td>
+								<td style='width:10px;padding-left:5px;'>		<a href='javascript:;' tabindex='-1' onclick="dataHist('todays_date',16658);return false;"><img src='/redcap_v8.10.2/Resources/images/history.png'
+									title="View data history" onmouseover='dh1(this)' onmouseout='dh2(this)' style='margin-bottom:1px;'></a><br>	<a href='javascript:;' tabindex='-1' onclick="dataResPopup('todays_date',16658,null,null,null,1);return false;"><img id='dc-icon-todays_date' src='/redcap_v8.10.2/Resources/images/balloon_left_bw2.gif'
+									title='View comment log' onmouseover='dc1(this)' onmouseout='dc2(this)'></a>		</td>
+							</tr>
+						</table></label></td><td class='data col-5'>	<input autocomplete='new-password' aria-required='true' aria-labelledby='label-todays_date' class='x-form-text x-form-field date_mdy'  type='text' name='todays_date' value='03-24-2018'
+							disabled   onchange="clean_datetime(this,'date_mdy');calculate('todays_date');doBranching('todays_date');"  onblur="redcap_validate(this,'','','soft_typed','date_mdy',1)"  tabindex='0' onkeydown="dateKeyDown(event,'todays_date')"  fv='date_mdy'  >
+							&nbsp;&nbsp; <button ignore='Yes' class='jqbuttonsm' onclick="setToday('todays_date','date_mdy');return false;">Today</button><span class='df'>M-D-Y</span>  </td></tr><tr  id='birthday-tr' sq_id='birthday' req='1' hasval='1'><td class='labelrc col-7'><label class='fl' id='label-birthday' aria-hidden='true'><table role='presentation' style='width:100%;height:100%;max-height:100%;' cellspacing='0' cellpadding='0'>
+							<tr>
+								<td>
+									 Date of Birth<div class='requiredlabel' aria-label='Question required.'>* must provide value</div>
+								</td>
+								<td style='width:10px;padding-left:5px;'>		<a href='javascript:;' tabindex='-1' onclick="dataHist('birthday',16658);return false;"><img src='/redcap_v8.10.2/Resources/images/history.png'
+									title="View data history" onmouseover='dh1(this)' onmouseout='dh2(this)' style='margin-bottom:1px;'></a><br>	<a href='javascript:;' tabindex='-1' onclick="dataResPopup('birthday',16658,null,null,null,1);return false;"><img id='dc-icon-birthday' src='/redcap_v8.10.2/Resources/images/balloon_left_bw2.gif'
+									title='View comment log' onmouseover='dc1(this)' onmouseout='dc2(this)'></a>		</td>
+							</tr>
+						</table></label></td><td class='data col-5'>	<input autocomplete='new-password' aria-required='true' aria-labelledby='label-birthday' class='x-form-text x-form-field date_mdy'  type='text' name='birthday' value='01-01-1990'
+							   onchange="clean_datetime(this,'date_mdy');calculate('birthday');doBranching('birthday');"  onblur="redcap_validate(this,'','','soft_typed','date_mdy',1)"  tabindex='0' onkeydown="dateKeyDown(event,'birthday')"  fv='date_mdy'  >
+							&nbsp;&nbsp; <button ignore='Yes' class='jqbuttonsm' onclick="setToday('birthday','date_mdy');return false;">Today</button><span class='df'>M-D-Y</span>  </td></tr><tr  id='age-tr' sq_id='age'  hasval='1'><td class='labelrc col-7'><label class='fl' id='label-age' aria-hidden='true'><table role='presentation' style='width:100%;height:100%;max-height:100%;' cellspacing='0' cellpadding='0'>
+							<tr>
+								<td>
+									 Age
+								</td>
+								<td style='width:10px;padding-left:5px;'>		<a href='javascript:;' tabindex='-1' onclick="dataHist('age',16658);return false;"><img src='/redcap_v8.10.2/Resources/images/history.png'
+									title="View data history" onmouseover='dh1(this)' onmouseout='dh2(this)' style='margin-bottom:1px;'></a><br>	<a href='javascript:;' tabindex='-1' onclick="dataResPopup('age',16658,null,null,null,1);return false;"><img id='dc-icon-age' src='/redcap_v8.10.2/Resources/images/balloon_left_bw2.gif'
+									title='View comment log' onmouseover='dc1(this)' onmouseout='dc2(this)'></a>		</td>
+							</tr>
+						</table></label></td><td class='data col-5'>	<input type='text' aria-labelledby='label-age' name='age' value='45' sv='45'   tabindex='-1' readonly='readonly'
+							class='x-form-text x-form-field rci-calc'>&nbsp;&nbsp;<a href='javascript:;' ignore='Yes' class='viewEq' tabindex='-1' onclick="viewEq('age');">View equation</a>
+							
+						</td></tr><tr  id='sex-tr' sq_id='sex' req='1' hasval='1'><td class='labelrc col-7'><label class='fl' id='label-sex' aria-hidden='true'><table role='presentation' style='width:100%;height:100%;max-height:100%;' cellspacing='0' cellpadding='0'>
+							<tr>
+								<td>
+									 Biological Sex at Birth<div class='requiredlabel' aria-label='Question required.'>* must provide value</div>
+								</td>
+								<td style='width:10px;padding-left:5px;'>		<a href='javascript:;' tabindex='-1' onclick="dataHist('sex',16658);return false;"><img src='/redcap_v8.10.2/Resources/images/history.png'
+									title="View data history" onmouseover='dh1(this)' onmouseout='dh2(this)' style='margin-bottom:1px;'></a><br>	<a href='javascript:;' tabindex='-1' onclick="dataResPopup('sex',16658,null,null,null,1);return false;"><img id='dc-icon-sex' src='/redcap_v8.10.2/Resources/images/balloon_left_bw2.gif'
+									title='View comment log' onmouseover='dc1(this)' onmouseout='dc2(this)'></a>		</td>
+							</tr>
+						</table></label></td><td class='data col-5'><input name='sex' value='1' tabindex='-1' class='hiddenradio' aria-labelledby='label-sex'><div class='choicevert' onclick='sr(this,event)'><input type='radio' tabindex='0' name='sex___radio'  aria-labelledby='label-sex label-sex-1'   onclick="document.forms['form'].sex.value=this.value;calculate('sex');doBranching('sex');"    value='1' > <label id='label-sex-1' class='mc'>Male</label></div><div class='choicevert' onclick='sr(this,event)'><input type='radio' tabindex='0' name='sex___radio'  aria-labelledby='label-sex label-sex-2'   onclick="document.forms['form'].sex.value=this.value;calculate('sex');doBranching('sex');"    value='2' checked> <label id='label-sex-2' class='mc'>Female</label></div><div class='resetLinkParent'><a href='javascript:;' class='smalllink ' tabindex='0' style='display:;'
+						onclick="return radioResetVal('sex','form');">reset</a></div></td></tr><tr  id='different_sex-tr' sq_id='different_sex' ><td class='labelrc col-7'><label class='fl' id='label-different_sex' aria-hidden='true'><table role='presentation' style='width:100%;height:100%;max-height:100%;' cellspacing='0' cellpadding='0'>
+							<tr>
+								<td>
+									 Check if this person identifies as a different gender.
+								</td>
+								<td style='width:10px;padding-left:5px;'>		<a href='javascript:;' tabindex='-1' onclick="dataHist('different_sex',16658);return false;"><img src='/redcap_v8.10.2/Resources/images/history.png'
+									title="View data history" onmouseover='dh1(this)' onmouseout='dh2(this)' style='margin-bottom:1px;'></a><br>	<a href='javascript:;' tabindex='-1' onclick="dataResPopup('different_sex',16658,null,null,null,1);return false;"><img id='dc-icon-different_sex' src='/redcap_v8.10.2/Resources/images/balloon_left_bw2.gif'
+									title='View comment log' onmouseover='dc1(this)' onmouseout='dc2(this)'></a>		</td>
+							</tr>
+						</table></label></td><td class='data col-5'><div class='choicevert' onclick='sr(this,event)'><input type='checkbox'  aria-labelledby='label-different_sex label-different_sex-1' tabindex='0'  onchange="clean_datetime(this,'');doBranching('different_sex');"     id='id-__chk__different_sex_RC_1' name='__chkn__different_sex' code='1' onclick="checkboxClick('different_sex','1',this,0);" ><input type="hidden" value="" name="__chk__different_sex_RC_1"> <label id='label-different_sex-1' class='mc'></label></div><div class='space'></div></td></tr><tr  id='specify_gender-tr' sq_id='specify_gender' req='1'><td class='labelrc col-7'><label class='fl' id='label-specify_gender' aria-hidden='true'><table role='presentation' style='width:100%;height:100%;max-height:100%;' cellspacing='0' cellpadding='0'>
+							<tr>
+								<td>
+									 Specify gender:<div class='requiredlabel' aria-label='Question required.'>* must provide value</div>
+								</td>
+								<td style='width:10px;padding-left:5px;'>		<a href='javascript:;' tabindex='-1' onclick="dataHist('specify_gender',16658);return false;"><img src='/redcap_v8.10.2/Resources/images/history.png'
+									title="View data history" onmouseover='dh1(this)' onmouseout='dh2(this)' style='margin-bottom:1px;'></a><br>	<a href='javascript:;' tabindex='-1' onclick="dataResPopup('specify_gender',16658,null,null,null,1);return false;"><img id='dc-icon-specify_gender' src='/redcap_v8.10.2/Resources/images/balloon_left_bw2.gif'
+									title='View comment log' onmouseover='dc1(this)' onmouseout='dc2(this)'></a>		</td>
+							</tr>
+						</table></label></td><td class='data col-5'>	<input autocomplete='new-password' aria-required='true' aria-labelledby='label-specify_gender' class='x-form-text x-form-field '  type='text' name='specify_gender' value=''
+							       tabindex='0'     >
+							  </td></tr><tr  id='dysphoric-tr' sq_id='dysphoric' req='1'><td class='labelrc col-7'><label class='fl' id='label-dysphoric' aria-hidden='true'><table role='presentation' style='width:100%;height:100%;max-height:100%;' cellspacing='0' cellpadding='0'>
+							<tr>
+								<td>
+									 Patient may be gender dysphoric. Send to mental health?<div class='requiredlabel' aria-label='Question required.'>* must provide value</div>
+								</td>
+								<td style='width:10px;padding-left:5px;'>		<a href='javascript:;' tabindex='-1' onclick="dataHist('dysphoric',16658);return false;"><img src='/redcap_v8.10.2/Resources/images/history.png'
+									title="View data history" onmouseover='dh1(this)' onmouseout='dh2(this)' style='margin-bottom:1px;'></a><br>	<a href='javascript:;' tabindex='-1' onclick="dataResPopup('dysphoric',16658,null,null,null,1);return false;"><img id='dc-icon-dysphoric' src='/redcap_v8.10.2/Resources/images/balloon_left_bw2.gif'
+									title='View comment log' onmouseover='dc1(this)' onmouseout='dc2(this)'></a>		</td>
+							</tr>
+						</table></label></td><td class='data col-5'><input name='dysphoric' value='' tabindex='-1' class='hiddenradio' aria-labelledby='label-dysphoric'><div class='choicevert' onclick='sr(this,event)'><input type='radio' tabindex='0' name='dysphoric___radio'  aria-labelledby='label-dysphoric label-dysphoric-1'   onclick="document.forms['form'].dysphoric.value=this.value;"    value='1' > <label id='label-dysphoric-1' class='mc'>Yes</label></div><div class='choicevert' onclick='sr(this,event)'><input type='radio' tabindex='0' name='dysphoric___radio'  aria-labelledby='label-dysphoric label-dysphoric-0'   onclick="document.forms['form'].dysphoric.value=this.value;"    value='0' > <label id='label-dysphoric-0' class='mc'>No</label></div><div class='resetLinkParent'><a href='javascript:;' class='smalllink ' tabindex='0' style='display:;'
+					onclick="return radioResetVal('dysphoric','form');">reset</a></div></td></tr><tr  id='phone_number-tr' sq_id='phone_number' req='1' hasval='1'><td class='labelrc col-7'><label class='fl' id='label-phone_number' aria-hidden='true'><table role='presentation' style='width:100%;height:100%;max-height:100%;' cellspacing='0' cellpadding='0'>
+							<tr>
+								<td>
+									 Phone Number<div class='requiredlabel' aria-label='Question required.'>* must provide value</div>
+								</td>
+								<td style='width:10px;padding-left:5px;'>		<a href='javascript:;' tabindex='-1' onclick="dataHist('phone_number',16658);return false;"><img src='/redcap_v8.10.2/Resources/images/history.png'
+									title="View data history" onmouseover='dh1(this)' onmouseout='dh2(this)' style='margin-bottom:1px;'></a><br>	<a href='javascript:;' tabindex='-1' onclick="dataResPopup('phone_number',16658,null,null,null,1);return false;"><img id='dc-icon-phone_number' src='/redcap_v8.10.2/Resources/images/balloon_left_bw2.gif'
+									title='View comment log' onmouseover='dc1(this)' onmouseout='dc2(this)'></a>		</td>
+							</tr>
+						</table></label></td><td class='data col-5'>	<input autocomplete='new-password' aria-required='true' aria-labelledby='label-phone_number' class='x-form-text x-form-field '  type='text' name='phone_number' value='1234567890'
+							       tabindex='0'     >
+							  </td></tr><tr  id='email-tr' sq_id='email'  hasval='1'><td class='labelrc col-7'><label class='fl' id='label-email' aria-hidden='true'><table role='presentation' style='width:100%;height:100%;max-height:100%;' cellspacing='0' cellpadding='0'>
+							<tr>
+								<td>
+									 Email
+								</td>
+								<td style='width:10px;padding-left:5px;'>		<a href='javascript:;' tabindex='-1' onclick="dataHist('email',16658);return false;"><img src='/redcap_v8.10.2/Resources/images/history.png'
+									title="View data history" onmouseover='dh1(this)' onmouseout='dh2(this)' style='margin-bottom:1px;'></a><br>	<a href='javascript:;' tabindex='-1' onclick="dataResPopup('email',16658,null,null,null,1);return false;"><img id='dc-icon-email' src='/redcap_v8.10.2/Resources/images/balloon_left_bw2.gif'
+									title='View comment log' onmouseover='dc1(this)' onmouseout='dc2(this)'></a>		</td>
+							</tr>
+						</table></label></td><td class='data col-5'>	<input autocomplete='new-password' aria-labelledby='label-email' class='x-form-text x-form-field '  type='text' name='email' value='parralb@gmail.com'
+							       tabindex='0'     >
+							  </td></tr><tr  id='street-tr' sq_id='street' req='1' hasval='1'><td class='labelrc col-7'><label class='fl' id='label-street' aria-hidden='true'><table role='presentation' style='width:100%;height:100%;max-height:100%;' cellspacing='0' cellpadding='0'>
+							<tr>
+								<td>
+									 Street<div class='requiredlabel' aria-label='Question required.'>* must provide value</div>
+								</td>
+								<td style='width:10px;padding-left:5px;'>		<a href='javascript:;' tabindex='-1' onclick="dataHist('street',16658);return false;"><img src='/redcap_v8.10.2/Resources/images/history.png'
+									title="View data history" onmouseover='dh1(this)' onmouseout='dh2(this)' style='margin-bottom:1px;'></a><br>	<a href='javascript:;' tabindex='-1' onclick="dataResPopup('street',16658,null,null,null,1);return false;"><img id='dc-icon-street' src='/redcap_v8.10.2/Resources/images/balloon_left_bw2.gif'
+									title='View comment log' onmouseover='dc1(this)' onmouseout='dc2(this)'></a>		</td>
+							</tr>
+						</table></label></td><td class='data col-5'>	<input autocomplete='new-password' aria-required='true' aria-labelledby='label-street' class='x-form-text x-form-field '  type='text' name='street' value='1234 Big Foot Road'
+							       tabindex='0'     >
+							  </td></tr><tr  id='apartment-tr' sq_id='apartment' ><td class='labelrc col-7'><label class='fl' id='label-apartment' aria-hidden='true'><table role='presentation' style='width:100%;height:100%;max-height:100%;' cellspacing='0' cellpadding='0'>
+							<tr>
+								<td>
+									 Apartment
+								</td>
+								<td style='width:10px;padding-left:5px;'>		<a href='javascript:;' tabindex='-1' onclick="dataHist('apartment',16658);return false;"><img src='/redcap_v8.10.2/Resources/images/history.png'
+									title="View data history" onmouseover='dh1(this)' onmouseout='dh2(this)' style='margin-bottom:1px;'></a><br>	<a href='javascript:;' tabindex='-1' onclick="dataResPopup('apartment',16658,null,null,null,1);return false;"><img id='dc-icon-apartment' src='/redcap_v8.10.2/Resources/images/balloon_left_bw2.gif'
+									title='View comment log' onmouseover='dc1(this)' onmouseout='dc2(this)'></a>		</td>
+							</tr>
+						</table></label></td><td class='data col-5'>	<input autocomplete='new-password' aria-labelledby='label-apartment' class='x-form-text x-form-field '  type='text' name='apartment' value=''
+							       tabindex='0'     >
+							  </td></tr><tr  id='city-tr' sq_id='city' req='1' hasval='1'><td class='labelrc col-7'><label class='fl' id='label-city' aria-hidden='true'><table role='presentation' style='width:100%;height:100%;max-height:100%;' cellspacing='0' cellpadding='0'>
+							<tr>
+								<td>
+									 City<div class='requiredlabel' aria-label='Question required.'>* must provide value</div>
+								</td>
+								<td style='width:10px;padding-left:5px;'>		<a href='javascript:;' tabindex='-1' onclick="dataHist('city',16658);return false;"><img src='/redcap_v8.10.2/Resources/images/history.png'
+									title="View data history" onmouseover='dh1(this)' onmouseout='dh2(this)' style='margin-bottom:1px;'></a><br>	<a href='javascript:;' tabindex='-1' onclick="dataResPopup('city',16658,null,null,null,1);return false;"><img id='dc-icon-city' src='/redcap_v8.10.2/Resources/images/balloon_left_bw2.gif'
+									title='View comment log' onmouseover='dc1(this)' onmouseout='dc2(this)'></a>		</td>
+							</tr>
+						</table></label></td><td class='data col-5'>	<input autocomplete='new-password' aria-required='true' aria-labelledby='label-city' class='x-form-text x-form-field '  type='text' name='city' value='Miami'
+							       tabindex='0'     >
+							  </td></tr><tr  id='state-tr' sq_id='state' req='1' hasval='1'><td class='labelrc col-7'><label class='fl' id='label-state' aria-hidden='true'><table role='presentation' style='width:100%;height:100%;max-height:100%;' cellspacing='0' cellpadding='0'>
+							<tr>
+								<td>
+									 State<div class='requiredlabel' aria-label='Question required.'>* must provide value</div>
+								</td>
+								<td style='width:10px;padding-left:5px;'>		<a href='javascript:;' tabindex='-1' onclick="dataHist('state',16658);return false;"><img src='/redcap_v8.10.2/Resources/images/history.png'
+									title="View data history" onmouseover='dh1(this)' onmouseout='dh2(this)' style='margin-bottom:1px;'></a><br>	<a href='javascript:;' tabindex='-1' onclick="dataResPopup('state',16658,null,null,null,1);return false;"><img id='dc-icon-state' src='/redcap_v8.10.2/Resources/images/balloon_left_bw2.gif'
+									title='View comment log' onmouseover='dc1(this)' onmouseout='dc2(this)'></a>		</td>
+							</tr>
+						</table></label></td><td class='data col-5'><span ><select role='listbox' aria-required='true' aria-labelledby='label-state' class='x-form-text x-form-field   ' name='state'       tabindex='0'><option value=''></option></span><option value='1' >Alabama</option><option value='2' >Alaska</option><option value='3' >Arizona</option><option value='4' >Arkansas</option><option value='5' >California</option><option value='6' >Colorado</option><option value='7' >Connecticut</option><option value='8' >Delaware</option><option value='9' >District of Columbia</option><option value='10' selected>Florida</option><option value='11' >Georgia</option><option value='12' >Hawaii</option><option value='13' >Idaho</option><option value='14' >Illinois</option><option value='15' >Indiana</option><option value='16' >Iowa</option><option value='17' >Kansas</option><option value='18' >Kentucky</option><option value='19' >Louisiana</option><option value='20' >Maine</option><option value='21' >Maryland</option><option value='22' >Massachusetts</option><option value='23' >Michigan</option><option value='24' >Minnesota</option><option value='25' >Mississippi</option><option value='26' >Missouri</option><option value='27' >Montana</option><option value='28' >Nebraska</option><option value='29' >Nevada</option><option value='30' >New Hampshire</option><option value='31' >New Jersey</option><option value='32' >New Mexico</option><option value='33' >New York</option><option value='34' >North Carolina</option><option value='35' >North Dakota</option><option value='36' >Ohio</option><option value='37' >Oklahoma</option><option value='38' >Oregon</option><option value='39' >Pennsylvania</option><option value='40' >Rhode Island</option><option value='41' >South Carolina</option><option value='42' >South Dakota</option><option value='43' >Tennessee</option><option value='44' >Texas</option><option value='45' >Utah</option><option value='46' >Vermont</option><option value='47' >Virginia</option><option value='48' >Washington</option><option value='49' >West Virginia</option><option value='50' >Wisconsin</option><option value='51' >Wyoming?</option><option value='52' >Other</option></select></span>
+						
+						</td></tr><tr  id='zip_code-tr' sq_id='zip_code' req='1' hasval='1'><td class='labelrc col-7'><label class='fl' id='label-zip_code' aria-hidden='true'><table role='presentation' style='width:100%;height:100%;max-height:100%;' cellspacing='0' cellpadding='0'>
+							<tr>
+								<td>
+									 Zip Code<div class='requiredlabel' aria-label='Question required.'>* must provide value</div>
+								</td>
+								<td style='width:10px;padding-left:5px;'>		<a href='javascript:;' tabindex='-1' onclick="dataHist('zip_code',16658);return false;"><img src='/redcap_v8.10.2/Resources/images/history.png'
+									title="View data history" onmouseover='dh1(this)' onmouseout='dh2(this)' style='margin-bottom:1px;'></a><br>	<a href='javascript:;' tabindex='-1' onclick="dataResPopup('zip_code',16658,null,null,null,1);return false;"><img id='dc-icon-zip_code' src='/redcap_v8.10.2/Resources/images/balloon_left_bw2.gif'
+									title='View comment log' onmouseover='dc1(this)' onmouseout='dc2(this)'></a>		</td>
+							</tr>
+						</table></label></td><td class='data col-5'>	<input autocomplete='new-password' aria-required='true' aria-labelledby='label-zip_code' class='x-form-text x-form-field '  type='text' name='zip_code' value='33178'
+							       tabindex='0'     >
+							  </td></tr><tr  id='country_origin-tr' sq_id='country_origin' req='1' hasval='1'><td class='labelrc col-7'><label class='fl' id='label-country_origin' aria-hidden='true'><table role='presentation' style='width:100%;height:100%;max-height:100%;' cellspacing='0' cellpadding='0'>
+							<tr>
+								<td>
+									 Country of Origin<div class='requiredlabel' aria-label='Question required.'>* must provide value</div>
+								</td>
+								<td style='width:10px;padding-left:5px;'>		<a href='javascript:;' tabindex='-1' onclick="dataHist('country_origin',16658);return false;"><img src='/redcap_v8.10.2/Resources/images/history.png'
+									title="View data history" onmouseover='dh1(this)' onmouseout='dh2(this)' style='margin-bottom:1px;'></a><br>	<a href='javascript:;' tabindex='-1' onclick="dataResPopup('country_origin',16658,null,null,null,1);return false;"><img id='dc-icon-country_origin' src='/redcap_v8.10.2/Resources/images/balloon_left_bw2.gif'
+									title='View comment log' onmouseover='dc1(this)' onmouseout='dc2(this)'></a>		</td>
+							</tr>
+						</table></label></td><td class='data col-5'>	<input autocomplete='new-password' aria-required='true' aria-labelledby='label-country_origin' class='x-form-text x-form-field '  type='text' name='country_origin' value='Venezuela'
+							       tabindex='0'     >
+							  </td></tr><tr  id='language-tr' sq_id='language' req='1' hasval='1'><td class='labelrc col-7'><label class='fl' id='label-language' aria-hidden='true'><table role='presentation' style='width:100%;height:100%;max-height:100%;' cellspacing='0' cellpadding='0'>
+							<tr>
+								<td>
+									 Language<div class='requiredlabel' aria-label='Question required.'>* must provide value</div>
+								</td>
+								<td style='width:10px;padding-left:5px;'>		<a href='javascript:;' tabindex='-1' onclick="dataHist('language',16658);return false;"><img src='/redcap_v8.10.2/Resources/images/history.png'
+									title="View data history" onmouseover='dh1(this)' onmouseout='dh2(this)' style='margin-bottom:1px;'></a><br>	<a href='javascript:;' tabindex='-1' onclick="dataResPopup('language',16658,null,null,null,1);return false;"><img id='dc-icon-language' src='/redcap_v8.10.2/Resources/images/balloon_left_bw2.gif'
+									title='View comment log' onmouseover='dc1(this)' onmouseout='dc2(this)'></a>		</td>
+							</tr>
+						</table></label></td><td class='data col-5'><span ><select role='listbox' aria-required='true' aria-labelledby='label-language' class='x-form-text x-form-field   ' name='language'   onchange="clean_datetime(this,'');doBranching('language');"    tabindex='0'><option value=''></option></span><option value='1' >English</option><option value='2' selected>Spanish</option><option value='3' >Creole</option><option value='4' >Other</option></select></span>
+						
+						</td></tr><tr  id='other_language-tr' sq_id='other_language' req='1'><td class='labelrc col-7'><label class='fl' id='label-other_language' aria-hidden='true'><table role='presentation' style='width:100%;height:100%;max-height:100%;' cellspacing='0' cellpadding='0'>
+							<tr>
+								<td>
+									 Other<div class='requiredlabel' aria-label='Question required.'>* must provide value</div>
+								</td>
+								<td style='width:10px;padding-left:5px;'>		<a href='javascript:;' tabindex='-1' onclick="dataHist('other_language',16658);return false;"><img src='/redcap_v8.10.2/Resources/images/history.png'
+									title="View data history" onmouseover='dh1(this)' onmouseout='dh2(this)' style='margin-bottom:1px;'></a><br>	<a href='javascript:;' tabindex='-1' onclick="dataResPopup('other_language',16658,null,null,null,1);return false;"><img id='dc-icon-other_language' src='/redcap_v8.10.2/Resources/images/balloon_left_bw2.gif'
+									title='View comment log' onmouseover='dc1(this)' onmouseout='dc2(this)'></a>		</td>
+							</tr>
+						</table></label></td><td class='data col-5'>	<input autocomplete='new-password' aria-required='true' aria-labelledby='label-other_language' class='x-form-text x-form-field '  type='text' name='other_language' value=''
+							       tabindex='0'     >
+							  </td></tr><tr  id='fair_site-tr' sq_id='fair_site' req='1' hasval='1'><td class='labelrc col-7'><label class='fl' id='label-fair_site' aria-hidden='true'><table role='presentation' style='width:100%;height:100%;max-height:100%;' cellspacing='0' cellpadding='0'>
+							<tr>
+								<td>
+									 Health Fair Site:<div class='requiredlabel' aria-label='Question required.'>* must provide value</div>
+								</td>
+								<td style='width:10px;padding-left:5px;'>		<a href='javascript:;' tabindex='-1' onclick="dataHist('fair_site',16658);return false;"><img src='/redcap_v8.10.2/Resources/images/history.png'
+									title="View data history" onmouseover='dh1(this)' onmouseout='dh2(this)' style='margin-bottom:1px;'></a><br>	<a href='javascript:;' tabindex='-1' onclick="dataResPopup('fair_site',16658,null,null,null,1);return false;"><img id='dc-icon-fair_site' src='/redcap_v8.10.2/Resources/images/balloon_left_bw2.gif'
+									title='View comment log' onmouseover='dc1(this)' onmouseout='dc2(this)'></a>		</td>
+							</tr>
+						</table></label></td><td class='data col-5'><span ><select role='listbox' aria-required='true' aria-labelledby='label-fair_site' class='x-form-text x-form-field rc-autocomplete  ' name='fair_site'       ><option value=''></option></span><option value='1' >Little Haiti</option><option value='2' >Hialeah/Opa-Locka</option><option value='3' >South Dade</option><option value='4' >Liberty City</option><option value='5' >Jack and Jill</option><option value='6' >Marathon</option><option value='7' >Big Pine Key</option><option value='8' >Key West</option><option value='9' >Light of the World</option><option value='10' selected>West Kendall</option><option value='11' >Pompano</option><option value='12' >Olinda Park</option></select></span><div class='nowrap' style='max-width:95%;'><input role='combobox' tabindex='0'  type='text'  class='x-form-text x-form-field rc-autocomplete' id='rc-ac-input_fair_site'><button  listopen='0' tabindex='-1' onclick='return false;' class='ui-button ui-widget ui-state-default ui-corner-right rc-autocomplete'><img class='rc-autocomplete' src='/redcap_v8.10.2/Resources/images/arrow_state_grey_expanded.png'></button></div>
+						
+						</td></tr><tr  id='civil_status-tr' sq_id='civil_status' req='1' hasval='1'><td class='labelrc col-7'><label class='fl' id='label-civil_status' aria-hidden='true'><table role='presentation' style='width:100%;height:100%;max-height:100%;' cellspacing='0' cellpadding='0'>
+							<tr>
+								<td>
+									 Civil Status (may prefer not to answer if uncomfortable)<div class='requiredlabel' aria-label='Question required.'>* must provide value</div>
+								</td>
+								<td style='width:10px;padding-left:5px;'>		<a href='javascript:;' tabindex='-1' onclick="dataHist('civil_status',16658);return false;"><img src='/redcap_v8.10.2/Resources/images/history.png'
+									title="View data history" onmouseover='dh1(this)' onmouseout='dh2(this)' style='margin-bottom:1px;'></a><br>	<a href='javascript:;' tabindex='-1' onclick="dataResPopup('civil_status',16658,null,null,null,1);return false;"><img id='dc-icon-civil_status' src='/redcap_v8.10.2/Resources/images/balloon_left_bw2.gif'
+									title='View comment log' onmouseover='dc1(this)' onmouseout='dc2(this)'></a>		</td>
+							</tr>
+						</table></label></td><td class='data col-5'><input name='civil_status' value='2' tabindex='-1' class='hiddenradio' aria-labelledby='label-civil_status'><div class='choicevert' onclick='sr(this,event)'><input type='radio' tabindex='0' name='civil_status___radio'  aria-labelledby='label-civil_status label-civil_status-1'   onclick="document.forms['form'].civil_status.value=this.value;"    value='1' > <label id='label-civil_status-1' class='mc'>Single</label></div><div class='choicevert' onclick='sr(this,event)'><input type='radio' tabindex='0' name='civil_status___radio'  aria-labelledby='label-civil_status label-civil_status-2'   onclick="document.forms['form'].civil_status.value=this.value;"    value='2' checked> <label id='label-civil_status-2' class='mc'>Married</label></div><div class='choicevert' onclick='sr(this,event)'><input type='radio' tabindex='0' name='civil_status___radio'  aria-labelledby='label-civil_status label-civil_status-3'   onclick="document.forms['form'].civil_status.value=this.value;"    value='3' > <label id='label-civil_status-3' class='mc'>Widower</label></div><div class='choicevert' onclick='sr(this,event)'><input type='radio' tabindex='0' name='civil_status___radio'  aria-labelledby='label-civil_status label-civil_status-4'   onclick="document.forms['form'].civil_status.value=this.value;"    value='4' > <label id='label-civil_status-4' class='mc'>Divorced</label></div><div class='choicevert' onclick='sr(this,event)'><input type='radio' tabindex='0' name='civil_status___radio'  aria-labelledby='label-civil_status label-civil_status-5'   onclick="document.forms['form'].civil_status.value=this.value;"    value='5' > <label id='label-civil_status-5' class='mc'>Separated</label></div><div class='choicevert' onclick='sr(this,event)'><input type='radio' tabindex='0' name='civil_status___radio'  aria-labelledby='label-civil_status label-civil_status-6'   onclick="document.forms['form'].civil_status.value=this.value;"    value='6' > <label id='label-civil_status-6' class='mc'>No response</label></div><div class='resetLinkParent'><a href='javascript:;' class='smalllink ' tabindex='0' style='display:;'
+						onclick="return radioResetVal('civil_status','form');">reset</a></div></td></tr><tr  id='years_of_formal_education-tr' sq_id='years_of_formal_education' req='1' hasval='1'><td class='labelrc col-7'><label class='fl' id='label-years_of_formal_education' aria-hidden='true'><table role='presentation' style='width:100%;height:100%;max-height:100%;' cellspacing='0' cellpadding='0'>
+							<tr>
+								<td>
+									 Years of Formal Education (may prefer not to answer if uncomfortable)<div class='requiredlabel' aria-label='Question required.'>* must provide value</div>
+								</td>
+								<td style='width:10px;padding-left:5px;'>		<a href='javascript:;' tabindex='-1' onclick="dataHist('years_of_formal_education',16658);return false;"><img src='/redcap_v8.10.2/Resources/images/history.png'
+									title="View data history" onmouseover='dh1(this)' onmouseout='dh2(this)' style='margin-bottom:1px;'></a><br>	<a href='javascript:;' tabindex='-1' onclick="dataResPopup('years_of_formal_education',16658,null,null,null,1);return false;"><img id='dc-icon-years_of_formal_education' src='/redcap_v8.10.2/Resources/images/balloon_left_bw2.gif'
+									title='View comment log' onmouseover='dc1(this)' onmouseout='dc2(this)'></a>		</td>
+							</tr>
+						</table></label></td><td class='data col-5'><input name='years_of_formal_education' value='4' tabindex='-1' class='hiddenradio' aria-labelledby='label-years_of_formal_education'><div class='choicevert' onclick='sr(this,event)'><input type='radio' tabindex='0' name='years_of_formal_education___radio'  aria-labelledby='label-years_of_formal_education label-years_of_formal_education-1'   onclick="document.forms['form'].years_of_formal_education.value=this.value;"    value='1' > <label id='label-years_of_formal_education-1' class='mc'>High school/GED</label></div><div class='choicevert' onclick='sr(this,event)'><input type='radio' tabindex='0' name='years_of_formal_education___radio'  aria-labelledby='label-years_of_formal_education label-years_of_formal_education-2'   onclick="document.forms['form'].years_of_formal_education.value=this.value;"    value='2' > <label id='label-years_of_formal_education-2' class='mc'>Vocational training</label></div><div class='choicevert' onclick='sr(this,event)'><input type='radio' tabindex='0' name='years_of_formal_education___radio'  aria-labelledby='label-years_of_formal_education label-years_of_formal_education-3'   onclick="document.forms['form'].years_of_formal_education.value=this.value;"    value='3' > <label id='label-years_of_formal_education-3' class='mc'>Associates degree/some years in university</label></div><div class='choicevert' onclick='sr(this,event)'><input type='radio' tabindex='0' name='years_of_formal_education___radio'  aria-labelledby='label-years_of_formal_education label-years_of_formal_education-4'   onclick="document.forms['form'].years_of_formal_education.value=this.value;"    value='4' checked> <label id='label-years_of_formal_education-4' class='mc'>Graduated from university (Bachelor's degree)</label></div><div class='choicevert' onclick='sr(this,event)'><input type='radio' tabindex='0' name='years_of_formal_education___radio'  aria-labelledby='label-years_of_formal_education label-years_of_formal_education-5'   onclick="document.forms['form'].years_of_formal_education.value=this.value;"    value='5' > <label id='label-years_of_formal_education-5' class='mc'>Master's degree</label></div><div class='choicevert' onclick='sr(this,event)'><input type='radio' tabindex='0' name='years_of_formal_education___radio'  aria-labelledby='label-years_of_formal_education label-years_of_formal_education-6'   onclick="document.forms['form'].years_of_formal_education.value=this.value;"    value='6' > <label id='label-years_of_formal_education-6' class='mc'>Doctorate degree</label></div><div class='choicevert' onclick='sr(this,event)'><input type='radio' tabindex='0' name='years_of_formal_education___radio'  aria-labelledby='label-years_of_formal_education label-years_of_formal_education-7'   onclick="document.forms['form'].years_of_formal_education.value=this.value;"    value='7' > <label id='label-years_of_formal_education-7' class='mc'>No response</label></div><div class='resetLinkParent'><a href='javascript:;' class='smalllink ' tabindex='0' style='display:;'
+						onclick="return radioResetVal('years_of_formal_education','form');">reset</a></div></td></tr><tr  id='income-tr' sq_id='income' req='1'><td class='labelrc col-7'><label class='fl' id='label-income' aria-hidden='true'><table role='presentation' style='width:100%;height:100%;max-height:100%;' cellspacing='0' cellpadding='0'>
+							<tr>
+								<td>
+									 Income (may prefer not to answer if uncomfortable)<div class='requiredlabel' aria-label='Question required.'>* must provide value</div>
+								</td>
+								<td style='width:10px;padding-left:5px;'>		<a href='javascript:;' tabindex='-1' onclick="dataHist('income',16658);return false;"><img src='/redcap_v8.10.2/Resources/images/history.png'
+									title="View data history" onmouseover='dh1(this)' onmouseout='dh2(this)' style='margin-bottom:1px;'></a><br>	<a href='javascript:;' tabindex='-1' onclick="dataResPopup('income',16658,null,null,null,1);return false;"><img id='dc-icon-income' src='/redcap_v8.10.2/Resources/images/balloon_left_bw2.gif'
+									title='View comment log' onmouseover='dc1(this)' onmouseout='dc2(this)'></a>		</td>
+							</tr>
+						</table></label></td><td class='data col-5'><input name='income' value='' tabindex='-1' class='hiddenradio' aria-labelledby='label-income'><div class='choicevert' onclick='sr(this,event)'><input type='radio' tabindex='0' name='income___radio'  aria-labelledby='label-income label-income-1'   onclick="document.forms['form'].income.value=this.value;"    value='1' > <label id='label-income-1' class='mc'>Less than $5,000</label></div><div class='choicevert' onclick='sr(this,event)'><input type='radio' tabindex='0' name='income___radio'  aria-labelledby='label-income label-income-2'   onclick="document.forms['form'].income.value=this.value;"    value='2' > <label id='label-income-2' class='mc'>$5,000 to $19,999</label></div><div class='choicevert' onclick='sr(this,event)'><input type='radio' tabindex='0' name='income___radio'  aria-labelledby='label-income label-income-3'   onclick="document.forms['form'].income.value=this.value;"    value='3' > <label id='label-income-3' class='mc'>$20,000 to $29,999</label></div><div class='choicevert' onclick='sr(this,event)'><input type='radio' tabindex='0' name='income___radio'  aria-labelledby='label-income label-income-4'   onclick="document.forms['form'].income.value=this.value;"    value='4' > <label id='label-income-4' class='mc'>$30,000 to $49,999</label></div><div class='choicevert' onclick='sr(this,event)'><input type='radio' tabindex='0' name='income___radio'  aria-labelledby='label-income label-income-5'   onclick="document.forms['form'].income.value=this.value;"    value='5' > <label id='label-income-5' class='mc'>$50,000 to $69,999</label></div><div class='choicevert' onclick='sr(this,event)'><input type='radio' tabindex='0' name='income___radio'  aria-labelledby='label-income label-income-6'   onclick="document.forms['form'].income.value=this.value;"    value='6' > <label id='label-income-6' class='mc'>$70,000 or more</label></div><div class='choicevert' onclick='sr(this,event)'><input type='radio' tabindex='0' name='income___radio'  aria-labelledby='label-income label-income-7'   onclick="document.forms['form'].income.value=this.value;"    value='7' > <label id='label-income-7' class='mc'>I don't know</label></div><div class='choicevert' onclick='sr(this,event)'><input type='radio' tabindex='0' name='income___radio'  aria-labelledby='label-income label-income-8'   onclick="document.forms['form'].income.value=this.value;"    value='8' > <label id='label-income-8' class='mc'>No response</label></div><div class='resetLinkParent'><a href='javascript:;' class='smalllink ' tabindex='0' style='display:;'
+						onclick="return radioResetVal('income','form');">reset</a></div></td></tr><tr  id='booklet_reminder-tr' sq_id='booklet_reminder' ><td class='labelrc col-12' colspan='2'> REMINDER <br />
+<br />
+Please fill out the patient's booklet with their name and MRN. <br />
+<br />
+Please give the patient a wristband with their MRN filled out. </td></tr><tr class='@DEFAULT' id='preregistered-tr' sq_id='preregistered' req='1' hasval='1' ignoreDefault='1'><td class='labelrc col-7'><label class='fl' id='label-preregistered' aria-hidden='true'><table role='presentation' style='width:100%;height:100%;max-height:100%;' cellspacing='0' cellpadding='0'>
+							<tr>
+								<td>
+									 Is this patient being preregistered?<div class='requiredlabel' aria-label='Question required.'>* must provide value</div>
+								</td>
+								<td style='width:10px;padding-left:5px;'>		<a href='javascript:;' tabindex='-1' onclick="dataHist('preregistered',16658);return false;"><img src='/redcap_v8.10.2/Resources/images/history.png'
+									title="View data history" onmouseover='dh1(this)' onmouseout='dh2(this)' style='margin-bottom:1px;'></a><br>	<a href='javascript:;' tabindex='-1' onclick="dataResPopup('preregistered',16658,null,null,null,1);return false;"><img id='dc-icon-preregistered' src='/redcap_v8.10.2/Resources/images/balloon_left_bw2.gif'
+									title='View comment log' onmouseover='dc1(this)' onmouseout='dc2(this)'></a>		</td>
+							</tr>
+						</table></label></td><td class='data col-5'><input name='preregistered' value='1' tabindex='-1' class='hiddenradio' aria-labelledby='label-preregistered'><div class='choicevert' onclick='sr(this,event)'><input type='radio' tabindex='0' name='preregistered___radio'  aria-labelledby='label-preregistered label-preregistered-1'   onclick="document.forms['form'].preregistered.value=this.value;"    value='1' checked> <label id='label-preregistered-1' class='mc'>Yes</label></div><div class='choicevert' onclick='sr(this,event)'><input type='radio' tabindex='0' name='preregistered___radio'  aria-labelledby='label-preregistered label-preregistered-0'   onclick="document.forms['form'].preregistered.value=this.value;"    value='0' > <label id='label-preregistered-0' class='mc'>No</label></div><div class='resetLinkParent'><a href='javascript:;' class='smalllink ' tabindex='0' style='display:;'
+					onclick="return radioResetVal('preregistered','form');">reset</a></div></td></tr><tr class='@DEFAULT' id='please_check_me-tr' sq_id='please_check_me' req='1'><td class='labelrc col-7'><label class='fl' id='label-please_check_me' aria-hidden='true'><table role='presentation' style='width:100%;height:100%;max-height:100%;' cellspacing='0' cellpadding='0'>
+							<tr>
+								<td>
+									 Attending Fair Today<div class='requiredlabel' aria-label='Question required.'>* must provide value</div>
+								</td>
+								<td style='width:10px;padding-left:5px;'>		<a href='javascript:;' tabindex='-1' onclick="dataHist('please_check_me',16658);return false;"><img src='/redcap_v8.10.2/Resources/images/history.png'
+									title="View data history" onmouseover='dh1(this)' onmouseout='dh2(this)' style='margin-bottom:1px;'></a><br>	<a href='javascript:;' tabindex='-1' onclick="dataResPopup('please_check_me',16658,null,null,null,1);return false;"><img id='dc-icon-please_check_me' src='/redcap_v8.10.2/Resources/images/balloon_left_bw2.gif'
+									title='View comment log' onmouseover='dc1(this)' onmouseout='dc2(this)'></a>		</td>
+							</tr>
+						</table></label></td><td class='data col-5'><input name='please_check_me' value='' tabindex='-1' class='hiddenradio' aria-labelledby='label-please_check_me'><div class='choicevert' onclick='sr(this,event)'><input type='radio' tabindex='0' name='please_check_me___radio'  aria-labelledby='label-please_check_me label-please_check_me-1'   onclick="document.forms['form'].please_check_me.value=this.value;"    value='1' > <label id='label-please_check_me-1' class='mc'>Yes</label></div><div class='resetLinkParent'><a href='javascript:;' class='smalllink ' tabindex='0' style='display:;'
+						onclick="return radioResetVal('please_check_me','form');">reset</a></div></td></tr><tr  id='initial_health_assessment_complete-sh-tr' sq_id='{}'><td class='header'  colspan='2'>Form Status</td></tr><tr  id='initial_health_assessment_complete-tr' sq_id='initial_health_assessment_complete'  hasval='1'><td class='labelrc col-7'><label class='fl' id='label-initial_health_assessment_complete' aria-hidden='true'><table role='presentation' style='width:100%;height:100%;max-height:100%;' cellspacing='0' cellpadding='0'>
+							<tr>
+								<td>
+									 Complete?
+								</td>
+								<td style='width:10px;padding-left:5px;'>		<a href='javascript:;' tabindex='-1' onclick="dataHist('initial_health_assessment_complete',16658);return false;"><img src='/redcap_v8.10.2/Resources/images/history.png'
+									title="View data history" onmouseover='dh1(this)' onmouseout='dh2(this)' style='margin-bottom:1px;'></a><br>	<a href='javascript:;' tabindex='-1' onclick="dataResPopup('initial_health_assessment_complete',16658,null,null,null,1);return false;"><img id='dc-icon-initial_health_assessment_complete' src='/redcap_v8.10.2/Resources/images/balloon_left_bw2.gif'
+									title='View comment log' onmouseover='dc1(this)' onmouseout='dc2(this)'></a>		</td>
+							</tr>
+						</table></label></td><td class='data col-5'><span ><select role='listbox' aria-labelledby='label-initial_health_assessment_complete' class='x-form-text x-form-field   ' name='initial_health_assessment_complete'       tabindex='0'><option value=''></option></span><option value='0' >Incomplete</option><option value='1' >Unverified</option><option value='2' selected>Complete</option></select></span>
+						
+						</td></tr>
+<input type='hidden' name='race'  value='2'>
+<input type='hidden' name='cholesterol'  value=''>
+<input type='hidden' name='hdl'  value=''>
+<input type='hidden' name='blood_pressure_right_sys'  value=''>
+<input type='hidden' name='blood_pressure_left_sys'  value=''>
+<input type='hidden' name='htn_medication'  value='0'>
+<input type='hidden' name='do_you_smoke'  value='0'>
+<input type='hidden' name='smoking'  value='0'>
+<input type='hidden' name='hx_of_diabetes'  value='0'>
+<input type='hidden' name='ascvd_calc'  value=''><tr  id='__LOCKRECORD__-tr' sq_id='__LOCKRECORD__' ><td class='labelrc col-7'><label class='fl' id='label-__LOCKRECORD__' aria-hidden='true'><div style="color:#A86700;">Lock this record for this form?</div><div style="font-size:7pt;padding-top:7px;color:#555">If locked, no user will be able to edit this record on this form until someone with Lock/Unlock privileges unlocks it.</div></label></td>
+						<td class='data col-5' style='padding:5px;'><input type='checkbox' id='__LOCKRECORD__'   >&nbsp;<img src='/redcap_v8.10.2/Resources/images/lock.png'> <b style='color:#A86700'>Lock</b></td></tr><tr  id='__SUBMITBUTTONS__-tr' sq_id='__SUBMITBUTTONS__'  hasval='1'><td class='labelrc col-7'><label class='fl' id='label-__SUBMITBUTTONS__' aria-hidden='true'></label></td>
+						<td class='data col-5'><div id="__SUBMITBUTTONS__-div" style="margin:5px 0;">
+						<button class="btn btn-primaryrc" id="submit-btn-saverecord" name="submit-btn-saverecord" onclick="dataEntrySubmit(this);return false;" style="margin-bottom:2px;font-size:13px !important;padding:6px 8px;" tabindex="0">Save & Exit Form</button>&nbsp;
+						<div class="btn-group nowrap"><button id="submit-btn-placeholder" data-trigger="click" data-toggle="popover" data-placement="top" data-content="The option chosen for this button will become its default for you next time in this project." title="<b>Click the down arrow button to view more save options.</b>" class="btn btn-primaryrc btn-saveand" onclick="return false;" style="margin-bottom:2px;font-size:13px !important;padding:6px 8px;" tabindex="0">Save & ...</button><button id="submit-btn-dropdown" title="More save options" class="btn btn-primaryrc btn-savedropdown dropdown-toggle" style="margin-bottom:2px;font-size:13px !important;padding:6px 8px;" tabindex="0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="openSaveBtnDropDown(this,event);return false;">
+								<span class="sr-only"></span>
+							</button>
+							<div class="dropdown-menu"><a class="dropdown-item" href="javascript:;" id="submit-btn-savecontinue" onclick="dataEntrySubmit('submit-btn-savecontinue');return false;">Save & Stay</a><a class="dropdown-item" href="javascript:;" id="submit-btn-savenextform" onclick="dataEntrySubmit('submit-btn-savenextform');return false;">Save & Go To Next Form</a><a class="dropdown-item" href="javascript:;" id="submit-btn-saveexitrecord" onclick="dataEntrySubmit('submit-btn-saveexitrecord');return false;">Save & Exit Record</a><a class="dropdown-item" href="javascript:;" id="submit-btn-savenextrecord" onclick="dataEntrySubmit('submit-btn-savenextrecord');return false;">Save & Go To Next Record</a></div></div>
+						<button class="btn btn-defaultrc btn-sm" style="display:block;margin-top:15px;font-size:13px;" name="submit-btn-cancel" onclick="dataEntrySubmit(this);return false;" style="color:#000;font-size:13px;" tabindex="0"/>-- Cancel --</button>
+					</div></td></tr><tr  id='__DELETEBUTTONS__-tr' sq_id='__DELETEBUTTONS__'  hasval='1'><td class='labelrc col-7'><label class='fl' id='label-__DELETEBUTTONS__' aria-hidden='true'></label></td>
+						<td class='data col-5'><div id="__DELETEBUTTONS__-div" style="padding:10px 0 5px;">
+						<button class="btn btn-defaultrc btn-xs" name="submit-btn-deleteform" onclick="simpleDialog('<div style=\'margin:10px 0;font-size:13px;\'>Are you sure you wish to PERMANENTLY delete this record\'s data on THIS INSTRUMENT ONLY for THIS EVENT ONLY?<div style=&quot;margin-top:15px;color:#C00000;font-weight:bold;&quot;>This process is permanent and CANNOT BE REVERSED.</div> </div>','DELETE ALL DATA ON THIS FORM FOR RECORD &quot;23606&quot;?',null,600,null,'Cancel',function(){ dataEntrySubmit( document.getElementsByName('submit-btn-deleteform')[0] );return false; },'Delete data for THIS FORM only');return false;" style="color:#C00000;margin:3px 0 1px;padding:2px 8px;" tabindex="0"/>Delete data for THIS FORM only</button><br>
+						<div style="margin:10px 0 2px;color:#666;font-size:11px;">NOTE: To delete the entire record (all forms/events), see the record action drop-down at top of the <a class="opacity75" style="font-size:11px;text-decoration:underline;" href="/redcap_v8.10.2/DataEntry/record_home.php?pid=2709&id=23606&arm=11">Record Home Page</a>.</div>
+						<div style="margin:5px 0 2px;color:#666;font-size:11px;">Also, to delete all the data from THIS EVENT only, see the bottom row of the status table on the <a class="opacity75" style="font-size:11px;text-decoration:underline;" href="/redcap_v8.10.2/DataEntry/record_home.php?pid=2709&id=23606&arm=11">Record Home Page</a>.</div>
+					  </div></td></tr></tbody></table></div></form>
+<!-- Calculation Trigger Fields -->
+<script type="text/javascript">
+function ctf(t,c){
+  if(t==''){return true;}var o=new Object();
+  o.todays_date='|age|';
+  o.birthday='|age|';
+  if(typeof o[t]=='undefined') return true;
+  var oa=o[t].split('|');for(var i=0;i<oa.length;i++){if(typeof o[oa[i]]!='undefined'){return true;}}
+  return (o[t].indexOf('|'+c+'|')>-1);
+}
+</script>
+<!-- Calculations -->
+<script type="text/javascript">
+function calculate(t,isOnPageLoad){
+  var a,b,c;if(typeof t=='undefined') t='';if(typeof isOnPageLoad=='undefined') isOnPageLoad=false;
+  try{if(ctf(t,'age')){c=rounddown( datediff(document.form.todays_date.value, document.form.birthday.value, "y", "mdy"), 0 );b=document.form.age.value;a=document.form.age.value=isNumeric(c)?c:'';calcChangeCheck(a,b,'age');}}catch(e){calcErr('age')}
+  try{updateCalcPipingReceivers(isOnPageLoad)}catch(e){}
+  return false;
+}
+calcErrExist = calculate('',true);
+</script>
+<script type="text/javascript">
+if(calcErrExist){calcErr2()}
+</script>
+
+<!-- Branching Logic Trigger Fields -->
+<script type="text/javascript">
+function dbtf(t,c){
+  if(t==''){return true;}var o=new Object();
+  o.todays_date='|specify_gender|dysphoric|civil_status|years_of_formal_education|income|';
+  o.different_sex='|specify_gender|dysphoric|';
+  o.language='|other_language|';
+  o.age='|civil_status|years_of_formal_education|income|';
+  o.birthday='|civil_status|years_of_formal_education|income|';
+  if(typeof o[t]=='undefined') return true;
+  var oa=o[t].split('|');for(var i=0;i<oa.length;i++){if(typeof o[oa[i]]!='undefined'){return true;}}
+  return (o[t].indexOf('|'+c+'|')>-1);
+}
+</script>
+<!-- Branching Logic -->
+<script type="text/javascript">
+function doBranching(t,b){
+  var c;if(typeof b=='undefined') b=false;if(typeof t=='undefined') t='';
+  c='specify_gender';try{if(dbtf(t,c))evalLogic(c,b,(document.form.todays_date.value!='' && ((document.forms['form'].elements['__chk__different_sex_RC_1'].value=='' ? 0 : 1))=='1' && document.form.todays_date.value>='07-01-2017'))}catch(e){brErr(c)}
+  c='dysphoric';try{if(dbtf(t,c))evalLogic(c,b,(document.form.todays_date.value!='' && ((document.forms['form'].elements['__chk__different_sex_RC_1'].value=='' ? 0 : 1))=='1' && document.form.todays_date.value>='07-01-2017'))}catch(e){brErr(c)}
+  c='other_language';try{if(dbtf(t,c))evalLogic(c,b,(document.form.language.value=='4'))}catch(e){brErr(c)}
+  c='civil_status';try{if(dbtf(t,c))evalLogic(c,b,(document.form.age.value>=1000))}catch(e){brErr(c)}
+  c='years_of_formal_education';try{if(dbtf(t,c))evalLogic(c,b,(document.form.age.value>=1000))}catch(e){brErr(c)}
+  c='income';try{if(dbtf(t,c))evalLogic(c,b,(document.form.age.value>=1000))}catch(e){brErr(c)}
+  hideSectionHeaders();
+  $(function(){ updateHiddenEnhancedChoices(); });
+  $(function(){ triggerActionTagsHidden(false); });
+  return false;
+}
+if (elementExists(document.getElementById('formtop-div'))) document.getElementById('formtop-div').style.display='none';
+document.getElementById('questiontable_loading').style.display='none';
+document.getElementById('questiontable').style.display='table';
+if (elementExists(document.getElementById('form_response_header'))) document.getElementById('form_response_header').style.display='block';
+if (elementExists(document.getElementById('formtop-div'))) document.getElementById('formtop-div').style.display='block';
+if (elementExists(document.getElementById('inviteFollowupSurveyBtn'))) document.getElementById('inviteFollowupSurveyBtn').style.display='block';
+brErrExist = doBranching();
+</script>
+<script type="text/javascript">
+if(brErrExist){brErr2()}
+</script>
+<script type='text/javascript'></script>
+	<!-- Hidden field for checking if a validation error has been thrown. Used to prevent form submission. -->
+	<input type="hidden" id="field_validation_error_state" value="0">
+
+	<!-- Data history dialog pop-up -->
+	<div id="data_history" style="display:none;">
+		<p>
+			Listed below is the history of all data entered for the variable "<b id="dh_var"></b>" for			Record ID "<b>23606</b>". The data history results are sorted from earliest to most recent.		</p>
+		<div id="data_history2" style="margin:15px 0px 20px;"></div>
+	</div>
+
+	<div id="formSaveTip"></div>
+<div id="tooltipDRWsave" class="tooltip4left"></div>
+			<div class="clear"></div>
+			<div id="south">
+				<table>
+					<tr>
+						<td>
+							<div><a href='https://projectredcap.org/' target='_blank' style='text-decoration:underline;font-size:11px;'>The REDCap Consortium</a> &nbsp;|&nbsp; <a href='https://redcap.vanderbilt.edu/consortium/cite.php' target='_blank' style='text-decoration:underline;font-size:11px;'>Citing REDCap</a></div>
+							<div style="margin-top: 2px;"></div>
+						</td>
+						<td style="text-align:right;">
+							<span class="nowrap"><a href="https://projectredcap.org" style="color:#888;" target="_blank">REDCap 8.10.2</a> -</span>
+							<span class="nowrap">&copy; 2019 Vanderbilt University</span>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="random_text_hidden_div" style="display:none;">kv8UIIfALbpfYydc2W7APPZSZPsMcYQTYABQKINZEzTkMMRWfNojDwUCYQAagDJ7zpxTt7vqP4P2dNKdyQjMKz</div>
+
+</body>
+</html>
