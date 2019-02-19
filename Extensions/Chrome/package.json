@@ -23,6 +23,8 @@
     "amd-loader": "0.0.8",
     "assert": "^1.4.1",
     "browserify": "^16.2.3",
+    "jsdom": "^13.2.0",
+    "jsdom-global": "^3.0.2",
     "mocha": "^5.2.0",
     "system": "^2.0.1",
     "systemjs": "^2.1.1",
