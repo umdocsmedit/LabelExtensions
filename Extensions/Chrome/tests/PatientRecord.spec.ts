@@ -12,6 +12,12 @@
 import * as chrome from 'sinon-chrome' 
 import * as assert from 'assert'
 import PatientRecord from '../src/PatientRecord'
+import * as fs from 'fs'
+
+// LOAD THE DOM FOR TESTING
+let domFilePath: string = './tests/testIHA.html';
+let domHTML: string = fs.readFileSync(domFilePath).toString();
+require('jsdom-global')(domHTML);
 
 describe('PatientRecord', () => {
 
@@ -46,8 +52,22 @@ describe('PatientRecord', () => {
 	describe('getGenericValue', () => {
 		it('should give us back the value of an input identifier of the given named element', () => {
 			let input: string = 'first_name';
-			let expectedOutput: string = 'Maria';
+			let expectedOutput: string = 'Cornelius';
 			let observedOutput: string | null = pr.getGenericValue(input);
+
+			assert.equal(expectedOutput, observedOutput);
+
+			input = 'last_name';
+			expectedOutput = 'Buffoon';
+			observedOutput = pr.getGenericValue(input);
+			assert.equal(expectedOutput, observedOutput);
+		});
+	});
+
+	describe('getMRN', () => {
+		it('should return the MRN for the current patient being viewed', () => {
+			let expectedOutput = 23606;
+			let observedOutput = pr.getMRN();
 
 			assert.equal(expectedOutput, observedOutput);
 		});
