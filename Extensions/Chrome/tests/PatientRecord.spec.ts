@@ -96,4 +96,26 @@ describe('PatientRecord', () => {
 			assert.equal(expectedOutput, observedOutput);
 		});
 	});
+
+	describe('constructor', () => {
+		it('should return an entire object with the appropriate patient data', () => {
+			let expectedOutput: PatientRecord = new PatientRecord(true);
+			expectedOutput.healthFair = PatientRecord.Healthfair.WKHF;
+			expectedOutput.firstname = "Cornelius";
+			expectedOutput.middleinitial = "I";
+			expectedOutput.lastname = "Buffoon";
+			expectedOutput.DOB = "01-01-1990";
+			expectedOutput.MRN = 23606;
+			expectedOutput.sex = "F";
+			expectedOutput.street = "1234 Big Foot Road";
+			expectedOutput.apartment = "";
+			expectedOutput.city = "Miami";
+			expectedOutput.state = "FL";
+			expectedOutput.zip = "33178";
+			expectedOutput.phonenumber = "1234567890";
+			let observedOutput: PatientRecord = new PatientRecord();
+
+			assert.deepEqual(expectedOutput, observedOutput);
+		});
+	});
 });
