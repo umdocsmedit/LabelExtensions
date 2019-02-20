@@ -74,11 +74,26 @@ describe('PatientRecord', () => {
 
 	describe('getMRN', () => {
 		it('should return the MRN for the current patient being viewed', () => {
-			let expectedOutput = 23606;
-			let observedOutput = pr.getMRN();
+			let expectedOutput: number = 23606;
+			let observedOutput: number = pr.getMRN();
 
 			assert.equal(expectedOutput, observedOutput);
 		});
 	});
 
+	describe('getState', () => {
+		it('should return the appropriate state letters when supplied with the state name', () => {
+			let expectedOutput: string = "FL";
+			let observedOutput: string | null = pr.getState();
+			assert.equal(expectedOutput, observedOutput);
+		});
+	});
+
+	describe('getSex', () => {
+		it('should return the letter respresentation for the patient\'s sex', () => {
+			let expectedOutput: string = 'F';
+			let observedOutput: string = pr.getSex();
+			assert.equal(expectedOutput, observedOutput);
+		});
+	});
 });
