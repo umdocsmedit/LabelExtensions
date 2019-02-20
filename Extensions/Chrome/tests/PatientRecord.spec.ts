@@ -25,12 +25,6 @@ describe('PatientRecord', () => {
 
 	let pr: PatientRecord = new PatientRecord(true);
 	
-	describe('constructor', () => {
-		it('should full construct the PatientRecord from the current page', () => {
-			// Dependant on convertArmToHealthFairName
-		});
-	});
-
 	describe('convertArmToHealthFairName', () => {
 		it('should convert 1 to a healthFair identifier that represents the LHHF', () => {
 			let input: number = 1;
