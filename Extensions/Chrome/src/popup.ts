@@ -11,9 +11,6 @@
 
 //===============================================================================
 
-declare let dymo: any;
-dymo;
-
 import * as PrintLabel from './PrintLabel'
 import PatientRecord from './PatientRecord'
 import * as popup from './popupModule'
