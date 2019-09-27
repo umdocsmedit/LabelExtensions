@@ -13,16 +13,16 @@
   "author": "Kevin Davis",
   "license": "ISC",
   "devDependencies": {
-    "@types/assert": "^1.4.1",
+    "@types/assert": "^1.4.3",
     "@types/chrome": "0.0.78",
-    "@types/expect": "^1.20.3",
-    "@types/mocha": "^5.2.5",
-    "@types/node": "^11.9.4",
+    "@types/expect": "^1.20.4",
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^11.13.21",
     "@types/sinon-chrome": "^2.2.6",
     "amd": "0.0.0",
     "amd-loader": "0.0.8",
-    "assert": "^1.4.1",
-    "browserify": "^16.2.3",
+    "assert": "^1.5.0",
+    "browserify": "^16.5.0",
     "jsdom": "^13.2.0",
     "jsdom-global": "^3.0.2",
     "mocha": "^5.2.0",
@@ -32,6 +32,6 @@
   },
   "dependencies": {
     "sinon-chrome": "^2.3.2",
-    "typescript": "^3.2.2"
+    "typescript": "^3.6.3"
   }
 }
