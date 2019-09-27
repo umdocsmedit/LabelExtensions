@@ -7,10 +7,11 @@
  * This module separates out the functions of the popup file
  */
 
+/// <reference types="./types/dymo" />
+
 // ==================================================================
 
 declare let dymo: any;
-dymo;
 
 export async function loadScript(src: string): Promise<any> {
 	let output: HTMLElement | null = document.getElementById("output");
@@ -31,9 +32,7 @@ export async function loadScript(src: string): Promise<any> {
 	return await scriptObj;
 }
 
-export async function testServer(localhostFlag: boolean, port: number): Promise<boolean> {
-
-	const host: string = localhostFlag ? "localhost" : "127.0.0.1";
+export async function testServer(host: string, port: number): Promise<boolean> {
 
 	let result: Promise<boolean> = new Promise((resolve): void => {
 		let connectionXHR: XMLHttpRequest = new XMLHttpRequest();
@@ -57,31 +56,32 @@ export async function testServer(localhostFlag: boolean, port: number): Promise<
 
 export async function checkConnection(): Promise<number> {
 
+
+	console.log(`Proping the test server for a port on `);
+	let connectionEstablished: boolean = await determinePort("localhost");
+	if(connectionEstablished) return 1;
+
+	connectionEstablished = await determinePort("127.0.0.1");
+	if(connectionEstablished) return 2;
+
+	console.error('Failed to establish a connection to the DYMO Web server!');
+	return 0;
+}
+
+export async function determinePort(host: string): Promise<boolean> {
+
 	let port: number = 0;
 	const startingTestPort: number = 41951;
 	const endingTestPort: number = 41960;
-
 	for(let curTestPort: number = startingTestPort; curTestPort <= endingTestPort; curTestPort++) {
-		let result: boolean = await testServer(true, curTestPort);
+		let result: boolean = await testServer(host, curTestPort);
 		if(result) {
 			port = curTestPort;
 			break;
 		}
 	}
-
-	if(port != 0) return 1;
-
-	for(let curTestPort: number = startingTestPort; curTestPort <= endingTestPort; curTestPort++) {
-		let result: boolean = await testServer(false, curTestPort);
-		if(result) {
-			port = curTestPort;
-			break;
-		}
-	}
-
-	if(port != 0) return 2;
-
-	return 0;
+	
+	return port != 0;
 }
 
 export async function loadAppropriateFramework(): Promise<void> {
@@ -98,8 +98,11 @@ export async function loadAppropriateFramework(): Promise<void> {
 	// test current frameork
 	let frameworkSet: number = await checkConnection();
 
+	if(frameworkSet == 1) console.log("Successfully check connection at http://localhost/")
+	//
 	// TODO: don't use magic numbers, change this to an enumeration or something
 	if(frameworkSet == 2) {
+		console.log("Successfully check connection at http://127.0.0.1/")
 		dymo = await loadScript(dymoScript2);
 	}
 
