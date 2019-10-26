@@ -1,5 +1,5 @@
 /*
- * Filename: popupModule.ts
+
  * Author: Kevin Davis
  * Date: February 20, 2019
  *
@@ -91,20 +91,44 @@ export async function loadAppropriateFramework(): Promise<void> {
 	// 127.0.0.1
 	let dymoScript2: string = "../js/DYMO.Label_.Framework.2.0.2r.js";
 
-	// start with first script
-	// dymo is a global var
-	dymo = await loadScript(dymoScript1);
+	let _frameworkSet: Promise<number> = new Promise((resolve): void => {
+		chrome.storage.sync.get(['frameworkSet'], (res): void => {
+			if(res.frameworkSet == undefined) 
+				resolve(0);
+			else 
+				resolve(res.frameworkSet);
+		});
+	});
 
-	// test current frameork
-	let frameworkSet: number = await checkConnection();
+	let frameworkSet: number = await _frameworkSet;
+	console.log(`FrameworkSet = ${frameworkSet}`);
 
-	if(frameworkSet == 1) console.log("Successfully check connection at http://localhost/")
-	//
-	// TODO: don't use magic numbers, change this to an enumeration or something
-	if(frameworkSet == 2) {
-		console.log("Successfully check connection at http://127.0.0.1/")
-		dymo = await loadScript(dymoScript2);
+	if(frameworkSet == 0) {
+		// start with first script
+		// dymo is a global var
+		dymo = await loadScript(dymoScript1);
+
+		// test current frameork
+		let frameworkSet: number = await checkConnection();
+
+		if(frameworkSet == 1) console.log("Successfully check connection at http://localhost/")
+		//
+		// TODO: don't use magic numbers, change this to an enumeration or something
+		if(frameworkSet == 2) {
+			console.log("Successfully check connection at http://127.0.0.1/")
+			dymo = await loadScript(dymoScript2);
+		}
+		chrome.storage.sync.set({'frameworkSet': frameworkSet}, ()=>{
+			console.log(`Framework SET = ${frameworkSet}`)
+		});
+	}	
+	else if(frameworkSet == 1) {
+		dymo = await loadScript(dymoScript1);
+		console.log("Connected to localhost from stroage.")
 	}
-
+	else if(frameworkSet == 2) {
+		dymo = await loadScript(dymoScript2);
+		console.log("Connected to 127.0.0.1 from stroage.")
+	}
 	return;
 }
