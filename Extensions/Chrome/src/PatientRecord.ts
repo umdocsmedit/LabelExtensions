@@ -110,9 +110,12 @@ class PatientRecord {
 
 	getGenericValue(valueName: string): string | null {
 		let genericElement: HTMLInputElement | null = document.body.querySelector(`[name='${valueName}']`);
-		if(genericElement == null) return null;
+		if(genericElement != null) return genericElement.value;
 
-		return genericElement.value;
+		let potentialPipeElement: HTMLElement | null = document.body.querySelector(`[class$=${valueName}]`);
+		if(potentialPipeElement != null) return potentialPipeElement.innerHTML; 
+		
+		return null;
 	}
 
 	getState(): string | null {
@@ -305,23 +308,45 @@ class PatientRecord {
 		return state;
 	}
 
+	getInstrumentPage(): string {
+		let blogImage: HTMLImageElement | null = document.body.querySelector("img[src*='blog.png']");
+		if(blogImage == null) throw "Failed to get instrument page name element";
+
+		let parentElement: HTMLElement | null = blogImage.parentElement;
+		if(parentElement == null) throw "Failed to get parent element of blog image for instrument page";
+
+		return parentElement.innerText;
+	}
+
 	getMRN(): number {
-		let contextMsgElement: HTMLElement | null = document.body.querySelector("#contextMsg");
-		if(contextMsgElement == null) throw "Failed to get MRN: Could not find contextMsg";
-
-		let MRNElement: HTMLElement | null = contextMsgElement.querySelector("b");
-		if(MRNElement == null) throw "Failed to get MRN: Could not find bold selector";
-
+		let potentialMRN: string = '';
 		let mrn: number = 0;
+		let instrumentPage: string = this.getInstrumentPage();
+		if(instrumentPage.includes('Initial')) {
+			let contextMsgElement: HTMLElement | null = document.body.querySelector("#contextMsg");
+			if(contextMsgElement == null) throw "Failed to get MRN: Could not find contextMsg";
 
-		try {
-			mrn = parseInt(MRNElement.innerHTML);
+			let MRNElement: HTMLElement | null = contextMsgElement.querySelector("b");
+			if(MRNElement == null) throw "Failed to get MRN: Could not find bold selector";
+
+			potentialMRN = MRNElement.innerHTML;
+		}
+		else {
+			let recordIDElement: HTMLElement | null = document.body.querySelector("[sq_id='record_id']");
+			if(recordIDElement == null) throw "Failed to get the record ID element to determine the MRN";
+
+			let textMatch: RegExpMatchArray | null = recordIDElement.innerText.match(/[0-9]+$/gi);
+			if(textMatch == null) throw "Failed to find the MRN within the data";
+
+			potentialMRN = textMatch[0];
+		}
+		try { 
+			mrn = parseInt(potentialMRN);
 		}
 		catch(e) {
 			console.error("Failed to get mrn");
 			throw "Failed to get MRN: Could not parse the integer";
 		}
-
 		return mrn;
 	}
 
