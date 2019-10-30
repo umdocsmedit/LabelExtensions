@@ -66,6 +66,14 @@ describe('PatientRecord', () => {
 		});
 	});
 
+	describe('getInstrumentPage', () => {
+		it('should return the name of the instrument page', () => {
+			let expectedOutput: string = 'Initial Health Assessment';
+			let observedOutput: string = pr.getInstrumentPage();
+			assert.equal(expectedOutput, observedOutput);
+		});
+	});
+
 	describe('getMRN', () => {
 		it('should return the MRN for the current patient being viewed', () => {
 			let expectedOutput: number = 23606;
