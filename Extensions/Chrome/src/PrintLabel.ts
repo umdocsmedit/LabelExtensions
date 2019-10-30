@@ -44,17 +44,11 @@ export function print(patientRecord: PatientRecord, numlabels: number, labsorder
 	}
 
 	let labelXml: string = templates.labelTemplate(patientRecord, labsordered);
-	let nameXml: string = templates.nameTemplate(patientRecord);
 
 	let label: dymo.Label = dymo.label.framework.openLabelXml(labelXml);
-	let label2: dymo.Label = dymo.label.framework.openLabelXml(nameXml);
-
-	//label.print(chosenPrinter.name);
-	//label2.print(chosenPrinter.name);
 
 	for(let i = 0; i < numlabels; i++) {
 		label.print(chosenPrinter.name);
-		label2.print(chosenPrinter.name);
 	}
 
 	return;
