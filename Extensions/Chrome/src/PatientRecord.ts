@@ -114,6 +114,9 @@ class PatientRecord {
 
 		let potentialPipeElement: HTMLElement | null = document.body.querySelector(`[class$=${valueName}]`);
 		if(potentialPipeElement != null) return potentialPipeElement.innerHTML; 
+
+		let potentialPipeElement2: HTMLElement | null = document.body.querySelector(`[class$=${valueName}-label]`);
+		if(potentialPipeElement2 != null) return potentialPipeElement2.innerHTML; 
 		
 		return null;
 	}
@@ -315,7 +318,12 @@ class PatientRecord {
 		let parentElement: HTMLElement | null = blogImage.parentElement;
 		if(parentElement == null) throw "Failed to get parent element of blog image for instrument page";
 
-		return parentElement.innerText;
+		let namePotential: RegExpMatchArray | null = parentElement.innerHTML.match(/[A-Za-z ]+/gi);
+		if(namePotential == null) throw "Failed to match an instrument name";
+
+		let lastElementIndex: number = namePotential.length-1;
+		let name: string = namePotential[lastElementIndex].trim();
+		return name;
 	}
 
 	getMRN(): number {
@@ -351,6 +359,18 @@ class PatientRecord {
 	}
 
 	getSex(): string {
+		let sex: string | null = "NA";
+		try {
+			sex = this.getSexFromRadio();
+		}
+		catch(e) {
+			sex = this.getGenericValue("string");
+			if(sex == null) sex = "NA";
+		}
+		return sex;
+	}
+
+	getSexFromRadio(): string {
 		let sexElement: HTMLInputElement | null = document.body.querySelector("[name='sex___radio']:checked");
 		if(sexElement == null) throw "Failed to get sex: could not find sexElement";
 
