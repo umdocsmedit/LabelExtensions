@@ -17,7 +17,7 @@
     "@types/chrome": "0.0.78",
     "@types/expect": "^1.20.4",
     "@types/mocha": "^5.2.7",
-    "@types/node": "^11.13.21",
+    "@types/node": "^11.15.2",
     "@types/sinon-chrome": "^2.2.6",
     "amd": "0.0.0",
     "amd-loader": "0.0.8",
@@ -32,6 +32,6 @@
   },
   "dependencies": {
     "sinon-chrome": "^2.3.2",
-    "typescript": "^3.6.3"
+    "typescript": "^3.6.4"
   }
 }
