@@ -44,7 +44,7 @@ export function print(patientRecord: PatientRecord, numlabels: number, labsorder
 	}
 
 	let labelXml: string = "";
-	if(labsordered == 'CRC') {
+	if(labsordered != 'Pap smear') {
 		labelXml = templates.crcTemplate(patientRecord, labsordered);
 	}
 	else {
