@@ -43,8 +43,15 @@ export function print(patientRecord: PatientRecord, numlabels: number, labsorder
 		throw alert("No Printers connected, but connected to DYMO web service");
 	}
 
-	let labelXml: string = templates.labelTemplate(patientRecord, labsordered);
+	let labelXml: string = "";
+	if(labsordered == 'CRC') {
+		labelXml = templates.crcTemplate(patientRecord, labsordered);
+	}
+	else {
+		labelXml = templates.femaleTemplate(patientRecord, labsordered);
+	}
 
+	//let label: dymo.Label = dymo.label.framework.openLabelXml(labelXml);
 	let label: dymo.Label = dymo.label.framework.openLabelXml(labelXml);
 
 	for(let i = 0; i < numlabels; i++) {
