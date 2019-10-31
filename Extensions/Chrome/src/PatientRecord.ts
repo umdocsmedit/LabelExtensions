@@ -42,6 +42,8 @@ class PatientRecord {
 		this.state = this.getState();
 		this.zip = this.getGenericValue("zip_code");
 		this.phonenumber = this.getGenericValue("phone_number");
+
+		this.filterUnderscores();
 	}
 
 	convertArmToHealthFairName(armNumber: number): PatientRecord.Healthfair {
@@ -124,6 +126,8 @@ class PatientRecord {
 	getState(): string | null {
 		let stateSelector: HTMLSelectElement | null = document.body.querySelector("[name='state']");
 		if(stateSelector == null) {
+			let genericAttempt: string | null = this.getGenericValue("state");
+			if(genericAttempt != null) return genericAttempt;
 			console.error("Failed to get state: could not get the stateSelector");
 			return null;
 		}
@@ -362,12 +366,17 @@ class PatientRecord {
 		let sex: string | null = "NA";
 		try {
 			sex = this.getSexFromRadio();
+			console.log(`RADIO: ${sex}`);
+			return sex;
 		}
 		catch(e) {
-			sex = this.getGenericValue("string");
+			sex = this.getGenericValue("sex");
 			if(sex == null) sex = "NA";
+			if(this.isParsable(sex)) sex = this.getSexFromNum(parseInt(sex));
+			console.log(`NON: ${sex}`);
+			return sex;
 		}
-		return sex;
+		return <string>sex;
 	}
 
 	getSexFromRadio(): string {
@@ -382,8 +391,13 @@ class PatientRecord {
 			throw "Failed to get sex: couldn't parse value";
 		}
 
+		let sex: string = this.getSexFromNum(result);
+		return sex;
+	}
+
+	getSexFromNum(n: number): string {
 		let sex: string = "NA";
-		switch(result) {
+		switch(n) {
 			case 1:
 				sex = "M";
 				break;
@@ -397,8 +411,36 @@ class PatientRecord {
 				sex = "NA";
 				break;
 		}
-
 		return sex;
+	}
+
+	isParsable(val: any): boolean {
+		try {
+			parseInt(val);
+			return true;
+		}
+		catch(e) {
+			return false;
+		}
+		return false;
+	}
+
+	filterUnderscores(): void {
+		let thisKeys: string[] = Object.keys(this);
+		this
+		thisKeys.forEach((key) => {
+			let value: any = "";
+			eval(`value = this.${key}`);
+
+			if(value == null)
+				eval(`this.${key} = ""`);
+			
+			if(typeof(value) != 'string') return;
+			let strValue: string = <string>value;
+
+			if(strValue.includes("_"))
+				eval(`this.${key} = ""`);
+		});
 	}
 
 }
