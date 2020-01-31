@@ -21,34 +21,35 @@ body {
 				</div>
 			</div>
 			<div class="row"><div class="col">
-				<div class="input-group">
-					<div class="input-group-prepend">
-						<span class="input-group-text" id="basic-addon1"># of Labels</span>
-					</div>
-					<input name="numlabels" type="number" class="form-control" placeholder="" value="2" aria-label="" aria-describedby="basic-addon1">
-				</div>
-			</div></div>
-			<div class="row">
-				<div class="col">
 					<div class="input-group">
 						<div class="input-group-prepend">
-							<span class="input-group-text" id="basic-addon2" for="labsorded">Labs Ordered</span>
+							<span class="input-group-text" id="basic-addon1"># of Labels</span>
 						</div>
-						<select name="labsordered" class="form-control" id="labsordered" aria-label="" aria-describedby="basic-addon2">
-							<option>CRC</option>
-							<option>Pap smear</option>
-							<option>Lipids</option>
-						</select>
+						<input name="numlabels" type="number" class="form-control" placeholder="" value="2" aria-label="" aria-describedby="basic-addon1">
+					</div>
+				</div></div>
+				<div class="row">
+					<div class="col">
+						<div class="input-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text" id="basic-addon2" for="labsorded">Labs Ordered</span>
+							</div>
+							<select name="labsordered" class="form-control" id="labsordered" aria-label="" aria-describedby="basic-addon2">
+								<option>CRC</option>
+								<option>Pap smear</option>
+								<option>Lipids</option>
+							</select>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="row">
-				<div class="col text-right">
-					<button class="btn btn-secondary" type="button" id="print" disabled>Print</button>
+				<div class="row">
+					<div class="col text-right">
+						<button class="btn btn-secondary" type="button" id="print" disabled>Print</button>
+					</div>
 				</div>
-			</div>
 		</div>
 		<div id="output"></div>
+		<iframe id="sandboxFrame" src="sandbox.html" style="display:none;"></iframe>
 		<script type='text/javascript' src='../js/popup.js'></script>
 	</body>
 </html>

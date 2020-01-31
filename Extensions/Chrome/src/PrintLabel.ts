@@ -23,7 +23,7 @@ export function frameworkInitShim(patientRecord: PatientRecord, numlabels: numbe
 	dymo.label.framework.init(startupCode);
 }
 
-export function print(patientRecord: PatientRecord, numlabels: number, labsordered: string): void {
+export async function print(patientRecord: PatientRecord, numlabels: number, labsordered: string): Promise<void> {
 
 	let printers: dymo.Printer[] = dymo.label.framework.getPrinters();
 	if(printers.length == 0) {
@@ -45,10 +45,10 @@ export function print(patientRecord: PatientRecord, numlabels: number, labsorder
 
 	let labelXml: string = "";
 	if(labsordered != 'Pap smear') {
-		labelXml = templates.crcTemplate(patientRecord, labsordered);
+		labelXml = await templates.crcTemplate(patientRecord, labsordered);
 	}
 	else {
-		labelXml = templates.femaleTemplate(patientRecord, labsordered);
+		labelXml = await templates.femaleTemplate(patientRecord, labsordered);
 	}
 
 	//let label: dymo.Label = dymo.label.framework.openLabelXml(labelXml);

@@ -1,7 +1,7 @@
 {
 	"name": "UMDocsMedIT Redcap Printing",
 	"short_name": "UMRedcapPrint",
-	"version": "1.6",
+	"version": "1.7.1",
 	"description": "Print patient labels",
 	"manifest_version": 2,
 	"permissions": [
@@ -13,8 +13,16 @@
 		"https://127.0.0.1/"
 	],
 	"background": {
-		"scripts": ["js/background.js"],
+		"scripts": [
+			"js/background.js",
+			"js/sandbox.js"
+		],
 		"persistent": false
+	},
+	"sandbox": {
+		"pages": [
+			"html/sandbox.html"
+		]
 	},
 	"page_action": {
 		"default_popup": "html/popup.html",
@@ -30,5 +38,8 @@
 		"32": "images/icon32.png",
 		"48": "images/icon48.png",
 		"128": "images/icon128.png"
-	}
+	},
+	"web_accessible_resources": [
+		"lables/*.label"
+	]
 }
