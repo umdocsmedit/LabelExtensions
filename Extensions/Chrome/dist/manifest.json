@@ -5,12 +5,10 @@
 	"description": "Print patient labels",
 	"manifest_version": 3,
 	"permissions": [
-		"tabs",
 		"activeTab",
 		"declarativeContent",
-		"storage",
-		"https://localhost/",
-		"https://127.0.0.1/"
+        "scripting",
+		"storage"
 	],
 	"background": {
 		"service_worker": "js/background.js"
@@ -20,7 +18,7 @@
 			"html/sandbox.html"
 		]
 	},
-	"page_action": {
+	"action": {
 		"default_popup": "html/popup.html",
 		"default_icon": {
 			"16": "images/icon16.png",
@@ -36,6 +34,9 @@
 		"128": "images/icon128.png"
 	},
 	"web_accessible_resources": [
-		"lables/*.label"
+        {
+            "resources": ["labels/*.label"],
+            "matches": ["https://redcap.miami.edu/*"]
+        }
 	]
 }

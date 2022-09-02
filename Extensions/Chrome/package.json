@@ -14,7 +14,7 @@
   "license": "ISC",
   "devDependencies": {
     "@types/assert": "^1.4.3",
-    "@types/chrome": "0.0.78",
+    "@types/chrome": "0.0.196",
     "@types/expect": "^1.20.4",
     "@types/mocha": "^5.2.7",
     "@types/node": "^11.15.2",

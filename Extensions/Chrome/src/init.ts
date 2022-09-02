@@ -24,7 +24,7 @@ export function loadExtension(): void {
 		conditions: [
 			new chrome.declarativeContent.PageStateMatcher(pageStateMatcherOptions)
 		],
-		actions: [ new chrome.declarativeContent.ShowPageAction() ]
+		actions: [ new chrome.declarativeContent.ShowAction() ]
 	};
 
 	// add the rule to our list of rules

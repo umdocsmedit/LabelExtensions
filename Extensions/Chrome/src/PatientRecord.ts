@@ -9,6 +9,10 @@
 
 // ==================================================================
 
+interface Indexable {
+    [key: string]: any
+}
+
 class PatientRecord {
 	
 	healthFair: PatientRecord.Healthfair | null = null;
@@ -45,6 +49,14 @@ class PatientRecord {
 
 		this.filterUnderscores();
 	}
+
+    public getProperty(propertyName: string): any {
+        return (this as Indexable)[propertyName];
+    }
+
+    public setProperty(propertyName: string, value: any): void {
+        (this as Indexable)[propertyName] = value;
+    }
 
 	convertArmToHealthFairName(armNumber: number): PatientRecord.Healthfair {
 		let result: PatientRecord.Healthfair = PatientRecord.Healthfair.LHHF; 
@@ -322,11 +334,10 @@ class PatientRecord {
 		let parentElement: HTMLElement | null = blogImage.parentElement;
 		if(parentElement == null) throw "Failed to get parent element of blog image for instrument page";
 
-		let namePotential: RegExpMatchArray | null = parentElement.innerHTML.match(/[A-Za-z ]+/gi);
+		let namePotential: HTMLElement | null = parentElement.querySelector("[data-mlm=form-name]");
 		if(namePotential == null) throw "Failed to match an instrument name";
 
-		let lastElementIndex: number = namePotential.length-1;
-		let name: string = namePotential[lastElementIndex].trim();
+		let name: string = namePotential.innerText;
 		return name;
 	}
 
@@ -429,17 +440,14 @@ class PatientRecord {
 		let thisKeys: string[] = Object.keys(this);
 		this
 		thisKeys.forEach((key) => {
-			let value: any = "";
-			eval(`value = this.${key}`);
+			let value: any = this.getProperty(key);
 
-			if(value == null)
-				eval(`this.${key} = ""`);
+			if(value == null) this.setProperty(key, "");
 			
 			if(typeof(value) != 'string') return;
 			let strValue: string = <string>value;
 
-			if(strValue.includes("_"))
-				eval(`this.${key} = ""`);
+			if(strValue.includes("_")) this.setProperty(key, "");
 		});
 	}
 
