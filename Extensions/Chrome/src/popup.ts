@@ -22,6 +22,7 @@ async function init(): Promise<void> {
 	let printButton: HTMLInputElement | null = <HTMLInputElement>document.getElementById('print');
 	let numLabelsField: HTMLInputElement | null = <HTMLInputElement>document.body.querySelector("[name='numlabels']");
 	let labsOrderedField: HTMLSelectElement | null = <HTMLSelectElement>document.getElementById('labsordered');
+    let labelSizeField: HTMLSelectElement | null = <HTMLSelectElement>document.getElementById('labelsize');
 
 	if(printButton == null) {
 		alert("Cannot locate print button");
@@ -38,6 +39,11 @@ async function init(): Promise<void> {
 		return;
 	}
 
+    if (labelSizeField == null) {
+        alert("Cannot locate the label size field");
+        return;
+    }
+
 	numLabelsField.onblur = (e: Event):void =>{
 		if(e == null) return;
 		let element: HTMLInputElement = <HTMLInputElement>e.target;
@@ -49,6 +55,12 @@ async function init(): Promise<void> {
 		let element: HTMLInputElement = <HTMLInputElement>e.target;
 		store('labsordered', element);
 	};
+
+    labelSizeField.onblur = (e: Event): void => {
+        if (e == null) return;
+        let element: HTMLInputElement = <HTMLInputElement>e.target;
+        store('labelsize', element);
+    }
 
 	// Check storage
 	let numLabels: number = await new Promise((resolve) => {
@@ -65,16 +77,25 @@ async function init(): Promise<void> {
 		});
 	});
 
+    let labelSize: string = await new Promise((resolve) => {
+        chrome.storage.sync.get(['labelsize'], (res) => {
+            if (res.labelsize == undefined) resolve(getLabelSize());
+            else resolve(res.labelsize);
+        });
+    });
+
 	// Set fields
 	setNumLabels(numLabels);
 	setLabsOrdered(getLabsOrderedStringIndex(labsOrdered));
+    setLabelSize(getLabelSizeStringIndex(labelSize));
 
 	let patientData: PatientRecord = await getPatientData();
 
 	printButton.onclick = (): void => {
 		numLabels = getNumLabels();
 		labsOrdered = getLabsOrdered();
-		PrintLabel.frameworkInitShim(patientData, numLabels, labsOrdered);
+        labelSize = getLabelSize();
+		PrintLabel.frameworkInitShim(patientData, numLabels, labsOrdered, labelSize);
 	};
 
 	listPatient(patientData);
@@ -137,11 +158,15 @@ async function getPatientData(): Promise<PatientRecord> {
 
 		// Inject script
 		let currentTabID: number = await getCurrentTabID();
-		let scriptOptions: chrome.tabs.InjectDetails = {
-			file: "./js/contentScript.js"
+        let injectionTarget: chrome.scripting.InjectionTarget = {
+            tabId: currentTabID
+        };
+		let scriptOptions: chrome.scripting.ScriptInjection<any, void> = {
+			files: ["./js/contentScript.js"],
+            target: injectionTarget
 		};
 
-		chrome.tabs.executeScript(currentTabID, scriptOptions);
+		chrome.scripting.executeScript(scriptOptions);
 	};
 
 	let result: Promise<PatientRecord> = new Promise(promiseFunction);
@@ -212,6 +237,46 @@ function setLabsOrdered(selectIndex: number): void {
 	}
 
 	labsOrderedInput.selectedIndex = selectIndex;
+	return;
+}
+
+function getLabelSize(): string {
+    let result: string = "";
+    let labelSizeInput: HTMLSelectElement | null = document.body.querySelector("[name='labelsize']");
+    if (labelSizeInput == null) {
+        console.error("Failed to get the value of the label size element");
+        return result;
+    }
+
+    result = labelSizeInput.value;
+    return result;
+}
+
+function getLabelSizeStringIndex(label: string): number {
+	let result: number = 0;
+	let labelSizeInput: HTMLSelectElement | null = document.body.querySelector("[name='labelsize']");
+	if (labelSizeInput == null) {
+		console.error("Failed to get the value of the label size element index");
+		return result;
+	}
+
+	for(let i = 0; i < labelSizeInput.options.length; i++) {
+		let curValue: string = labelSizeInput.options[i].value;
+		if(curValue == label) result = i;
+	}
+
+	return result;
+}
+
+function setLabelSize(selectIndex: number): void {
+
+	let labelSizeInput: HTMLSelectElement | null = document.body.querySelector("[name='labelsize']");
+	if (labelSizeInput == null) {
+		console.error("Failed to get the value of the label size element");
+		return;
+	}
+
+	labelSizeInput.selectedIndex = selectIndex;
 	return;
 }
 

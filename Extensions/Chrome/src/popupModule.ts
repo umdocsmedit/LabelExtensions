@@ -13,6 +13,13 @@
 
 declare let dymo: any;
 
+/**
+ * loadScript
+ *
+ * Loads the given javascript file into the DOM of the popup
+ * @param string src - The path to the script
+ * @return object - the dymo object from the DYMO library
+ */
 export async function loadScript(src: string): Promise<any> {
 	let output: HTMLElement | null = document.getElementById("output");
 	
@@ -84,15 +91,25 @@ export async function determinePort(host: string): Promise<boolean> {
 	return port != 0;
 }
 
+/**
+ * loadAppropriateFramework
+ *
+ * DYMO label printer comes with a javascript library for dynamically accessing
+ * the DYMO printer over local TCP/IP ports. By default, the library attempts
+ * to connect to the printer using the localhost url. However, some operating
+ * systems and computers do not recognize localhost, but using the numerical
+ * equivlent of "localhost" (i.e., 127.0.0.1) works. This function probes the
+ * user's computer to determine which URL is appropriate.
+ */
 export async function loadAppropriateFramework(): Promise<void> {
 
-	// localhost
+	// localhost library
 	let dymoScript1: string = "../js/DYMO.Label_.Framework.2.0.2.js";
-	// 127.0.0.1
+	// 127.0.0.1 library
 	let dymoScript2: string = "../js/DYMO.Label_.Framework.2.0.2r.js";
 
 	let _frameworkSet: Promise<number> = new Promise((resolve): void => {
-		chrome.storage.sync.get(['frameworkSet'], (res): void => {
+		chrome.storage.sync.get(['frameworkSet'], (res: any): void => {
 			if(res.frameworkSet == undefined) 
 				resolve(0);
 			else 
@@ -104,6 +121,8 @@ export async function loadAppropriateFramework(): Promise<void> {
 	console.log(`FrameworkSet = ${frameworkSet}`);
 
 	if(frameworkSet == 0) {
+        console.log("No framework preference set");
+
 		// start with first script
 		// dymo is a global var
 		dymo = await loadScript(dymoScript1);
