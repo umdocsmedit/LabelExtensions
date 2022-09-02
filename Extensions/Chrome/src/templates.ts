@@ -54,27 +54,48 @@ function loadContext(p: PatientRecord, labsordered: string): any {
 	return context;
 }
 
-export async function crcTemplate(p: PatientRecord, labsordered: string): Promise<string> {
-	let context = loadContext(p, labsordered);
-	const label_url: string = chrome.runtime.getURL('labels/crc.label');
-	let request: XMLHttpRequest = new XMLHttpRequest();
-	request.open('GET', label_url, false);
-	request.send(null);
-	if(request.status === 200) {
-		let label_template_text: string = request.responseText;
-		let result: string = await renderTemplate(context, label_template_text);
-		return result;
-	}
-	else {
-		return '';
-	}
+export async function parseFrac(num: string): Promise<number> {
+    let components: string[] = num.split(" ");
+    if (components.length > 2) throw "parseFrac recieved more than two componetns";
+
+    let whole: string = components[0];
+    let frac: string = components.length == 1 ? "0/1" : components[1];
+    let fracComps: string[] = frac.split("/");
+    let fracNum: string = fracComps[0];
+    let fracDem: string = fracComps[1];
+    let iWhole: number = parseInt(whole);
+    let iFrac: number = parseInt(fracNum) / parseInt(fracDem);
+    let result: number = iWhole + iFrac;
+    return result;
 }
 
-export async function femaleTemplate(p: PatientRecord, labsordered: string): Promise<string> {
+/**
+ * convertLabelSize
+ *
+ * The string coming in is in the following format: #[ #/#]" x #[ #/#]", where
+ * the square brackets indicate optional components. This is converted into #x#
+ * and used to locate the label file
+ * @param string labelsize - input
+ * @return string - converted
+ */
+export async function convertLabelSize(labelsize: string): Promise<string> {
+    let sizeComponents: string[] = labelsize.split(" x ");
+    let widthStr: string = sizeComponents[0];
+    let heightStr: string = sizeComponents[1];
+    let width: number = await parseFrac(widthStr);
+    let height: number = await parseFrac(heightStr);
+    let result: string = `${width}x${height}`;
+    return result;
+}
+
+export async function getTemplate(p: PatientRecord, labelType: string, labsordered: string, labelsize: string): Promise<string> {
 	let context = loadContext(p, labsordered);
-	const label_url: string = chrome.runtime.getURL('labels/female.label');
+    let labelSize: string = await convertLabelSize(labelsize);
+    let labelURLStr: string = `labels/${labelType}-${labelSize}.label`;
+	const labelURL: string = chrome.runtime.getURL(labelURLStr);
+
 	let request: XMLHttpRequest = new XMLHttpRequest();
-	request.open('GET', label_url, false);
+	request.open('GET', labelURL, false);
 	request.send(null);
 
 	if(request.status === 200) {

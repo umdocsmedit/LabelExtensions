@@ -16,14 +16,14 @@
 import * as templates from "./templates"
 import PatientRecord from "./PatientRecord"
 
-export function frameworkInitShim(patientRecord: PatientRecord, numlabels: number, labsordered: string): void {
+export function frameworkInitShim(patientRecord: PatientRecord, numlabels: number, labsordered: string, labelsize: string): void {
 	let startupCode: () => void = (): void => {
-		print(patientRecord, numlabels, labsordered);
+		print(patientRecord, numlabels, labsordered, labelsize);
 	};
 	dymo.label.framework.init(startupCode);
 }
 
-export async function print(patientRecord: PatientRecord, numlabels: number, labsordered: string): Promise<void> {
+export async function print(patientRecord: PatientRecord, numlabels: number, labsordered: string, labelsize: string): Promise<void> {
 
 	let printers: dymo.Printer[] = dymo.label.framework.getPrinters();
 	if(printers.length == 0) {
@@ -45,10 +45,10 @@ export async function print(patientRecord: PatientRecord, numlabels: number, lab
 
 	let labelXml: string = "";
 	if(labsordered != 'Pap smear') {
-		labelXml = await templates.crcTemplate(patientRecord, labsordered);
+		labelXml = await templates.getTemplate(patientRecord, "crc", labsordered, labelsize);
 	}
 	else {
-		labelXml = await templates.femaleTemplate(patientRecord, labsordered);
+		labelXml = await templates.getTemplate(patientRecord, "female", labsordered, labelsize);
 	}
 
 	//let label: dymo.Label = dymo.label.framework.openLabelXml(labelXml);
