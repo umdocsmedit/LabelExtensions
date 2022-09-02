@@ -1,6 +1,6 @@
 {
   "name": "umdocsmedit-chrome-webext",
-  "version": "1.0.0",
+  "version": "1.8.0",
   "description": "Google Chrome Web Extension for UM DOCS MedIT",
   "main": "index.js",
   "directories": {
