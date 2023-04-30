@@ -26,7 +26,7 @@
     "handlebars": "^4.7.7",
     "jsdom": "^16.5.0",
     "jsdom-global": "^3.0.2",
-    "mocha": "^5.2.0",
+    "mocha": "^10.2.0",
     "system": "^2.0.1",
     "systemjs": "^2.1.1",
     "ts-node": "^7.0.1"
